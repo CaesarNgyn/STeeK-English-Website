@@ -1,0 +1,34 @@
+<div class="mt-4 margin-top-all">
+    <h2> Edit Course</h2>
+
+    <form method="POST" action="/courses/{{course._id}}?_method=PUT" >
+    
+        <div class="form-group">
+            <label for="name" >Name Course</label>
+            <input type="text" class="form-control" id="name" value="{{course.name}}" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description" >Description</label>
+            <textarea  class="form-control" name="description" >{{course.description}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="price" >Price</label>
+            <input type="text" class="form-control" id="price" value="{{course.price}}" name="price" required>
+        </div>
+        <div class="form-group">
+            <label for="vidID" >VideoID</label>
+            <input type="text" class="form-control" id="vidID" value="{{course.vidID}}" name="vidID" >
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary" >Edit</button>
+        {{!-- <form class="row g-3">
+            <div class="col">
+                <label for="validationServer01" class="form-label">First name</label>
+                <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div> 
+        </form> --}}
+    </form>
+</div>

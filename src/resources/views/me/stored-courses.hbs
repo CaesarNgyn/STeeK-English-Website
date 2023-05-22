@@ -1,0 +1,87 @@
+<div class="mt-4 margin-top-all">
+    <h3>My Courses</h3>
+    <table class="table table-striped ">
+        <thead class="table-info">
+            <tr>
+                <th scope="col" class="col">#</th>
+                <th scope="col" class="table-striped-columns col-lg-2">Name</th>
+                <th scope="col" class="col-lg-2">Price</th>
+                <th scope="col" class="col-lg-6">Created Time</th>
+                <th scope="col" class="col">Modify</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each Course}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{checkSale this.price }}</td>
+                <td>{{this.createdAt }}</td>
+                <td>
+                    <a href="/courses/{{this._id}}/edit" style="margin-right : 1rem">Edit</a>
+                    <a href="#"
+                        data-bs-toggle="modal" data-bs-target="#delete-course-modal" 
+                        data-bs-id="{{this._id}}">Delete</a>
+                </td>
+                
+            </tr>
+            
+            {{else}}
+                <tr>
+                    <td colspan="5">You haven't posted anyCourse !!! </td>Press
+                    <a href="/courses/create"> here</a> to POST
+                </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>
+
+{{!-- CONFRIM DELETE --}}
+<div class="confirm">
+    <div class="modal fade" id="delete-course-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure to delete  ?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This will be address deleting the course  !!!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btn-delete-course">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- Delete hidden form  --}}
+<form  method="post" id="delete-course-form" >
+
+</form>
+
+
+{{!-- handleDeleteCourse --}}
+<script>
+    var deleteCourseModal = document.getElementById('delete-course-modal')
+    var btnDeleteCourse = document.getElementById('btn-delete-course')
+    var courseId
+    var deleteForm = document.getElementById('delete-course-form')
+    
+    deleteCourseModal.addEventListener('show.bs.modal',(event)=>{
+        var button = event.relatedTarget ;
+        courseId = button.getAttribute('data-bs-id') ;
+        
+    });
+
+    btnDeleteCourse.onclick = function(){
+        deleteForm.action = '/courses/' + courseId + '?_method=DELETE';
+        deleteForm.submit();
+
+    }
+    
+</script>

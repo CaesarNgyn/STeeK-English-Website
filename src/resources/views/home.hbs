@@ -1,13 +1,67 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tra</title>
-</head>
+</head> --}}
+
 <body>
-    <h1>Home</h1>
-    
+    {{!-- <p>{{Course}}</p> --}}
+    <div class="margin-top-all" >
+        <div class="row ">
+            {{#each Course}}
+
+            <div class="col-sm-6 col-lg-4" style="margin-top: 1rem;">
+                <div class="card">
+                    <a href="/courses/{{this.slug}}">
+                    <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}" >
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5> 
+                        <h6>(Normal)</h6>
+                        <p class="card-text">{{this.description}}</p>
+                        <p class="card-text">Price : {{this.price}} VND</p>
+                        <a href="#" class="btn btn-primary">Order</a>
+                    </div>
+                </div>
+            </div>
+{{!--             
+            <div class="col-sm-6 col-lg-4" style="margin-top: 1rem;">
+                <div class="card">
+                    <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}" >
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5>
+                        <h6>(Advance)</h6>
+                        <p class="card-text">{{this.description}}</p>
+                        <p class="card-text">Price : {{this.price}} VND</p>
+                        <a href="#" class="btn btn-primary">Order</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4" style="margin-top: 1rem;">
+                <div class="card">
+                    <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}" >
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5>
+                        <h6>(Pro)</h6>
+                        <p class="card-text">{{this.description}}</p>
+                        <p class="card-text">Price : {{this.price}} VND</p>
+                        <a href="#" class="btn btn-primary">Order</a>
+                    </div>
+                </div>
+            </div> --}}
+
+            
+
+
+            {{/each}}
+        </div>
+
+    </div>
+
 </body>
+
 </html>

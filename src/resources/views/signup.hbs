@@ -4,7 +4,7 @@
     height: 590px; border-radius: 5px ;margin-top: 0.5rem; ">
 
         <h2 style="width: 360px;
-    color: black;
+    
     align-self: center;
     text-align: center; font-size : 2rem;
     ">Sign Up</h2>
@@ -46,11 +46,16 @@
         </form>
     </div>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded',function(){
 
       
         document.querySelector('body').classList.add('bg-color-signin--up')
+        document.querySelector('nav.navbar').classList.add('boder-navbar')
+        document.querySelector('div.sign-up').classList.add('bg-color-signin--up','color--white')
+        document.querySelector('h1').classList.add('color--white')
+
 
      
     });

@@ -1,0 +1,52 @@
+<div class="container-signin margin-top-all" style="display: flex; flex-direction: column;">
+  <div class="sign-in" style="display: flex; width: 408px;padding: rem 0rem 1.5rem;
+    background-color: #f1f1f1; flex-direction: column; justify-content: center; align-self: center;
+    height: 480px; border-radius: 5px ;margin-top: 2rem; ">
+
+    <h1 style="width: 360px;
+    
+    align-self: center;
+    text-align: center; font-size : 2.3rem;
+    ">Sign In</h1>
+    <p class="desc" style="width: 360px;
+    align-self: center; text-align :center ;
+    display: flex; color: #636d77; padding-bottom : 0.5rem;
+    flex-direction: column;"> Have a good time with us !❤️</p>
+
+    <form style="width: 360px;
+    align-self: center; display: flex;  margin-bottom: 3rem;
+    flex-direction: column;">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" style="font-size: 16px;">User Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="VD: TraNguyen"
+          aria-describedby="emailHelp" style="font-size: 1rem;">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" style="font-size: 16px;">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="VD: 1234"
+          style=" font-size : 1rem;">
+        <div id="emailHelp" class="form-text">We'll never share your password with anyone else.</div>
+      </div>
+      {{!-- <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div> --}}
+      <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;">Log
+        in</button>
+    </form>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+
+      
+        document.querySelector('body').classList.add('bg-color-signin--up')
+        document.querySelector('nav.navbar').classList.add('boder-navbar')
+        document.querySelector('div.sign-in').classList.add('bg-color-signin--up','color--white')
+        document.querySelector('h1').classList.add('color--white')
+
+        
+     
+    });
+  </script>

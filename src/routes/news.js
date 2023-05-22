@@ -4,8 +4,8 @@ const route = express.Router() ;
 const newcontroller = require('../app/controller/Newcontroller');
 
 
-route.use('/CNTT',newcontroller.showCNTT)
-route.use('/',newcontroller.index)
+route.get('/CNTT',newcontroller.showCNTT)
+route.get('/',newcontroller.index)
 
 
 module.exports = route ; 
