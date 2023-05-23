@@ -15,24 +15,24 @@
 
         <form style="width: 360px;
     align-self: center; display: flex;  margin-bottom: 1rem;
-    flex-direction: column;">
+    flex-direction: column;" method="POST" action="/create-user">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label" style="font-size: 16px;">User Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="VD: TraNguyen"
+                <label for="name" class="form-label" style="font-size: 16px;">User Name</label>
+                <input type="text" class="form-control" id="name" placeholder="VD: TraNguyen" name="name"
                     aria-describedby="emailHelp" style="font-size: 1rem;">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label" style="font-size: 16px;">Phone Number</label>
-                <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="VD: TraNguyen"
+                <label for="exampleInputEmail1" class="sdt" style="font-size: 16px;">Phone Number</label>
+                <input type="tel" class="form-control" id="sdt" placeholder="VD: TraNguyen" name="sdt"
                     aria-describedby="emailHelp" style="font-size: 1rem;">
             </div>  
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label" style="font-size: 16px;">Re-Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="VD: 1234"
+                <label for="password" class="form-label" style="font-size: 16px;">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="VD: 1234" name="password"
                     style=" font-size : 1rem;">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label" style="font-size: 16px;">Password</label>
+                <label for="exampleInputPassword1" class="form-label" style="font-size: 16px;">Re-Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="VD: 1234"
                     style=" font-size : 1rem;">
                 <div id="emailHelp" class="form-text">Enter your password again !</div>
@@ -41,8 +41,7 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div> --}}
-            <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;">Log
-                in</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #1dbfaf; border : none ;">Sign Up</button>
         </form>
     </div>
 </div>

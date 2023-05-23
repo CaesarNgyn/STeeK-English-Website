@@ -1,6 +1,9 @@
 const Course = require('../models/Course');
 const {mutipleMongooesToObject} = require('../../util/sovlehbs')
 // const a = require('../../util/sovlehbs')
+const User = require('../models/User')
+const {mongooesToObject} = require('../../util/sovlehbs')
+
 
 
 // [GET] /
@@ -27,6 +30,17 @@ class Sitecontroller {
         res.render('signin');
     }
     
+    //[POST] /create-user
+    create_User(req,res,next){
+        // const User = new User(req.body);
+        // User.save()
+        //     .then(()=>res.redirect('/'))
+        //     .catch((err)=> res.send('error'))
+        res.send('Success')
+
+    }
+    
+
 
     //[GET] /signup
     showSignUp(req,res,next){

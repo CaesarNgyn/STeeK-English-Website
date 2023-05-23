@@ -8,7 +8,7 @@ const ObjectId = Schema.ObjectId;
 
 const Course = new Schema({
     // _id: ObjectId,
-    name: { type: String, maxLength: 255 , default:"anonymous" ,require: true},
+    name: { type: String, maxLength: 255 , default:"Test" ,require: true},
     description: String,
     image: { type: String, maxLength: 255 },
     price: { type : Number , min: 0 , index : true } ,

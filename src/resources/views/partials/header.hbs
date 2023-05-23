@@ -2,24 +2,25 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" style="position: fixed;
 top :0 ; width : 100% ; z-index : 1 ; padding :0px ;">
     <div class="container-fluid row">
-      <a class="navbar-brand col" href="/me/stored-courses" style="color: lightskyblue; border-right: 1px grey solid; padding : 0px">
+      <a class="navbar-brand col" href="/me/stored-courses" style="color: lightskyblue; border-right: 1px grey solid; padding : 0px;
+      flex-grow: initial;">
         {{!-- <span style="">STEEK</span> English --}}
         <img src="/img/dogK.png" alt="" style="width: 8rem; height : 3.2rem ; border-bottom :1px grey solid">
 
       </a>
 
-      {{!-- <button class="navbar-toggler col" type="button" data-bs-toggle="collapse"
+      <button class="navbar-toggler col" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation" style="flex-grow: initial;">
         <span class="navbar-toggler-icon"></span>
-      </button> --}}
+      </button>
 
       <div class="collapse navbar-collapse col row" id="navbarNavAltMarkup">
         <div class="navbar-nav col row">
-          <a class="nav-link active col " aria-current="page" href="/">Course</a>
-          <a class="nav-link disabled col" href="#">Manage</a>
+          <a class="nav-link active col padd-nav-item--12" aria-current="page" href="/">Course</a>
+          <a class="nav-link disabled col padd-nav-item--12" href="#">Manage</a>
           <li class=" dropdown col-lg-3  ">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle padd-nav-dropdown--8" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Profile
             </a>
             <ul class="dropdown-menu">
@@ -29,14 +30,14 @@ top :0 ; width : 100% ; z-index : 1 ; padding :0px ;">
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="/me/stored-courses">Manage My Courses</a></li>
+              <li><a class="dropdown-item padd-nav-item--12" href="/me/stored-courses">Manage My Courses</a></li>
 
             </ul>
           </li>
 
           {{!-- <div class="row col justify-content-end "> --}}
-            <a class="nav-link col btn--signin " href="../signin">Sign In </a>
-            <a class="nav-link  col btn--signup" href="../signup">Sign Up</a>
+            <a class="nav-link col btn--signin padd-nav-item--12" href="../signin">Sign In </a>
+            <a class="nav-link  col btn--signup padd-nav-item--12" href="../signup">Sign Up</a>
 
             {{!--
           </div> --}}
