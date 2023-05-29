@@ -56,8 +56,6 @@ app.use(errorHandler)
         console.log(`Server listening on port: ${port}`);
       });
     } catch (err) {
-      logEvents(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
-        'mongoErrLog.log')
       console.log("Cannot connection to Database: ", err);
     }
   })();

@@ -22,6 +22,9 @@ const connection = async () => {
     const state = Number(mongoose.connection.readyState);
     console.log(state);
     console.log(dbState.find(f => f.value === state).label, "to database"); // connected to db
+
+
+
   } catch (err) {
     console.log(err)
   }
