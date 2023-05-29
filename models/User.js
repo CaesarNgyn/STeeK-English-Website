@@ -9,25 +9,24 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  email: {
+    type: String,
+    required: true
+  },
   address: {
     type: String,
     // required: true
   },
   phone: {
     type: String,
-
-  },
-  email: {
-    type: String,
-    // required: true
   },
   image: {
     type: String
   },
-  roles: [{
-    type: String,
-    default: "User"
-  }]
+  roles: {
+    type: [String],
+    default: ["User"]
+  }
 },
   { timestamps: true }
 );

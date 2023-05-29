@@ -23,12 +23,14 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @route POST /users
 // @access Private
 const createNewUser = asyncHandler(async (req, res) => {
-  const { username, password, roles } = req.body
+  const { username, password, email, address, phone, image, roles } = req.body
 
   // Confirm data
-  if (!username || !password || !Array.isArray(roles) || !roles.length) {
-    return res.status(400).json({ message: 'All fields are required' })
+  console.log(roles)
+  if (!username || !password || !email || (roles && !Array.isArray(roles)) || (roles && !roles.length)) {
+    return res.status(400).json({ message: 'Username, Password, and Email are required' });
   }
+
 
   // Check for duplicate username
   const duplicate = await User.findOne({ username }).lean().exec()
@@ -40,7 +42,10 @@ const createNewUser = asyncHandler(async (req, res) => {
   // Hash password 
   const hashedPwd = await bcrypt.hash(password, 10) // salt rounds
 
-  const userObject = { username, "password": hashedPwd, roles }
+  const userObject = {
+    username, "password": hashedPwd,
+    roles, email, address, phone, image
+  }
 
   // Create and store new user 
   const user = await User.create(userObject)
@@ -56,10 +61,11 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-  const { id, username, roles, password } = req.body
+  const { id, username, password, email, address, phone, image, roles } = req.body
 
   // Confirm data 
-  if (!id || !username || !Array.isArray(roles) || !roles.length) {
+
+  if (!id || !username || (roles && !Array.isArray(roles)) || (roles && !roles.length)) {
     return res.status(400).json({ message: 'All fields except password are required' })
   }
 
@@ -80,6 +86,11 @@ const updateUser = asyncHandler(async (req, res) => {
 
   user.username = username
   user.roles = roles
+  user.password = password
+  user.email = email
+  user.address = address
+  user.phone = phone
+  user.image = image
 
 
   if (password) {
