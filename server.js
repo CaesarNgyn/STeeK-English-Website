@@ -13,6 +13,7 @@ const corsOptions = require('./config/corsOptions')
 const connection = require('./config/database')
 const mongoose = require('mongoose')
 const { logEvents } = require('./middleware/logger')
+const userRouter = require('./routes/userRoute')
 //Serving static files
 app.use(express.static(path.join(__dirname, 'public'))) //built-in middleware
 
@@ -27,6 +28,7 @@ app.use(cookieParser()) //third-party middleware
 
 //set Route
 app.use('/', webRouter)
+app.use('/users', userRouter)
 
 //parse JSON data
 app.use(express.json())
