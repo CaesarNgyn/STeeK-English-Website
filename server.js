@@ -1,6 +1,6 @@
 
 const express = require('express');
-const app = express()
+const app = express();
 require('dotenv').config();
 const port = process.env.PORT || "8085";
 const path = require('path')
@@ -10,7 +10,9 @@ const errorHandler = require('./middleware/errorHandler')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
-
+const connection = require('./config/database')
+const mongoose = require('mongoose')
+const { logEvents } = require('./middleware/logger')
 //Serving static files
 app.use(express.static(path.join(__dirname, 'public'))) //built-in middleware
 
@@ -44,7 +46,19 @@ app.all('*', (req, res) => {
 //using errorHandler for errer handling middleware
 app.use(errorHandler)
 
-//Set up server
-app.listen(port, () => {
-  console.log(`STeeK Server now running on port ${port}`);
-})
+  //Set up server
+  // test connection to database before running the server
+  ; (async () => {
+    try {
+      // connect using mongoose
+      await connection();
+      app.listen(port, () => {
+        console.log(`Server listening on port: ${port}`);
+      });
+    } catch (err) {
+      logEvents(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
+        'mongoErrLog.log')
+      console.log("Cannot connection to Database: ", err);
+    }
+  })();
+
