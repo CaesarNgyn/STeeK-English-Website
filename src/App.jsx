@@ -3,9 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.scss'
 
-function App() {
-
-
+const App = () => {
   return (
     <>
       <div>
