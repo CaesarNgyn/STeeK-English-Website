@@ -25,13 +25,14 @@ app.use(cors(corsOptions))
 
 //using cookie-parser
 app.use(cookieParser()) //third-party middleware
+//parse JSON data
+app.use(express.json())
 
 //set Route
 app.use('/', webRouter)
 app.use('/users', userRouter)
 
-//parse JSON data
-app.use(express.json())
+
 
 //Handling 404 Error
 app.all('*', (req, res) => {

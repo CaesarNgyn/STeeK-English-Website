@@ -1,12 +1,12 @@
 const express = require('express');
 const userRoute = express.Router();
+const userController = require('../controllers/userController')
+userRoute.get('/', userController.getAllUsers);
 
-userRoute.get('/',);
+userRoute.post('/', userController.createNewUser);
 
-userRoute.post('/',);
+userRoute.patch('/', userController.updateUser);
 
-userRoute.put('/',);
-
-userRoute.delete('/',);
+userRoute.delete('/', userController.deleteUser);
 
 module.exports = userRoute
