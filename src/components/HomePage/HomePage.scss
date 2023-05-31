@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-image: url(../../assets/homepage.avif);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed ;
-}
+.homepage-container {
+  video {
+    position: fixed;
+    width   : 100vw;
+    bottom  : 0;
+    filter  : brightness(45%);
+  }
 
-img{
-  max-width: 100%;
+  .homepage-content {
+    position: relative;
+    color   : white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    height         : 100vh;
+
+    /* Adjust as needed */
+    .brand-name {
+      font-weight: bold;
+      font-size  : 80px;
+    }
+
+    .slogan {
+      font-style: italic;
+    }
+
+    .btn-join {
+      margin-top : 60px;
+      font-size  : 30px;
+      font-weight: 500;
+
+      color        : white;
+      padding      : 20px 30px;
+      border       : none;
+      border-radius: 4px;
+      cursor       : pointer;
+    }
+
+    p2 {
+      margin-top: 8px;
+      color     : cyan;
+    }
+
+  }
 }

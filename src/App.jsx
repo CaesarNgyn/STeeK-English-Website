@@ -9,7 +9,7 @@ import NotFound from './components/404 Not Found/NotFound'
 const App = () => {
   return (
     <>
-      <NotFound />
+      <HomePage />
     </>
   )
 }
