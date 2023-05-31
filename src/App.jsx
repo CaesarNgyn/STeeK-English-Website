@@ -4,11 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.scss'
 import HomePage from './components/HomePage/HomePage'
 import Header from './components/Header/Header'
+import NotFound from './components/404 Not Found/NotFound'
 
 const App = () => {
   return (
     <>
-      <Header />
+      <NotFound />
     </>
   )
 }
