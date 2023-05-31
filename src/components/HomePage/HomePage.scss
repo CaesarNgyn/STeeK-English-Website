@@ -3,7 +3,7 @@
     position: fixed;
     width   : 100vw;
     bottom  : 0;
-    filter  : brightness(45%);
+    filter  : brightness(35%);
   }
 
   .homepage-content {
@@ -21,7 +21,8 @@
     /* Adjust as needed */
     .brand-name {
       font-weight: bold;
-      font-size  : 80px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size  : 100px;
     }
 
     .slogan {
@@ -38,6 +39,11 @@
       border       : none;
       border-radius: 4px;
       cursor       : pointer;
+    }
+
+    .description {
+      margin-top: 26px;
+      font-size : 20px;
     }
 
     p2 {
