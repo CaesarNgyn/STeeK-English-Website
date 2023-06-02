@@ -1,0 +1,149 @@
+.login-container {
+  img {
+    position: fixed;
+    width   : 100vw;
+    bottom  : 0;
+    filter  : brightness(40%);
+    z-index : -1;
+  }
+
+  .login-content {
+    * {
+      font-size  : 105%;
+      font-family: apercu-pro;
+      color      : white;
+
+    }
+
+    .header {
+      margin-top: 20px;
+      height    : 45px;
+
+      padding        : 10px 100px 0 100px;
+      font-family    : apercu-pro;
+      display        : flex;
+      justify-content: right;
+
+      button {
+        display         : inline-block;
+        width           : auto;
+        font-size       : 13px;
+        line-height     : 14px;
+        margin-left     : 8px;
+        height          : 28px;
+        padding         : 8px 12px 6px;
+        color           : rgb(38, 38, 39);
+        background-color: rgb(255, 255, 255);
+        font-family     : apercu-pro;
+        text-decoration : none;
+        border-radius   : 2px;
+        vertical-align  : middle;
+        appearance      : none;
+        cursor          : pointer;
+        transition      : background-color 0.2s ease 0s;
+        border          : 1px solid currentcolor;
+      }
+    }
+
+    .title {
+      font-size  : 60px;
+      padding    : 20px 0;
+      text-align : center;
+      font-weight: 600;
+
+    }
+
+    .welcome {
+      font-size : 25px;
+      text-align: center;
+      padding   : 10px 0;
+
+    }
+
+    .content-form {
+
+      input {
+        margin-bottom: 15px;
+        margin-top   : 3px;
+      }
+
+      button {
+        transition      : all 0.5s ease;
+        width           : 100%;
+        height          : 60px;
+        border          : none;
+        border-radius   : 5px;
+        margin          : 20px 0;
+        color           : white;
+        background-color: black;
+
+        &:disabled {
+          background: #dddddd;
+          color     : #afafaf;
+          cursor    : no-drop;
+
+          &:hover {
+            background: #dddddd;
+          }
+
+        }
+      }
+
+
+      button.pressed {
+        background-color: #262627;
+
+      }
+
+      button:active {
+
+        background-color: #262627;
+      }
+
+      button:hover {
+
+        background-color: #262627;
+
+      }
+    }
+
+    .login-final {
+
+
+      .forgot-password {
+        font-style : italic;
+        font-weight: bold;
+        color      : white;
+        cursor     : pointer;
+      }
+
+      .btn-login {
+        margin-top: 30px;
+      }
+    }
+
+    .text-center {
+      .back {
+        cursor: pointer;
+      }
+    }
+
+    .icon-spin {
+      font-size    : 14px;
+      margin-bottom: 3px;
+      margin-right : 12px;
+      animation    : spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+}
