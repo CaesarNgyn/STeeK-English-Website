@@ -3,7 +3,8 @@ import './User.scss'
 
 const User = () => {
   return (
-    <div>
+    //Phần khóa học của User code tại đây
+    <div className='user-container'>
       User
     </div>
   )

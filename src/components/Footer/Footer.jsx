@@ -3,8 +3,9 @@ import './Footer.scss'
 
 const Footer = () => {
   return (
-    <div>
-      Footer
+    //Code phần Footer bắt đầu từ đây
+    <div className='footer-container'>
+      Footer content goes here
     </div>
   )
 }
