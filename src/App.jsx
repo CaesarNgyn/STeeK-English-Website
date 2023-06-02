@@ -18,7 +18,7 @@ const App = () => {
           <div className='sidenav-container'></div>
           <div className='app-content'>
             <Outlet />
-            <p1>Main content goes here</p1>
+            {/* <p1>Main content goes here</p1> */}
           </div>
         </div>
         <div className='footer-container'>
