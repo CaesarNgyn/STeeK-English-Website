@@ -7,7 +7,9 @@ const Footer = () => {
     //Có thể tham khảo mục HomePage trong src/components/HomePage/HomePage.jsx
     //để xem cách chia Div Layout
     <div className='footer-container'>
-      Footer content goes here
+      <div className='footer-content'>
+        Footer content goes here
+      </div>
     </div>
   )
 }
