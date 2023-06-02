@@ -7,6 +7,8 @@ import { useNavigate, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     //Code mẫu thanh NavBar
+    //Có thể tham khảo mục HomePage trong src/components/HomePage/HomePage.jsx
+    //để xem cách chia Div Layout
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="#home">STeeK English</Navbar.Brand>
