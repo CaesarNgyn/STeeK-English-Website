@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import videoHomePage from '../../assets/videoHomePage.mp4'
 import './HomePage.scss'
 import { useNavigate } from 'react-router-dom';
+import loginImage from '../../assets/login.avif'
 
 const HomePage = () => {
 
@@ -17,6 +18,8 @@ const HomePage = () => {
       <video autoPlay muted loop >
         <source src={videoHomePage} type="video/mp4" />
       </video>
+      {/* <img src={loginImage} alt="Login" /> */}
+
       <div className='homepage-content'>
         <h1 className='brand-name'>STeeK English</h1>
         <h2 className='slogan'>You don't have to be better than anyone.
