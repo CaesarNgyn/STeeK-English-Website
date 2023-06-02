@@ -1,0 +1,25 @@
+.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+    padding: 3px;
+    // #basic-navbar-nav{
+    //     text-transform: uppercase !important;
+    // }
+    background-color: #222222 !important;
+
+    a.nav-link.active{
+
+        color: #666;
+        border-left: 1px solid rgba(136, 136, 136, 0.2);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 15px;
+
+    }
+    a#basic-nav-dropdown{
+        
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    }
+    a.nav-link.active:hover {
+        color: #ccc !important;
+    }
+
+}
