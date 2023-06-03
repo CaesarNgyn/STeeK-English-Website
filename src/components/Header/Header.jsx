@@ -17,13 +17,13 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to="#courses" className="nav-link">Courses</NavLink>
-            <NavLink to="#roadmap" className="nav-link">Roap Map</NavLink>
-            <NavLink to="#learn" className="nav-link">Study</NavLink>
+            <NavLink to="#courses" className="nav-link">Khóa học</NavLink>
+            <NavLink to="#roadmap" className="nav-link">Lộ trình</NavLink>
+            <NavLink to="#learn" className="nav-link">Học</NavLink>
           </Nav>
           <Nav>
              {/* <NavLink to="/login" className="nav-link">(Tên tài khoản)</NavLink>  */}
-            <NavDropdown title="Account Name" id="basic-nav-dropdown">
+            <NavDropdown title="Tea Nguyen" id="basic-nav-dropdown">
               <NavDropdown.Item>
                 Thông tin</NavDropdown.Item>
               <NavDropdown.Item>Đăng xuất</NavDropdown.Item>
