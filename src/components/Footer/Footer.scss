@@ -1,59 +1,69 @@
-html, body {
-    height: 100%;
-  }
+// html, body {
+//     height: 100%;
+//   }
   
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+//   body {
+//     display: flex;
+//     flex-direction: column;
+//   }
   
-  main {
-    flex: 1;
-  }
+//   main {
+//     flex: 1;
+//   }
   
-  footer {
-    background-color: white;
-    color: black;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  .container {
-    max-width: 1140px;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .contact-section h5 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-  }
-  
-  .contact-section p {
-    margin-bottom: 1rem;
-  }
-  
-  .contact-section i {
-    margin-right: 0.5rem;
-    color: black;
-  }
+// .bg-light.py-3 .container {
+  //   max-width: 1140px;
+  //   margin: 0 auto;
+  //   height: 100%;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  // }
+  // footer {
+  //   background-color: white;
+  //   color: black;
+  //   padding-top: 2rem;
+  //   padding-bottom: 2rem;
+  // }
+  // .contact-section p {
+  //   margin-bottom: 1rem;
+  // }
+  // .contact-section i {
+  //   margin-right: 0.5rem;
+  //   color: black;
+  // }
+   // .field-section p {
+  //   margin-bottom: 1rem;
+  // }
+  //   .field-section i {
+//     margin-right: 0.5rem;
+//     color: black;
+//   }
+.footer-container{
   
   .field-section h5 {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
   }
-  
-  .field-section p {
-    margin-bottom: 1rem;
+ 
+  footer.bg-light.py-3 .container{
+    margin-top: 3rem;
+
   }
-  
-  .field-section i {
-    margin-right: 0.5rem;
-    color: black;
+ 
+  .contact-section h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
   }
+
+  
+}
+  
+  
+  
+  
+
   
  
