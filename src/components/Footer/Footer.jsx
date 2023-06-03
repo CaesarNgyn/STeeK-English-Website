@@ -10,7 +10,7 @@ const Footer = () => {
             <h5>Contact Us</h5>
             <p><i class="fas fa-phone me-2"></i>Phone: 555-1234</p>
             <p><i class="fas fa-envelope me-2"></i>Email: info@steekenglish.com</p>
-            <p><i class="fas fa-map-marker-alt me-2"></i>Address: 141 Chien Thang,Hanoi</p>
+            <p><i class="fas fa-map-marker-alt me-2"></i>Address: 141 Chien Thang , Hanoi</p>
           </div>
           <div class="field-section ms-5">
             <h5>Công ty CP đào tạo ngoại ngữ chuyên sâu STeek</h5>
