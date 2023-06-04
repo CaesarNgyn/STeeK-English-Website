@@ -62,6 +62,12 @@
                 align-self: center;
 
             }
+            .btn-check:focus+.btn, .btn:focus{
+                box-shadow: none;
+            }
+            .btn:active{
+                box-shadow: var(--bs-btn-focus-box-shadow);
+            }
         }
     }
 
