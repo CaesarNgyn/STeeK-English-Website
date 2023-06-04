@@ -1,52 +1,55 @@
 .footer-container {
 
-  html,
-  body {
-    height: 100%;
-  }
+  // html,
+  // // body {
+  // //   height: 100%;
+  // // }
 
-  body {
-    display       : flex;
-    flex-direction: column;
-  }
+  // body {
+  //   display       : flex;
+  //   flex-direction: column;
+  // }
 
-  main {
-    flex: 1;
-  }
+  // main {
+  //   flex: 1;
+  // }
 
-  .bg-light.py-3 .container {
-    max-width      : 1140px;
-    margin         : 0 auto;
-    height         : 100%;
-    display        : flex;
-    flex-direction : column;
-    justify-content: space-between;
-  }
+  // .bg-light.py-3 .container {
+  //   max-width      : 1140px;
+  //   margin         : 0 auto;
+  //   height         : 100%;
+  //   display        : flex;
+  //   flex-direction : column;
+  //   justify-content: space-between;
+  // }
 
   footer {
-    background-color: rgb(206, 199, 199);
-    color           : black;
+    background-color: #222222 !important;
+    color: #ccc !important;
     padding-top     : 2rem;
     padding-bottom  : 2rem;
   }
+  // .d-flex{
+  //   display: flex;
+  // }
 
-  .contact-section p {
-    margin-bottom: 1rem;
-  }
+  // .contact-section p {
+  //   margin-bottom: 1rem;
+  // }
 
-  .contact-section i {
-    margin-right: 0.5rem;
-    color       : black;
-  }
+  // .contact-section i {
+  //   margin-right: 0.5rem;
+  //   color       : black;
+  // }
 
-  .field-section p {
-    margin-bottom: 1rem;
-  }
+  // .field-section p {
+  //   margin-bottom: 1rem;
+  // }
 
-  .field-section i {
-    margin-right: 0.5rem;
-    color       : black;
-  }
+  // .field-section i {
+  //   margin-right: 0.5rem;
+  //   color       : black;
+  // }
 
 
 
