@@ -10,6 +10,8 @@ import Register from './components/Auth/Register'
 import NotFound from "./components/404 Not Found/NotFound";
 import User from "./components/User/User";
 import Admin from "./components/Admin/Admin";
+import Student from "./components/Admin/Student";
+import Course from "./components/Admin/Course";
 const Layout = () => {
   return (
     <>
@@ -19,6 +21,9 @@ const Layout = () => {
         <Route path='/home' element={<App />} >
           <Route path='user' element={<User />} />
           <Route path='admin' element={<Admin />} />
+          <Route path='admin/student' element={<Student />} />
+          <Route path='admin/course' element={<Course />} />
+
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
