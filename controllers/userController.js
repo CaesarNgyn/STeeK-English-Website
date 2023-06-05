@@ -33,25 +33,25 @@ const createNewUser = asyncHandler(async (req, res) => {
 
 
   // Check for duplicate username
-  const duplicate = await User.findOne({ username }).lean().exec()
+  const duplicate = await User.findOne({ email }).lean().exec()
 
   if (duplicate) {
-    return res.status(409).json({ message: 'Duplicate username' })
+    return res.status(409).json({ message: 'Duplicate email' })
   }
 
   // Hash password 
   const hashedPwd = await bcrypt.hash(password, 10) // salt rounds
 
   const userObject = {
-    username, "password": hashedPwd,
-    roles, email, address, phone, image
+    email, username, "password": hashedPwd,
+    roles, address, phone, image
   }
 
   // Create and store new user 
   const user = await User.create(userObject)
 
   if (user) { //created 
-    res.status(201).json({ message: `New user ${username} created` })
+    res.status(201).json({ message: `New user ${email} created` })
   } else {
     res.status(400).json({ message: 'Invalid user data received' })
   }
@@ -65,7 +65,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
   // Confirm data 
 
-  if (!id || !username || (roles && !Array.isArray(roles)) || (roles && !roles.length)) {
+  if (!id || !email || (roles && !Array.isArray(roles)) || (roles && !roles.length)) {
     return res.status(400).json({ message: 'All fields except password are required' })
   }
 
@@ -77,11 +77,11 @@ const updateUser = asyncHandler(async (req, res) => {
   }
 
   // Check for duplicate 
-  const duplicate = await User.findOne({ username }).lean().exec()
+  const duplicate = await User.findOne({ email }).lean().exec()
 
   // Allow updates to the original user 
   if (duplicate && duplicate?._id.toString() !== id) {
-    return res.status(409).json({ message: 'Duplicate username' })
+    return res.status(409).json({ message: 'Duplicate email' })
   }
 
   user.username = username
@@ -100,7 +100,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
   const updatedUser = await user.save()
 
-  res.json({ message: `${updatedUser.username} updated` })
+  res.json({ message: `${updatedUser.email} updated` })
 })
 
 // @desc Delete a user
@@ -114,11 +114,6 @@ const deleteUser = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: 'User ID Required' })
   }
 
-  // Does the user still have assigned courses?
-  // const course = await Course.findOne({ user: id }).lean().exec()
-  // if (course) {
-  //   return res.status(400).json({ message: 'User has assigned course' })
-  // }
 
   // Does the user exist to delete?
   const user = await User.findById(id).exec()
@@ -129,7 +124,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
   const result = await user.deleteOne()
 
-  const reply = `Username ${result.username} with ID ${result._id} deleted`
+  const reply = `Username ${result.email} with ID ${result._id} deleted`
 
   res.json(reply)
 })
