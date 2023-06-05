@@ -1,6 +1,7 @@
 import bodyImage from '../../assets/product-sample.jpg'
 import './Login.scss'
 import loginImage from '../../assets/login.avif'
+import loginImage2 from '../../assets/login2.jpg'
 import { FaSpinner } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
@@ -31,7 +32,7 @@ const Login = () => {
   return (
     <div className="login-container">
 
-      <img src={loginImage} alt="Login" />
+      <img src={loginImage2} alt={loginImage} />
 
       <div className='login-content'>
         <div className="header">

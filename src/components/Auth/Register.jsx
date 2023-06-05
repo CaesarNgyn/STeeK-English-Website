@@ -1,6 +1,8 @@
 
 import './Register.scss'
 import loginImage from '../../assets/login.avif'
+import loginImage2 from '../../assets/login2.jpg'
+
 import bodyImage from '../../assets/product-sample.jpg'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -68,7 +70,7 @@ const Register = () => {
 
   return (
     <div className='register-container'>
-      <img src={loginImage} alt="Register" />
+      <img src={loginImage2} alt={loginImage} />
       <div className='register-content'>
         <div className="header">
           <span> Đã có tài khoản?</span>
@@ -96,7 +98,7 @@ const Register = () => {
 
             />
             <div className="form-group">
-              <label>Username</label>
+              <label>Tên tài khoản</label>
               <input
                 placeholder='caesar'
                 className="form-control "
