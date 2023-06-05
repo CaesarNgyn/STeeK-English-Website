@@ -13,21 +13,26 @@ import Admin from "./components/Admin/Admin";
 import Student from "./components/Admin/Student";
 import Course from "./components/Admin/Course";
 import Study from "./components/User/Study"
+import Roadmap from "./components/User/Roadmap";
 const Layout = () => {
   return (
     <>
 
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/home' element={<App />} >
-          <Route path='admin' element={<Admin />} />
-          <Route path='admin/student' element={<Student />} />
-          <Route path='admin/course' element={<Course />} />
-
-        </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<NotFound />} />
+
+        <Route path='/home' element={<App />} >
+          <Route index element={<User />} />
+          <Route path='study' element={<Study />} />
+          <Route path='roadmap' element={<Roadmap />} />
+          <Route path='admin' element={<Admin />} />
+          <Route path='admin/student' element={<Student />} />
+          <Route path='admin/course' element={<Course />} />
+        </Route>
+
       </Routes>
 
     </>
