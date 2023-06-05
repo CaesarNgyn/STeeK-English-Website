@@ -5,6 +5,10 @@ import bodyImage from '../../assets/product-sample.jpg'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import { postRegister } from '../../services/apiServices'
+import axios from 'axios'
+import { toast } from 'react-toastify';
+
 const Register = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -25,6 +29,24 @@ const Register = () => {
 
   const handleLogin = () => {
     navigate('/login')
+  }
+
+  const handleRegister = async () => {
+    const isValidEmail = validateEmail(email)
+    if (!isValidEmail) {
+      toast.error('Bạn hãy kiểm tra lại Email!')
+      return;
+    }
+    if (!username) {
+      toast.error('Hãy nhập đủ username!')
+      return;
+    }
+    if (!password) {
+      toast.error('Hãy nhập đủ mật khẩu!')
+      return;
+    }
+    let data = await postRegister(email, username, password)
+    console.log(data);
   }
 
   return (
@@ -92,10 +114,12 @@ const Register = () => {
             <button
               type="submit"
               className='btn-register'
+              onClick={() => handleRegister()}
+
             >
-              <span>
-                Đăng Ký
-              </span>
+
+              Đăng Ký
+
             </button>
           </div>
         </div>
