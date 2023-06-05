@@ -12,6 +12,7 @@ import User from "./components/User/User";
 import Admin from "./components/Admin/Admin";
 import Student from "./components/Admin/Student";
 import Course from "./components/Admin/Course";
+import Study from "./components/User/Study"
 const Layout = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const Layout = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/home' element={<App />} >
           <Route path='user' element={<User />} />
+          <Route path='study' element={<Study />} />
           <Route path='admin' element={<Admin />} />
           <Route path='admin/student' element={<Student />} />
           <Route path='admin/course' element={<Course />} />
