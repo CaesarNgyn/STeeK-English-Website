@@ -55,6 +55,17 @@ const Register = () => {
     }
   }
 
+  const handleRegisterEnter = (event) => {
+    if (event.keyCode === 13) {
+      setIsPressed(true);
+      setTimeout(() => {
+        setIsPressed(false)
+      }, 1000)
+
+      handleRegister();
+    }
+  }
+
   return (
     <div className='register-container'>
       <img src={loginImage} alt="Register" />
@@ -81,6 +92,7 @@ const Register = () => {
               type={"email"}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              onKeyDown={(event) => handleRegisterEnter(event)}
 
             />
             <div className="form-group">
@@ -91,6 +103,7 @@ const Register = () => {
                 type={"text"}
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
+                onKeyDown={(event) => handleRegisterEnter(event)}
 
               />
             </div>
@@ -103,6 +116,8 @@ const Register = () => {
               type={showPassword ? "password" : "text"}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
+              onKeyDown={(event) => handleRegisterEnter(event)}
+
             />
             {showPassword ?
               <span
@@ -118,8 +133,9 @@ const Register = () => {
           </div>
           <div className='register-final'>
             <button
+              className={isPressed ? "pressed btn-submit" : "btn-submit"}
               type="submit"
-              className='btn-register'
+
               onClick={() => handleRegister()}
 
             >
