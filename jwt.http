@@ -1,0 +1,10 @@
+GET http://localhost:6969/jwt-test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhZXNhckBnbWFpbCIsImlhdCI6MTY4NjEyMjk4MiwiZXhwIjoxNjg2MTIzMDEyfQ._I3uDN25Es-aTcSjdIov-lpRhLCz8jZALOf4zy3FnKQ
+###
+
+POST http://localhost:6969/jwt-login
+Content-Type: application/json
+
+{
+  "email": "caesar@gmail"
+}
