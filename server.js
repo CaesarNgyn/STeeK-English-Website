@@ -15,6 +15,7 @@ const mongoose = require('mongoose')
 const { logEvents } = require('./middleware/logger')
 const userRouter = require('./routes/userRoute')
 const JWT = require('jsonwebtoken')
+const authRouter = require('./routes/authRoute')
 //Serving static files
 app.use(express.static(path.join(__dirname, 'public'))) //built-in middleware
 
@@ -32,35 +33,9 @@ app.use(express.json())
 //set Route
 app.use('/', webRouter)
 app.use('/users', userRouter)
+app.use('/auth', authRouter)
 
-//test jwt
-const verifyAccessToken = (req, res, next) => {
-  const authorizationHeader = req.headers['authorization']
-  const token = authorizationHeader.split(' ')[1];
-  if (!token) {
-    return res.status(401).json({
-      message: 'Unauthorized!'
-    })
-  }
-  JWT.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
-    console.log(err, payload)
-    if (err) {
-      return res.status(403).json({
-        message: 'Forbidden users!'
-      })
-    }
-    next()
-  })
-}
-app.get('/jwt-test', verifyAccessToken, (req, res) => {
-  let data = {
-    email: 'caesar@gmail',
-    username: 'caesar'
-  }
-  res.status(200).json({
-    data: data
-  })
-})
+
 
 app.post('/jwt-login', (req, res) => {
   const data = req.body
