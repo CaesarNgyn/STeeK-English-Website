@@ -25,7 +25,7 @@ const HomePage = () => {
         <h2 className='slogan'>You don't have to be better than anyone.
           You just have to be the best version of yourself</h2>
         <p1 className="description">Học Ielts, Toeic, Tiếng Anh trực tuyến
-          với đội ngũ giảng viên từ Đại học Oxford, Cambridge...</p1>
+          với đội ngũ giảng viên chuyên nghiệp từ Đại học Oxford, Cambridge...</p1>
         <button
           className='btn btn-info btn-join'
           onClick={handleButtonClick}
