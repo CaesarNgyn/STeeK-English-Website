@@ -3,6 +3,8 @@ const Course = require('../models/course')
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 
+
+
 // @desc Get all users
 // @route GET /users
 // @access Private
