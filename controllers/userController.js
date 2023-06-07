@@ -27,8 +27,12 @@ const createNewUser = asyncHandler(async (req, res) => {
 
   // Confirm data
   console.log(roles)
-  if (!username || !password || !email || (roles && !Array.isArray(roles)) || (roles && !roles.length)) {
-    return res.status(400).json({ message: 'Username, Password, and Email are required' });
+  if (!username || !password || !email) {
+    return res.status(400).json(
+      {
+        message: 'Username, Password, and Email are required'
+      }
+    );
   }
 
 
@@ -36,7 +40,11 @@ const createNewUser = asyncHandler(async (req, res) => {
   const duplicate = await User.findOne({ email }).lean().exec()
 
   if (duplicate) {
-    return res.status(409).json({ message: 'Duplicate email' })
+    return res.status(409).json(
+      {
+        message: 'Email này đã tồn tại, vui lòng chọn Email khác!'
+      }
+    )
   }
 
   // Hash password 
@@ -51,7 +59,12 @@ const createNewUser = asyncHandler(async (req, res) => {
   const user = await User.create(userObject)
 
   if (user) { //created 
-    res.status(201).json({ message: `New user ${email} created` })
+    res.status(201).json(
+      {
+        EC: 0,
+        message: `Tạo mới tài khoản ${email} thành công!`
+      }
+    )
   } else {
     res.status(400).json({ message: 'Invalid user data received' })
   }
@@ -65,7 +78,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
   // Confirm data 
 
-  if (!id || !email || (roles && !Array.isArray(roles)) || (roles && !roles.length)) {
+  if (!id || !email) {
     return res.status(400).json({ message: 'All fields except password are required' })
   }
 

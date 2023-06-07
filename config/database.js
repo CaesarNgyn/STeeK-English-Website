@@ -18,6 +18,7 @@ const connection = async () => {
   }
   console.log(process.env.DB_HOST)
   await mongoose.connect(process.env.DB_HOST, options);
+  // await mongoose.connect('mongodb://localhost:27017/testSTK');
 
   const state = Number(mongoose.connection.readyState);
   console.log(state);
