@@ -37,17 +37,6 @@ app.use('/auth', authRouter)
 
 
 
-app.post('/jwt-login', (req, res) => {
-  const data = req.body
-  const secretKey = process.env.ACCESS_TOKEN_SECRET
-  const options = { expiresIn: '30s' }
-  const accessToken = JWT.sign(data, secretKey, options)
-  console.log(data)
-  res.json({ accessToken })
-})
-
-
-
 
 
 
