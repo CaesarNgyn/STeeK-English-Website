@@ -1,9 +1,13 @@
 .register-container {
+  input {
+    color: black !important
+  }
+
   img {
     position: fixed;
     width   : 100vw;
     bottom  : 0;
-    filter  : brightness(60%);
+    filter  : brightness(45%);
     z-index : -1;
   }
 
@@ -11,13 +15,14 @@
     * {
       font-size  : 100%;
       font-family: apercu-pro;
-      color      : white;
+
 
     }
 
     .header {
       margin-top: 10px;
       height    : 45px;
+      color     : white;
 
       padding        : 10px 100px 0 100px;
       font-family    : apercu-pro;
@@ -50,6 +55,7 @@
       padding    : 20px 0;
       text-align : center;
       font-weight: 600;
+      color      : white;
 
     }
 
@@ -57,14 +63,30 @@
       font-size : 25px;
       text-align: center;
       padding   : 10px 0;
+      color     : white;
 
     }
 
     .content-form {
+      color: white;
 
       input {
         margin-bottom: 15px;
         margin-top   : 3px;
+      }
+
+      .pass-group {
+        position: relative;
+
+
+        .icons-eye {
+          color   : black !important;
+          cursor  : pointer;
+          position: absolute;
+          right   : 10px;
+          bottom  : 10px;
+
+        }
       }
 
       button {
@@ -77,16 +99,9 @@
         color           : white;
         background-color: black;
 
-        &:disabled {
-          background: #dddddd;
-          color     : #afafaf;
-          cursor    : no-drop;
 
-          &:hover {
-            background: #dddddd;
-          }
 
-        }
+
       }
 
 

@@ -1,10 +1,26 @@
 import bodyImage from '../../assets/product-sample.jpg'
 import './Login.scss'
 import loginImage from '../../assets/login.avif'
+import loginImage2 from '../../assets/login2.jpg'
 import { FaSpinner } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import { useState } from 'react'
+
 const Login = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+
+
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
 
   const navigate = useNavigate()
 
@@ -16,7 +32,7 @@ const Login = () => {
   return (
     <div className="login-container">
 
-      <img src={loginImage} alt="Login" />
+      <img src={loginImage2} alt={loginImage} />
 
       <div className='login-content'>
         <div className="header">
@@ -38,15 +54,31 @@ const Login = () => {
             <input
               className="form-control "
               placeholder="caesarngyn@gmail.com"
+              type={"email"}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group pass-group">
             <label>Mật khẩu</label>
             <input
               placeholder='Nhập mật khẩu'
               className="form-control "
-              type={"password"}
+              type={showPassword ? "password" : "text"}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
             />
+            {showPassword ?
+              <span
+                className='icons-eye'
+                onClick={() => setShowPassword(false)}>
+                <VscEye />
+              </span> :
+              <span
+                className='icons-eye'
+                onClick={() => setShowPassword(true)}>
+                <VscEyeClosed />
+              </span>}
           </div>
           <div className='login-final'>
             <p1>Bạn chưa có tài khoản?

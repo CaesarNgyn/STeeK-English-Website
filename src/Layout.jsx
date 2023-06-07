@@ -9,11 +9,14 @@ import Login from './components/Auth/Login'
 import Register from './components/Auth/Register'
 import NotFound from "./components/404 Not Found/NotFound";
 import User from "./components/User/User";
+import 'react-toastify/dist/ReactToastify.css';
 import Admin from "./components/Admin/Admin";
 import Student from "./components/Admin/Student";
 import Course from "./components/Admin/Course";
 import Study from "./components/User/Study"
 import Roadmap from "./components/User/Roadmap";
+import { ToastContainer } from 'react-toastify';
+
 const Layout = () => {
   return (
     <>
@@ -34,6 +37,20 @@ const Layout = () => {
         </Route>
 
       </Routes>
+
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+
 
     </>
   )

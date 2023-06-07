@@ -1,9 +1,13 @@
 .login-container {
+  input {
+    color: black !important
+  }
+
   img {
     position: fixed;
     width   : 100vw;
     bottom  : 0;
-    filter  : brightness(40%);
+    filter  : brightness(45%);
     z-index : -1;
   }
 
@@ -11,11 +15,12 @@
     * {
       font-size  : 105%;
       font-family: apercu-pro;
-      color      : white;
+
 
     }
 
     .header {
+      color     : white;
       margin-top: 20px;
       height    : 45px;
 
@@ -25,6 +30,7 @@
       justify-content: right;
 
       button {
+
         display         : inline-block;
         width           : auto;
         font-size       : 13px;
@@ -46,6 +52,7 @@
     }
 
     .title {
+      color      : white;
       font-size  : 60px;
       padding    : 20px 0;
       text-align : center;
@@ -54,6 +61,7 @@
     }
 
     .welcome {
+      color     : white;
       font-size : 25px;
       text-align: center;
       padding   : 10px 0;
@@ -61,10 +69,25 @@
     }
 
     .content-form {
+      color: white;
 
       input {
         margin-bottom: 15px;
         margin-top   : 3px;
+      }
+
+      .pass-group {
+        position: relative;
+
+
+        .icons-eye {
+          color   : black !important;
+          cursor  : pointer;
+          position: absolute;
+          right   : 10px;
+          bottom  : 10px;
+
+        }
       }
 
       button {
