@@ -23,6 +23,33 @@ const login = asyncHandler(async (req, res) => {
 
   if (!match) return res.status(401).json({ message: 'Unauthorized' })
 
+  const accessToken = jwt.sign(
+    {
+      "UserInfo": {
+        "email": foundUser.email,
+        "roles": foundUser.roles
+      }
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: '15m' }
+  )
+
+  const refreshToken = jwt.sign(
+    { "email": foundUser.email },
+    process.env.REFRESH_TOKEN_SECRET,
+    { expiresIn: '7d' }
+  )
+
+  // Create secure cookie with refresh token 
+  res.cookie('jwt', refreshToken, {
+    httpOnly: true, //accessible only by web server 
+    secure: true, //https to secure from XSS attack
+    sameSite: 'None', //cross-site cookie 
+    maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match refreshTok
+  })
+
+  // Send accessToken containing username and roles 
+  res.json({ accessToken })
 
 })
 
