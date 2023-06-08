@@ -6,12 +6,12 @@ const verifyJWT = require('../middleware/verifyJWT')
 //apply middleware to all the user route
 // userRoute.use(verifyJWT)
 
-courseRoute.get('/', verifyJWT, userController.getAllUsers);
+courseRoute.get('/', verifyJWT, courseController.getAllCourses);
 
-courseRoute.post('/', userController.createNewUser);
+courseRoute.post('/', courseController.createNewCourse);
 
-courseRoute.patch('/', verifyJWT, userController.updateUser);
+courseRoute.patch('/', verifyJWT, courseController.updateCourse);
 
-courseRoute.delete('/', verifyJWT, userController.deleteUser);
+courseRoute.delete('/', verifyJWT, courseController.deleteCourse);
 
 module.exports = courseRoute
