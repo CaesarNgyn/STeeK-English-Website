@@ -12,6 +12,6 @@ userRoute.post('/', userController.createNewUser);
 
 userRoute.patch('/', verifyJWT, userController.updateUser);
 
-userRoute.delete('/', verifyJWT, userController.deleteUser);
+userRoute.delete('/', verifyJWT, verifyRole, userController.deleteUser);
 
 module.exports = userRoute
