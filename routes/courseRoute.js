@@ -8,7 +8,7 @@ const verifyJWT = require('../middleware/verifyJWT')
 
 courseRoute.get('/', verifyJWT, courseController.getAllCourses);
 
-courseRoute.post('/', courseController.createNewCourse);
+courseRoute.post('/', verifyJWT, courseController.createNewCourse);
 
 courseRoute.patch('/', verifyJWT, courseController.updateCourse);
 
