@@ -13,6 +13,11 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  price: {
+    type: Number,
+    min: 0
+  },
+  vidID: String
 
 },
   { timestamps: true }
