@@ -6,11 +6,13 @@ import { FaSpinner } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { useState } from 'react'
-
+import { postLogin } from '../../services/apiServices'
+import { toast } from 'react-toastify';
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
+  const [isPressed, setIsPressed] = useState(false)
 
 
   const validateEmail = (email) => {
@@ -21,11 +23,43 @@ const Login = () => {
       );
   };
 
+  const handleLogin = async () => {
+    const isValidEmail = validateEmail(email)
+    if (!isValidEmail) {
+      toast.error('Bạn hãy kiểm tra lại Email!')
+      return;
+    }
+    if (!password) {
+      toast.error('Hãy nhập đủ mật khẩu!')
+      return;
+    }
+    let data = await postLogin(email, password);
+
+    if (data && data.data?.EC === 0) {
+      console.log("Success")
+      toast.success(data.data.message)
+
+    } else {
+      toast.error(data.message)
+    }
+  }
+
 
   const navigate = useNavigate()
 
   const handleRegister = () => {
     navigate('/register')
+  }
+
+  const handleLoginEnter = (event) => {
+    if (event.keyCode === 13) {
+      setIsPressed(true);
+      setTimeout(() => {
+        setIsPressed(false)
+      }, 1000)
+
+      handleLogin();
+    }
   }
 
 
@@ -57,6 +91,7 @@ const Login = () => {
               type={"email"}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              onKeyDown={(event) => handleLoginEnter(event)}
             />
           </div>
           <div className="form-group pass-group">
@@ -67,6 +102,7 @@ const Login = () => {
               type={showPassword ? "password" : "text"}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
+              onKeyDown={(event) => handleLoginEnter(event)}
             />
             {showPassword ?
               <span
@@ -92,6 +128,7 @@ const Login = () => {
             <button
               type="submit"
               className='btn-login'
+              onClick={() => handleLogin()}
             >
               <span>
                 Đăng Nhập
