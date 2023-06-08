@@ -48,8 +48,8 @@ const Register = () => {
       return;
     }
     let data = await postRegister(email, username, password)
-    console.log(data.data);
-    if (data && data.data.EC === 0) {
+    console.log(data?.data);
+    if (data && data.data?.EC === 0) {
       toast.success(data.data.message)
       navigate('/login')
     } else {
