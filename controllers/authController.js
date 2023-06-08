@@ -16,12 +16,12 @@ const login = asyncHandler(async (req, res) => {
   const foundUser = await User.findOne({ email }).exec()
 
   if (!foundUser) {
-    return res.status(401).json({ message: 'Unauthorized' })
+    return res.status(401).json({ message: 'Không tìm thấy người dùng với email này' })
   }
 
   const match = await bcrypt.compare(password, foundUser.password)
 
-  if (!match) return res.status(401).json({ message: 'Unauthorized' })
+  if (!match) return res.status(401).json({ message: 'Sai mật khẩu' })
 
   const accessToken = jwt.sign(
     {
@@ -48,8 +48,20 @@ const login = asyncHandler(async (req, res) => {
     maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match refreshTok
   })
 
-  // Send accessToken containing username and roles 
-  res.json({ accessToken })
+  // Send accessToken containing email and roles 
+  res.json({
+    DT: {
+      accessToken,
+      refreshToken,
+      UserInfo: {
+        email: foundUser.email,
+        roles: foundUser.roles
+      }
+    },
+    EC: 0,
+    message: "Đăng nhập thành công!"
+
+  });
 
 })
 
