@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { postLogin } from '../../services/apiServices'
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux'
+import { doLogin } from '../../redux/slices/userSlice'
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -39,6 +40,7 @@ const Login = () => {
 
     if (data && data.data?.EC === 0) {
       console.log("Success")
+      dispatch(doLogin(data))
       toast.success(data.data.message)
 
     } else {
@@ -129,8 +131,8 @@ const Login = () => {
             </p1>
             <button
               type="submit"
-              className='btn-login'
               onClick={() => handleLogin()}
+              className={isPressed ? "pressed btn-submit" : "btn-submit"}
             >
               <span>
                 Đăng Nhập
