@@ -16,6 +16,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
 
   const validateEmail = (email) => {
@@ -37,11 +38,12 @@ const Login = () => {
       return;
     }
     let data = await postLogin(email, password);
-
+    // console.log(data?.data.DT)
     if (data && data.data?.EC === 0) {
       console.log("Success")
-      dispatch(doLogin(data))
+      dispatch(doLogin(data.data?.DT))
       toast.success(data.data.message)
+      navigate('/home')
 
     } else {
       toast.error(data.message)
@@ -49,7 +51,7 @@ const Login = () => {
   }
 
 
-  const navigate = useNavigate()
+
 
   const handleRegister = () => {
     navigate('/register')

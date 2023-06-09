@@ -13,12 +13,12 @@ const userSlice = createSlice({
   },
   reducers: {
     doLogin: (state, action) => {
-      const { DT } = action.payload;
-      state.account.access_token = DT.access_token;
-      state.account.refresh_token = DT.refresh_token;
-      state.account.username = DT.username;
-      state.account.image = DT.image;
-      state.account.role = DT.role;
+      const DT = action.payload;
+      console.log(">>DT:", DT)
+      state.account.access_token = DT.accessToken;
+      state.account.refresh_token = DT.refreshToken;
+      state.account.email = DT.UserInfo.email;
+      state.account.roles = DT.UserInfo.roles;
       state.isAuthenticated = true;
     },
   },
