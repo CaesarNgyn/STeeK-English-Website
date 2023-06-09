@@ -5,12 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate, NavLink } from "react-router-dom";
 import './Header.scss'
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated)
+  const userAccount = useSelector(state => state.user.account)
   return (
-    // Code mẫu thanh NavBar
-    // Có thể tham khảo mục HomePage trong src/components/HomePage/HomePage.jsx
-    // để xem cách chia Div Layout
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="#home">STeeK English</Navbar.Brand>
@@ -22,8 +22,8 @@ const Header = () => {
             <NavLink to="#learn" className="nav-link">Học</NavLink>
           </Nav>
           <Nav>
-             {/* <NavLink to="/login" className="nav-link">(Tên tài khoản)</NavLink>  */}
-            <NavDropdown title="Tea Nguyen" id="basic-nav-dropdown">
+            {/* <NavLink to="/login" className="nav-link">(Tên tài khoản)</NavLink>  */}
+            <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
               <NavDropdown.Item>
                 Thông tin</NavDropdown.Item>
               <NavDropdown.Item>Đăng xuất</NavDropdown.Item>
@@ -31,8 +31,8 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-     </Navbar>
-    
+    </Navbar>
+
 
 
 
