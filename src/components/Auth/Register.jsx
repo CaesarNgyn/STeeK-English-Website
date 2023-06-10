@@ -2,7 +2,7 @@
 import './Register.scss'
 import loginImage from '../../assets/login.avif'
 import loginImage2 from '../../assets/login2.jpg'
-
+import { FaSpinner } from 'react-icons/fa'
 import bodyImage from '../../assets/product-sample.jpg'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -17,6 +17,7 @@ const Register = () => {
   const [username, setUsername] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate()
 
@@ -47,26 +48,30 @@ const Register = () => {
       toast.error('Hãy nhập đủ mật khẩu!')
       return;
     }
+    setIsLoading(true);
     let data = await postRegister(email, username, password)
     // console.log(data?.data);
     if (data && data.data?.EC === 0) {
       toast.success(data.data.message)
+      setIsLoading(false);
       navigate('/login')
     } else {
       toast.error(data.message)
+      setIsLoading(false);
     }
   }
 
   const handleRegisterEnter = (event) => {
     if (event.keyCode === 13) {
-      setIsPressed(true);
-      setTimeout(() => {
-        setIsPressed(false)
-      }, 1000)
+      setIsLoading(true);
 
-      handleRegister();
+      setTimeout(() => {
+        setIsLoading(false);
+        handleRegister();
+      }, 1000);
     }
-  }
+  };
+
 
   return (
     <div className='register-container'>
@@ -139,10 +144,14 @@ const Register = () => {
               type="submit"
 
               onClick={() => handleRegister()}
-
+              disabled={isLoading}
             >
+              {isLoading === true && <FaSpinner className='icon-spin' />}
 
-              Đăng Ký
+              <span>
+                Đăng Ký
+              </span>
+
 
             </button>
           </div>
