@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -21,8 +23,16 @@ const userSlice = createSlice({
       state.account.roles = DT.UserInfo.roles;
       state.isAuthenticated = true;
     },
+    doLogout: (state, action) => {
+      // Reset state to initial values
+      state.account.access_token = '';
+      state.account.refresh_token = '';
+      state.account.email = '';
+      state.account.roles = '';
+      state.isAuthenticated = false;
+    },
   },
 });
 
-export const { doLogin } = userSlice.actions;
+export const { doLogin, doLogout } = userSlice.actions;
 export default userSlice.reducer;

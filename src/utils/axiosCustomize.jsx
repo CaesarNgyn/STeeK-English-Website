@@ -30,13 +30,14 @@ instance.interceptors.request.use(function (config) {
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {
   // console.log("interceptor:", response.data)
-  NProgress.done()
+
   return response
 }, function (error) {
   const originalRequest = error.config;
 
   // Check if the error status is 401 (unauthorized) or any other relevant status code
-  if (error.response.status === 401) {
+  if (error.response.status === 401 && error.response.message === "Unauthorized") {
+    console.log(error.response.status)
     // Get the refresh_token from your store
     const refresh_token = store?.getState()?.user?.account?.refresh_token;
 
@@ -61,6 +62,7 @@ instance.interceptors.response.use(function (response) {
 
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   // Do something with response error
+  NProgress.done()
   return error && error.response && error.response.data ?
     error.response.data : Promise.reject(error);
 });
