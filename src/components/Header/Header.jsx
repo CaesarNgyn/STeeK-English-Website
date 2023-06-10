@@ -18,18 +18,18 @@ const Header = () => {
 
   const handleLogout = () => {
     confirmAlert({
-      title: 'Confirmation',
-      message: 'Are you sure you want to log out?',
+      title: 'Đăng xuất',
+      message: 'Bạn có chắc chắn muốn đăng xuất không?',
       buttons: [
         {
-          label: 'Yes',
+          label: 'Có',
           onClick: () => {
             dispatch(doLogout());
             navigate('/login');
           }
         },
         {
-          label: 'No',
+          label: 'Không',
           onClick: () => { }
         }
       ]
