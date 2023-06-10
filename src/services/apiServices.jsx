@@ -1,7 +1,7 @@
-import axios from "axios"
+import axios from "../utils/axiosCustomize"
 
 const postRegister = (userEmail, userName, userPassword) => {
-  return axios.post(`http://localhost:6969/users`, {
+  return axios.post(`users`, {
     email: userEmail, username: userName, password: userPassword
   }).catch(error => {
     if (error.response) {
@@ -12,7 +12,7 @@ const postRegister = (userEmail, userName, userPassword) => {
 }
 
 const postLogin = (userEmail, userPassword) => {
-  return axios.post('http://localhost:6969/auth/login', {
+  return axios.post('auth/login', {
     email: userEmail, password: userPassword
   }).catch(error => {
     if (error.response) {
