@@ -6,7 +6,7 @@ authRoute.post('/login', loginLimiter, authController.login)
 
 authRoute.get('/refresh', authController.refresh)
 
-authRoute.post('/logout', authController.logout)
+
 
 
 module.exports = authRoute
