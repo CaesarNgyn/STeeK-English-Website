@@ -15,8 +15,11 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
 
 
 
@@ -38,16 +41,19 @@ const Login = () => {
       toast.error('Hãy nhập đủ mật khẩu!')
       return;
     }
+    setIsLoading(true);
     let data = await postLogin(email, password);
     // console.log(data?.data.DT)
     if (data && data.data?.EC === 0) {
       console.log("Success")
       dispatch(doLogin(data.data?.DT))
       toast.success(data.data.message)
+      setIsLoading(false);
       navigate('/home')
 
     } else {
       toast.error(data.message)
+      setIsLoading(false);
     }
   }
 
@@ -60,14 +66,14 @@ const Login = () => {
 
   const handleLoginEnter = (event) => {
     if (event.keyCode === 13) {
-      setIsPressed(true);
-      setTimeout(() => {
-        setIsPressed(false)
-      }, 1000)
+      setIsLoading(true);
 
-      handleLogin();
+      setTimeout(() => {
+        setIsLoading(false);
+        handleLogin();
+      }, 1000);
     }
-  }
+  };
 
 
   return (
@@ -136,7 +142,10 @@ const Login = () => {
               type="submit"
               onClick={() => handleLogin()}
               className={isPressed ? "pressed btn-submit" : "btn-submit"}
+              disabled={isLoading}
             >
+              {isLoading === true && <FaSpinner className='icon-spin' />}
+
               <span>
                 Đăng Nhập
               </span>

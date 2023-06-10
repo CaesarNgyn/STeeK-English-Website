@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.4",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "13.5.0",
@@ -36,7 +37,6 @@
     "redux-devtools-extension": "2.13.9",
     "redux-persist": "6.0.0",
     "redux-thunk": "2.4.1",
-    "@reduxjs/toolkit": "^1.8.4",
     "sass": "^1.53.0",
     "web-vitals": "2.1.4"
   },

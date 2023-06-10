@@ -10,6 +10,7 @@ import Layout from './Layout.jsx';
 import Header from './components/Header/Header.jsx';
 import Login from './components/Auth/Login.jsx';
 import store from './redux/store.js';
+import 'nprogress/nprogress.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
