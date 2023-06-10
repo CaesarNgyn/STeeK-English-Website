@@ -41,11 +41,11 @@ const Header = () => {
     <>
       {userAccount && userAccount?.roles === "User" && <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/home">STeeK English</Navbar.Brand>
+          <Navbar.Brand style={{ pointerEvents: 'none' }} > STeeK English</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <NavLink to="/home" exact="true" className="nav-link" >Khóa học</NavLink>
+              <NavLink to="/home" exact={true} className="nav-link" end>Khóa học</NavLink>
               <NavLink to="/home/roadmap" className="nav-link">Lộ trình</NavLink>
               <NavLink to="/home/study" className="nav-link">Học</NavLink>
             </Nav>
@@ -63,29 +63,31 @@ const Header = () => {
         </Container>
       </Navbar >}
 
-      {userAccount && userAccount?.roles === "Admin" && <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand href="/home">STeeK English</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <NavLink to="/home/admin" exact={true} className="nav-link" >Dashboard</NavLink>
-              <NavLink to="/home/admin/student" className="nav-link">Học Viên</NavLink>
-              <NavLink to="/home/admin/course" className="nav-link">Khóa học</NavLink>
-            </Nav>
-            <Nav>
+      {
+        userAccount && userAccount?.roles === "Admin" && <Navbar bg="dark" variant="dark" expand="lg">
+          <Container>
+            <Navbar.Brand style={{ pointerEvents: 'none' }} > STeeK English</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <NavLink to="/home/admin" exact={true} className="nav-link" end>Dashboard</NavLink>
+                <NavLink to="/home/admin/student" className="nav-link">Học Viên</NavLink>
+                <NavLink to="/home/admin/course" className="nav-link">Khóa học</NavLink>
+              </Nav>
+              <Nav>
 
-              <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
-                <NavDropdown.Item>
-                  Thông tin</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => handleLogout()}>
-                  Đăng xuất
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar >}
+                <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
+                  <NavDropdown.Item>
+                    Thông tin</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleLogout()}>
+                    Đăng xuất
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar >
+      }
     </>
 
 
