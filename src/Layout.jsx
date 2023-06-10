@@ -31,7 +31,7 @@ const Layout = () => {
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<NotFound />} />
 
-        <Route element={<ProtectedRoute isAuthenticated={false} />}>
+        <Route element={<ProtectedRoute isAuthenticated={true} />}>
           <Route path="/home" element={<App />}>
             <Route index element={<User />} />
             <Route path="study" element={<Study />} />

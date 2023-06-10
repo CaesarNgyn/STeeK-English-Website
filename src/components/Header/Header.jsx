@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import './Header.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { doLogout } from '../../redux/slices/userSlice';
@@ -15,6 +15,7 @@ const Header = () => {
   const userAccount = useSelector(state => state.user.account)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  console.log("user account: ", userAccount.roles)
 
   const handleLogout = () => {
     confirmAlert({
@@ -35,33 +36,57 @@ const Header = () => {
       ]
     });
   };
+
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">STeeK English</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavLink to="#courses" className="nav-link">Khóa học</NavLink>
-            <NavLink to="#roadmap" className="nav-link">Lộ trình</NavLink>
-            <NavLink to="#learn" className="nav-link">Học</NavLink>
-          </Nav>
-          <Nav>
-            {/* <NavLink to="/login" className="nav-link">(Tên tài khoản)</NavLink>  */}
-            <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
-              <NavDropdown.Item>
-                Thông tin</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleLogout()}>
-                Đăng xuất
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      {userAccount && userAccount?.roles === "User" && <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="/home">STeeK English</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <NavLink to="/home" exact="true" className="nav-link" >Khóa học</NavLink>
+              <NavLink to="/home/roadmap" className="nav-link">Lộ trình</NavLink>
+              <NavLink to="/home/study" className="nav-link">Học</NavLink>
+            </Nav>
+            <Nav>
+              {/* <NavLink to="/login" className="nav-link">(Tên tài khoản)</NavLink> */}
+              <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
+                <NavDropdown.Item>
+                  Thông tin</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleLogout()}>
+                  Đăng xuất
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar >}
 
+      {userAccount && userAccount?.roles === "Admin" && <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="/home">STeeK English</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <NavLink to="/home/admin" exact="true" className="nav-link" >Dashboard</NavLink>
+              <NavLink to="/home/admin/student" className="nav-link">Học Viên</NavLink>
+              <NavLink to="/home/admin/course" className="nav-link">Khóa học</NavLink>
+            </Nav>
+            <Nav>
 
-
+              <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
+                <NavDropdown.Item>
+                  Thông tin</NavDropdown.Item>
+                <NavDropdown.Item onClick={() => handleLogout()}>
+                  Đăng xuất
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar >}
+    </>
 
 
 
