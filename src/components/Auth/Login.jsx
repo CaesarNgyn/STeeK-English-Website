@@ -20,7 +20,6 @@ const Login = () => {
   const userAccount = useSelector(state => state.user.account)
 
 
-  console.log("user chekc login:", userAccount?.roles)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -49,10 +48,16 @@ const Login = () => {
     // console.log(data?.data.DT)
     if (data && data.data?.EC === 0) {
       console.log("Success")
+      console.log(data.data.DT.UserInfo.roles)
       dispatch(doLogin(data.data?.DT))
       toast.success(data.data.message)
       setIsLoading(false);
-      navigate('/home')
+      if (data.data.DT.UserInfo.roles === "User") {
+        navigate('/home')
+      } else {
+        navigate('/admin')
+      }
+
 
     } else {
       toast.error(data.message)
