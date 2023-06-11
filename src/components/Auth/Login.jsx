@@ -10,16 +10,19 @@ import { postLogin } from '../../services/apiServices'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
 import { doLogin } from '../../redux/slices/userSlice'
+import { useEffect } from 'react'
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const userAccount = useSelector(state => state.user.account)
 
+
+  console.log("user chekc login:", userAccount?.roles)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
 
 
 

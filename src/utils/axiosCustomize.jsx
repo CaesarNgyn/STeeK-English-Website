@@ -30,7 +30,7 @@ instance.interceptors.request.use(function (config) {
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {
   // console.log("interceptor:", response.data)
-
+  NProgress.done()
   return response
 }, function (error) {
   const originalRequest = error.config;
@@ -62,7 +62,7 @@ instance.interceptors.response.use(function (response) {
 
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   // Do something with response error
-  NProgress.done()
+
   return error && error.response && error.response.data ?
     error.response.data : Promise.reject(error);
 });
