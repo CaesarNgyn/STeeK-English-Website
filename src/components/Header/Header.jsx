@@ -9,12 +9,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { doLogout } from '../../redux/slices/userSlice';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import UserInfo from '../User/UserInfo';
+import { useState } from 'react';
 
 const Header = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [showUserInfo, setShowUserInfo] = useState(false);
+
+  const handleUserInfoClick = () => {
+    setShowUserInfo(true);
+  };
+
+  const handleCloseUserInfo = () => {
+    setShowUserInfo(false);
+  };
   console.log("user account: ", userAccount.roles)
 
   const handleLogout = () => {
@@ -52,8 +63,16 @@ const Header = () => {
             <Nav>
               {/* <NavLink to="/login" className="nav-link">(Tên tài khoản)</NavLink> */}
               <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
-                <NavDropdown.Item>
-                  Thông tin</NavDropdown.Item>
+                <NavDropdown.Item onClick={handleUserInfoClick}>
+                  Thông tin
+
+                </NavDropdown.Item>
+
+                <UserInfo
+                  show={showUserInfo}
+                  setShow={setShowUserInfo}
+                  handleClose={handleCloseUserInfo}
+                />
                 <NavDropdown.Item onClick={() => handleLogout()}>
                   Đăng xuất
                 </NavDropdown.Item>
