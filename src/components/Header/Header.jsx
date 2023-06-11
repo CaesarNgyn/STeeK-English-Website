@@ -70,9 +70,9 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <NavLink to="/home/admin" exact={true} className="nav-link" end>Dashboard</NavLink>
-                <NavLink to="/home/admin/student" className="nav-link">Học Viên</NavLink>
-                <NavLink to="/home/admin/course" className="nav-link">Khóa học</NavLink>
+                <NavLink to="/admin" exact={true} className="nav-link" end>Dashboard</NavLink>
+                <NavLink to="/admin/student" className="nav-link">Học Viên</NavLink>
+                <NavLink to="/admin/course" className="nav-link">Khóa học</NavLink>
               </Nav>
               <Nav>
 

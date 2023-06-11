@@ -17,7 +17,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const userAccount = useSelector(state => state.user.account)
+
 
 
   const dispatch = useDispatch()
