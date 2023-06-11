@@ -14,4 +14,6 @@ userRoute.patch('/', verifyJWT, userController.updateUser);
 
 userRoute.delete('/', verifyJWT, verifyRole, userController.deleteUser);
 
+userRoute.post('/email', verifyJWT, userController.findUserByEmail)
+
 module.exports = userRoute

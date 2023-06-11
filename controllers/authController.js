@@ -71,9 +71,17 @@ const refresh = (req, res) => {
     refresh_token,
     process.env.REFRESH_TOKEN_SECRET,
     asyncHandler(async (err, decoded) => {
-      if (err) return res.status(403).json({ message: 'Forbidden' })
+      if (err) {
+        if (err.name === 'TokenExpiredError') {
+          return res.status(403).json({ message: 'Refresh token expired' });
+        } else {
+          return res.status(401).json({ message: 'Invalid refresh token' });
+        }
+      }
+
 
       const foundUser = await User.findOne({ email: decoded.email }).exec()
+      console.log(foundUser)
 
       if (!foundUser) return res.status(401).json({ message: 'Unauthorized' })
 
@@ -89,6 +97,7 @@ const refresh = (req, res) => {
       )
 
       res.json({ accessToken })
+      console.log("access Token: ", accessToken);
     })
   )
 }
