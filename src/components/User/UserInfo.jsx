@@ -5,6 +5,27 @@ import React, { useState } from 'react';
 const UserInfo = (props) => {
   const { show, setShow, dataUpdate } = props
 
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("")
+  const [phone, setPhone] = useState("")
+  const [address, setAddress] = useState("");
+  const [previewImage, setPreviewImage] = useState("");
+  const [image, setImage] = useState("")
+  console.log("data update: ", dataUpdate)
+
+  const handleClose = () => {
+    setShow(false);
+    setEmail("")
+    setPassword("")
+    setUsername("")
+    setPhone("")
+    setAddress("")
+    setPreviewImage("")
+
+
+  }
+
   return (
     <>
       <Modal show={show}
@@ -12,8 +33,8 @@ const UserInfo = (props) => {
         backdrop="static"
         className='modal-add-user'
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Update User</Modal.Title>
+        <Modal.Header >
+          <Modal.Title>Thông Tin Cá Nhân</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="row g-4">
@@ -26,33 +47,45 @@ const UserInfo = (props) => {
                 onChange={(event) => setEmail(event.target.value)} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Password</label>
+              <label className="form-label">Mật khẩu</label>
               <input type="password"
                 className="form-control"
 
-                disabled={true}
                 onChange={(event) => setPassword(event.target.value)} />
             </div>
 
 
             <div className="col-md-6">
-              <label className="form-label">User Name</label>
+              <label className="form-label">Tên tài khoản</label>
               <input type="text"
                 className="form-control"
 
                 onChange={(event) => setUsername(event.target.value)} />
             </div>
 
+            <div className="col-md-6">
+              <label className="form-label">Địa chỉ</label>
+              <input type="text"
+                className="form-control"
 
+                onChange={(event) => setPassword(event.target.value)} />
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">Số điện thoại</label>
+              <input type="text"
+                className="form-control"
+                onChange={(event) => setPassword(event.target.value)} />
+            </div>
 
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" >
-            Close
+          <Button variant="secondary" onClick={handleClose} >
+            Đóng
           </Button>
           <Button variant="primary" >
-            Save
+            Lưu
           </Button>
         </Modal.Footer>
       </Modal>

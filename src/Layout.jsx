@@ -24,7 +24,7 @@ import ProtectedRouteAdmin from "./ProtectedRouteAdmin";
 const Layout = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
-  console.log(isAuthenticated)
+  // console.log(isAuthenticated)
   return (
     <>
 

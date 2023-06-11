@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,6 +11,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import UserInfo from '../User/UserInfo';
 import { useState } from 'react';
+import { postFindUser } from '../../services/apiServices';
 
 const Header = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
@@ -26,7 +27,7 @@ const Header = () => {
   const handleCloseUserInfo = () => {
     setShowUserInfo(false);
   };
-  console.log("user account: ", userAccount.roles)
+  console.log("user account: ", userAccount.email)
 
   const handleLogout = () => {
     confirmAlert({
@@ -47,6 +48,22 @@ const Header = () => {
       ]
     });
   };
+
+  useEffect(() => {
+    const fetchUserInformation = async () => {
+      try {
+        const data = await postFindUser(userAccount.email);
+        console.log(data);
+        // Update the user information or perform any other actions
+      } catch (error) {
+        toast.error('Failed to fetch user information.');
+      }
+    };
+
+    if (isAuthenticated) {
+      fetchUserInformation();
+    }
+  }, [isAuthenticated, userAccount.email]);
 
   return (
     <>
@@ -72,6 +89,7 @@ const Header = () => {
                   show={showUserInfo}
                   setShow={setShowUserInfo}
                   handleClose={handleCloseUserInfo}
+                  dataUpdate={userAccount}
                 />
                 <NavDropdown.Item onClick={() => handleLogout()}>
                   Đăng xuất
@@ -96,8 +114,7 @@ const Header = () => {
               <Nav>
 
                 <NavDropdown title={`${userAccount.email}`} id="basic-nav-dropdown">
-                  <NavDropdown.Item>
-                    Thông tin</NavDropdown.Item>
+
                   <NavDropdown.Item onClick={() => handleLogout()}>
                     Đăng xuất
                   </NavDropdown.Item>

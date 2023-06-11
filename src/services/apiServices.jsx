@@ -22,5 +22,16 @@ const postLogin = (userEmail, userPassword) => {
   })
 }
 
+const postFindUser = (userEmail) => {
+  return axios.post('users/email', {
+    email: userEmail
+  }).catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
+}
 
-export { postRegister, postLogin }
+
+export { postRegister, postLogin, postFindUser }
