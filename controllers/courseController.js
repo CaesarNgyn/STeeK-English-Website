@@ -17,22 +17,22 @@ const getAllCourses = asyncHandler(async (req, res) => {
   // Add username to each Course before sending the response 
   // See Promise.all with map() here: https://youtu.be/4lqJBBEpjRE 
   // You could also do this with a for...of loop
-  const coursesWithUser = await Promise.all(courses.map(async (Course) => {
-    const user = await User.findById(Course.user).lean().exec()
-    return { ...Course, username: user.username }
-  }))
+  // const coursesWithUser = await Promise.all(courses.map(async (Course) => {
+  //   const user = await User.findById(Course.user).lean().exec()
+  //   return { ...Course, username: user.username }
+  // }))
 
-  res.json(coursesWithUser)
+  res.json(courses)
 })
 
 // @desc Create new Course
 // @route POST /courses
 // @access Private
 const createNewCourse = asyncHandler(async (req, res) => {
-  const { title, description, price } = req.body
+  const { title, description, price, listVideo } = req.body
 
   // Confirm data
-  if (!description || !title) {
+  if (!description || !title || !price || !listVideo) {
     return res.status(400).json({ message: 'All fields are required' })
   }
 
@@ -44,7 +44,7 @@ const createNewCourse = asyncHandler(async (req, res) => {
   }
 
   // Create and store the new user 
-  const Course = await Course.create({ title, description, price })
+  const Course = await Course.create({ title, description, price, listVideo })
 
   if (Course) { // Created 
     return res.status(201).json({ message: 'New Course created' })
@@ -58,17 +58,17 @@ const createNewCourse = asyncHandler(async (req, res) => {
 // @route PATCH /courses
 // @access Private
 const updateCourse = asyncHandler(async (req, res) => {
-  const { title, description, price } = req.body
+  const { title, description, price, listVideo } = req.body
 
   // Confirm data
-  if (!title || !description) {
+  if (!title) {
     return res.status(400).json({ message: 'All fields are required' })
   }
 
   // Confirm Course exists to update
-  const Course = await Course.findById(id).exec()
+  const course = await Course.findOne({ title }).exec();
 
-  if (!Course) {
+  if (!course) {
     return res.status(400).json({ message: 'Course not found' })
   }
 
@@ -84,6 +84,7 @@ const updateCourse = asyncHandler(async (req, res) => {
   Course.title = title
   Course.description = description
   Course.price = price
+  Course.listVideo = listVideo
 
   const updatedCourse = await Course.save()
 
@@ -94,21 +95,22 @@ const updateCourse = asyncHandler(async (req, res) => {
 // @route DELETE /courses
 // @access Private
 const deleteCourse = asyncHandler(async (req, res) => {
-  const { id } = req.body
+  const { title } = req.body
 
   // Confirm data
-  if (!id) {
-    return res.status(400).json({ message: 'Course ID required' })
+  if (!title) {
+    return res.status(400).json({ message: 'Course Title required' })
   }
 
   // Confirm Course exists to delete 
-  const Course = await Course.findById(id).exec()
+  const course = await Course.findOne({ title }).exec();
 
-  if (!Course) {
+  if (!course) {
     return res.status(400).json({ message: 'Course not found' })
   }
 
-  const result = await Course.deleteOne()
+  const result = await Course.deleteOne({ title: course.title });
+
 
   const reply = `Course '${result.title}' with ID ${result._id} deleted`
 

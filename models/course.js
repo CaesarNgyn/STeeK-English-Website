@@ -7,7 +7,8 @@ const courseSchema = new mongoose.Schema({
   // },
   title: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   description: {
     type: String,
@@ -15,9 +16,14 @@ const courseSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    min: 0
+    min: 0,
+    required: true
   },
-  vidID: String
+  listVideo: {
+    type: [String],
+    default: [],
+    required: true
+  }
 
 },
   { timestamps: true }
