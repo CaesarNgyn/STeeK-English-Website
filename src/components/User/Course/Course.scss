@@ -37,17 +37,18 @@
       //====CONTENT====
       .card-content {
         .card-title.h5 {
-          color      : #c8c4bd;
+          color      : black;
           font-size  : 16px;
           line-height: 1.4;
 
         }
 
         .card-text {
-          color      : rgb(241 95 53);
-          font-size  : 16px;
-          font-weight: 600;
-          font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+          color       : rgb(241 95 53);
+          font-size   : 20px;
+          font-weight : 600;
+          margin-right: 16px;
+          font-family : system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
           ;
         }
 
@@ -62,6 +63,14 @@
         align-self: center;
 
       }
+
+      button.btn.btn-warning {
+        color     : white;
+        height    : 40px;
+        align-self: center;
+
+      }
+
 
       .btn-check:focus+.btn,
       .btn:focus {

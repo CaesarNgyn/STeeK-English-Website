@@ -22,12 +22,13 @@ const Course = () => {
         </section>
         <Card.Body>
           <div className="card-content">
-            <Card.Title>HTLM CSS pro</Card.Title>
+            {/* <Card.Title>HTLM CSS pro</Card.Title> */}
             <Card.Text>
-              100$
+              999.000đ
             </Card.Text>
           </div>
-          <Button variant="info">Mua</Button>{' '}
+          <Button variant="info">Xem chi tiết</Button>
+          <Button variant="warning">Mua</Button>
         </Card.Body>
       </Card>
 

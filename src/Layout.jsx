@@ -36,8 +36,8 @@ const Layout = () => {
 
         <Route
           element={<ProtectedRouteUser
-            isAuthenticated={isAuthenticated}
-            role={userAccount?.roles}
+            isAuthenticated={true}
+          // role={userAccount?.roles}
           />}>
           <Route path="/home" element={<App />}>
             <Route index element={<User />} />
