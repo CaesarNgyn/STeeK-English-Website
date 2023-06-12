@@ -46,8 +46,7 @@ const Footer = () => {
                                 <form method="post">
                                     <div class="input__contact">
                                         <input type="email" class="form-control" name="Email" id="Email"
-                                            placeholder="Enter Email Address" required/>
-                                            {/* <input type="email" class="form-control" /> */}
+                                            placeholder="Enter Email Address"/>
                                         <div class="input__contact--btn">
                                             <button type="submit" class="btn">
                                                 <span>Send</span>
