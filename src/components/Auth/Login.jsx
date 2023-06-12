@@ -10,6 +10,7 @@ import { postLogin } from '../../services/apiServices'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
 import { doLogin } from '../../redux/slices/userSlice'
+import { useEffect } from 'react'
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -17,9 +18,10 @@ const Login = () => {
   const [isPressed, setIsPressed] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
 
+
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
 
 
 
@@ -46,10 +48,16 @@ const Login = () => {
     // console.log(data?.data.DT)
     if (data && data.data?.EC === 0) {
       console.log("Success")
+      console.log(data.data.DT.UserInfo.roles)
       dispatch(doLogin(data.data?.DT))
       toast.success(data.data.message)
       setIsLoading(false);
-      navigate('/home')
+      if (data.data.DT.UserInfo.roles === "User") {
+        navigate('/home')
+      } else {
+        navigate('/admin')
+      }
+
 
     } else {
       toast.error(data.message)

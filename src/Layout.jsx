@@ -17,11 +17,14 @@ import Study from "./components/User/Study"
 import Roadmap from "./components/User/Roadmap";
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from "react-redux";
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./ProtectedRouteUser";
+import ProtectedRouteUser from "./ProtectedRouteUser";
+import ProtectedRouteAdmin from "./ProtectedRouteAdmin";
 
 const Layout = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
-  console.log(isAuthenticated)
+  const userAccount = useSelector(state => state.user.account)
+  // console.log(isAuthenticated)
   return (
     <>
 
@@ -31,18 +34,28 @@ const Layout = () => {
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<NotFound />} />
 
-        <Route element={<ProtectedRoute isAuthenticated={true} />}>
+        <Route
+          element={<ProtectedRouteUser
+            isAuthenticated={true}
+          // role={userAccount?.roles}
+          />}>
           <Route path="/home" element={<App />}>
             <Route index element={<User />} />
             <Route path="study" element={<Study />} />
             <Route path="roadmap" element={<Roadmap />} />
-            <Route path="admin" element={<Admin />} />
-            <Route path="admin/student" element={<Student />} />
-            <Route path="admin/course" element={<Course />} />
           </Route>
         </Route>
 
-
+        <Route element={<ProtectedRouteAdmin
+          isAuthenticated={isAuthenticated}
+          role={userAccount?.roles}
+        />}>
+          <Route path="/admin" element={<App />}>
+            <Route index element={<Admin />} />
+            <Route path="student" element={<Student />} />
+            <Route path="course" element={<Course />} />
+          </Route>
+        </Route>
 
 
       </Routes >

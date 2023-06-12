@@ -16,7 +16,7 @@ const userSlice = createSlice({
   reducers: {
     doLogin: (state, action) => {
       const DT = action.payload;
-      // console.log(">>DT:", DT)
+      console.log(">>DT:", DT)
       state.account.access_token = DT.accessToken;
       state.account.refresh_token = DT.refreshToken;
       state.account.email = DT.UserInfo.email;
