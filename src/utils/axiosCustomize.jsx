@@ -13,7 +13,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(function (config) {
-  console.log("check store>>:", store.getState())
+  // console.log("check store>>:", store.getState())
   const access_token = store?.getState()?.user?.account?.access_token;
 
   config.headers["Authorization"] = "Bearer " + access_token;
@@ -38,25 +38,25 @@ instance.interceptors.response.use(function (response) {
 
   if (error.response.status === 401 && error.response.message === "Unauthorized" || error.response.status === 403
   ) {
-    console.log("Error response code: ", error.response.status)
+    // console.log("Error response code: ", error.response.status)
 
     const refresh_token = store?.getState()?.user?.account?.refresh_token;
-    console.log("refresh_token:", refresh_token)
+    // console.log("refresh_token:", refresh_token)
     return instance
       .post("/auth/refresh", { refresh_token })
       .then((response) => {
 
-        console.log(" >>> RESPONSE:", response)
+        // console.log(" >>> RESPONSE:", response)
 
         const new_access_token = response.data.accessToken;
         store.dispatch(userSlice.actions.updateAccessToken(new_access_token));
 
-        console.log("new access token: ", new_access_token)
+        // console.log("new access token: ", new_access_token)
 
         originalRequest.headers["Authorization"] = "Bearer " + new_access_token;
 
-        console.log("org Request: ", originalRequest)
-        console.log("org header: ", originalRequest.headers)
+        // console.log("org Request: ", originalRequest)
+        // console.log("org header: ", originalRequest.headers)
         return instance(originalRequest);
       })
       .catch((error) => {

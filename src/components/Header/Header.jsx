@@ -27,7 +27,7 @@ const Header = () => {
   const handleCloseUserInfo = () => {
     setShowUserInfo(false);
   };
-  console.log("user account: ", userAccount.email)
+  // console.log("user account: ", userAccount.email)
 
   const handleLogout = () => {
     confirmAlert({

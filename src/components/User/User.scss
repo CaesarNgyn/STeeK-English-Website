@@ -1,74 +1,35 @@
 .user-container {
     margin: 1rem 3rem;
 
-    //*********************CARD*************************
-    .card {
-        border: none;
-        width: 310px;
+    .welcome {
+        margin-top   : 30px;
+        margin-bottom: 60px;
+        font-size    : 60px;
+        color        : red;
+        font-weight  : bold;
+        text-align   : center;
+    }
 
-        // --------- decorate -----------
-        .card-decorate {
-            background-color: lightseagreen;
-            display: flex;
-            flex-direction: column;
-            width: 304px;
-            height: 160px;
-            justify-content: center;
-            text-align: center;
-            border-radius: 15px;
-            background: linear-gradient(73deg, rgba(67, -35, 67, 45) 0%,
-                    rgba(127, 84, 188, 1) 30%, rgba(34, 212, 255, 1) 100%);
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-            .card--title {
-                color: #fefefe;
-            }
-
-            .card--des {
-                color: #dadbed;
-            }
-        }
-
-        //--------------body---------------
-        .card-body {
-            display: flex;
-            justify-content: space-between;
-
-            //====CONTENT====
-            .card-content {
-                .card-title.h5 {
-                    color: #c8c4bd;
-                    font-size: 16px;
-                    line-height: 1.4;
-
-                }
-
-                .card-text {
-                    color: rgb(241 95 53);
-                    font-size: 16px;
-                    font-weight: 600;
-                    font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-                    ;
-                }
-
-            }
-
-
-            // ======BUTTON=======
-
-            button.btn.btn-info {
-                color: white;
-                height: 40px;
-                align-self: center;
-
-            }
-            .btn-check:focus+.btn, .btn:focus{
-                box-shadow: none;
-            }
-            .btn:active{
-                box-shadow: var(--bs-btn-focus-box-shadow);
-            }
+    .beginner-container {
+        .courses {
+            display       : flex;
+            flex-direction: row;
         }
     }
+
+    .toeic-container {
+        .courses {
+            display       : flex;
+            flex-direction: row;
+        }
+    }
+
+    .ielts-container {
+        .courses {
+            display       : flex;
+            flex-direction: row;
+        }
+    }
+
 
 }

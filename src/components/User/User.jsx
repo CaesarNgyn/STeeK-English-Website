@@ -5,33 +5,46 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import { useSelector } from 'react-redux';
+import Course from './Course/Course';
 
 
 const User = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
 
-  console.log("is auth: ", isAuthenticated, "useraccount: ", userAccount)
+  // console.log("is auth: ", isAuthenticated, "useraccount: ", userAccount)
   return (
-    //Phần khóa học của User code tại đây
-    <div className='user-container'>
 
-      <Card >
-        {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
-        <section className="card-decorate">
-          <h3 className="card--title">Toeic 250</h3>
-          <p className="card--des">Cho người mới bắt đầu</p>
-        </section>
-        <Card.Body>
-          <div className="card-content">
-            <Card.Title>HTLM CSS pro</Card.Title>
-            <Card.Text>
-              100$
-            </Card.Text>
-          </div>
-          <Button variant="info">Mua</Button>{' '}
-        </Card.Body>
-      </Card>
+    <div className='user-container'>
+      <h1 className='welcome'> Mua khóa học Hot nhất ngay!</h1>
+      <div className='beginner-container'>
+        <h1 className='title'>
+          Khóa học dành cho người mới bắt đầu
+        </h1>
+        <div className='courses'>
+          <Course />
+          <Course />
+        </div>
+
+      </div>
+      <div className='toeic-container'>
+        <h1 className='title'>
+          Khóa học Toeic
+        </h1>
+        <div className='courses'>
+          <Course />
+          <Course />
+        </div>
+      </div>
+      <div className='ielts-container'>
+        <h1 className='title'>
+          Khóa học Ielts
+        </h1>
+        <div className='courses'>
+          <Course />
+          <Course />
+        </div>
+      </div>
 
 
 
