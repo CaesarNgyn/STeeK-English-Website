@@ -31,10 +31,10 @@ const Study = () => {
         </div>
         {/* ===================== SHOW VIDEO ======================== */}
         <div className="side-content col-lg-9">
-          <iframe width="95%" height="420px" src="https://www.youtube.com/embed/tPn3qf7ZA6c"
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-          <h3>Toeic 250</h3>
+          <iframe width="105%" height="450px" src="https://www.youtube.com/embed/tPn3qf7ZA6c"
+            title="YouTube video player"
+            allowFullScreen></iframe>
+          <h3 className='course-title'>Toeic 250</h3>
           <p>Tham gia các cộng đồng để cùng học hỏi, chia sẻ </p>
           <ul>
             <li>Fanpage: <a href="https://www.facebook.com/f8vnofficial" target="_blank" rel="noreferrer">https://www.facebook.com/f8vnofficial</a></li>
