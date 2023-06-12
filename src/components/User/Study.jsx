@@ -31,7 +31,7 @@ const Study = () => {
         </div>
         {/* ===================== SHOW VIDEO ======================== */}
         <div className="side-content col-lg-9">
-          <iframe width="105%" height="450px" src="https://www.youtube.com/embed/tPn3qf7ZA6c"
+          <iframe width="105%" height="450px" src="https://www.youtube.com/embed/7t0LBymrXKs"
             title="YouTube video player"
             allowFullScreen></iframe>
           <h3 className='course-title'>Toeic 250</h3>
