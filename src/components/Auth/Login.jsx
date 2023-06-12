@@ -6,11 +6,21 @@ import { FaSpinner } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { useState } from 'react'
-
+import { postLogin } from '../../services/apiServices'
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux'
+import { doLogin } from '../../redux/slices/userSlice'
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+
 
 
   const validateEmail = (email) => {
@@ -21,12 +31,49 @@ const Login = () => {
       );
   };
 
+  const handleLogin = async () => {
+    const isValidEmail = validateEmail(email)
+    if (!isValidEmail) {
+      toast.error('Bạn hãy kiểm tra lại Email!')
+      return;
+    }
+    if (!password) {
+      toast.error('Hãy nhập đủ mật khẩu!')
+      return;
+    }
+    setIsLoading(true);
+    let data = await postLogin(email, password);
+    // console.log(data?.data.DT)
+    if (data && data.data?.EC === 0) {
+      console.log("Success")
+      dispatch(doLogin(data.data?.DT))
+      toast.success(data.data.message)
+      setIsLoading(false);
+      navigate('/home')
 
-  const navigate = useNavigate()
+    } else {
+      toast.error(data.message)
+      setIsLoading(false);
+    }
+  }
+
+
+
 
   const handleRegister = () => {
     navigate('/register')
   }
+
+  const handleLoginEnter = (event) => {
+    if (event.keyCode === 13) {
+      setIsLoading(true);
+
+      setTimeout(() => {
+        setIsLoading(false);
+        handleLogin();
+      }, 1000);
+    }
+  };
 
 
   return (
@@ -57,6 +104,7 @@ const Login = () => {
               type={"email"}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              onKeyDown={(event) => handleLoginEnter(event)}
             />
           </div>
           <div className="form-group pass-group">
@@ -67,6 +115,7 @@ const Login = () => {
               type={showPassword ? "password" : "text"}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
+              onKeyDown={(event) => handleLoginEnter(event)}
             />
             {showPassword ?
               <span
@@ -91,8 +140,12 @@ const Login = () => {
             </p1>
             <button
               type="submit"
-              className='btn-login'
+              onClick={() => handleLogin()}
+              className={isPressed ? "pressed btn-submit" : "btn-submit"}
+              disabled={isLoading}
             >
+              {isLoading === true && <FaSpinner className='icon-spin' />}
+
               <span>
                 Đăng Nhập
               </span>

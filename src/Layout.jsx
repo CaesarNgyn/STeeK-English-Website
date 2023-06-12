@@ -16,8 +16,12 @@ import Course from "./components/Admin/Course";
 import Study from "./components/User/Study"
 import Roadmap from "./components/User/Roadmap";
 import { ToastContainer } from 'react-toastify';
+import { useSelector } from "react-redux";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Layout = () => {
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated)
+  console.log(isAuthenticated)
   return (
     <>
 
@@ -27,16 +31,21 @@ const Layout = () => {
         <Route path='/register' element={<Register />} />
         <Route path='*' element={<NotFound />} />
 
-        <Route path='/home' element={<App />} >
-          <Route index element={<User />} />
-          <Route path='study' element={<Study />} />
-          <Route path='roadmap' element={<Roadmap />} />
-          <Route path='admin' element={<Admin />} />
-          <Route path='admin/student' element={<Student />} />
-          <Route path='admin/course' element={<Course />} />
+        <Route element={<ProtectedRoute isAuthenticated={true} />}>
+          <Route path="/home" element={<App />}>
+            <Route index element={<User />} />
+            <Route path="study" element={<Study />} />
+            <Route path="roadmap" element={<Roadmap />} />
+            <Route path="admin" element={<Admin />} />
+            <Route path="admin/student" element={<Student />} />
+            <Route path="admin/course" element={<Course />} />
+          </Route>
         </Route>
 
-      </Routes>
+
+
+
+      </Routes >
 
       <ToastContainer
         position="top-left"

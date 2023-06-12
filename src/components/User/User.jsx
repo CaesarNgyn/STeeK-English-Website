@@ -4,9 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { useSelector } from 'react-redux';
 
 
 const User = () => {
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated)
+  const userAccount = useSelector(state => state.user.account)
+
+  console.log("is auth: ", isAuthenticated, "useraccount: ", userAccount)
   return (
     //Phần khóa học của User code tại đây
     <div className='user-container'>
