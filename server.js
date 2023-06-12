@@ -16,6 +16,7 @@ const { logEvents } = require('./middleware/logger')
 const userRouter = require('./routes/userRoute')
 const JWT = require('jsonwebtoken')
 const authRouter = require('./routes/authRoute')
+const courseRoute = require('./routes/courseRoute')
 //Serving static files
 app.use(express.static(path.join(__dirname, 'public'))) //built-in middleware
 
@@ -34,6 +35,7 @@ app.use(express.json())
 app.use('/', webRouter)
 app.use('/users', userRouter)
 app.use('/auth', authRouter)
+app.use('/courses', courseRoute)
 
 
 
