@@ -12,7 +12,7 @@ const Course = () => {
 
   return (
 
-    <div className='course-container'>
+    <div className='course-container col-lg-4 col-sm-6'>
 
       <Card >
         {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
