@@ -1,32 +1,51 @@
 .user-container {
     margin: 1rem 3rem;
 
-    .welcome {
-        margin-top   : 30px;
-        margin-bottom: 60px;
-        font-size    : 60px;
-        color        : red;
-        font-weight  : bold;
-        text-align   : center;
+    h1 {
+        // font-size: calc(1.375rem + 1.5vw);
+        color: #242424;
+        font-size: 28px; 
+        font-weight: 900;
+        margin-right: auto;
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+
+    // .welcome {
+    //     // margin-top: 30px;
+    //     // margin-bottom: 60px;
+    //     // font-size: 60px;
+    //     // color: red;
+    //     // font-weight: bold;
+    //     // text-align: center;
+    //     width: 100%;
+    //     height: 70vh;
+    // }
+    .carousel-item{
+        width: 100%;
+        height: 75vh;
+    }
+    img.d-block.w-100{
+        height: 75vh;
     }
 
     .beginner-container {
         .courses {
-            display       : flex;
+            display: flex;
             flex-direction: row;
         }
     }
 
     .toeic-container {
         .courses {
-            display       : flex;
+            display: flex;
             flex-direction: row;
         }
     }
 
     .ielts-container {
         .courses {
-            display       : flex;
+            display: flex;
             flex-direction: row;
         }
     }
