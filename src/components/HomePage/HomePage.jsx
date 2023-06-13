@@ -24,14 +24,15 @@ const HomePage = () => {
         <h1 className='brand-name'>STeeK English</h1>
         <h2 className='slogan'>You don't have to be better than anyone.
           You just have to be the best version of yourself</h2>
-        <p1 className="description">Học Ielts, Toeic, Tiếng Anh trực tuyến
-          với đội ngũ giảng viên chuyên nghiệp từ Đại học Oxford, Cambridge...</p1>
+        <h3 className="description">Học Ielts, Toeic, Tiếng Anh trực tuyến
+          với đội ngũ giảng viên chuyên nghiệp từ Đại học Oxford, Cambridge...
+        </h3>
         <button
           className='btn btn-info btn-join'
           onClick={handleButtonClick}
         >Tham gia ngay
         </button>
-        <p2>Join us now!</p2>
+        <h4>Join us now!</h4>
       </div>
 
     </div>
