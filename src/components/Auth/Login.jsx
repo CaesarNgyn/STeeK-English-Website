@@ -9,7 +9,7 @@ import { useState } from 'react'
 import { postLogin } from '../../services/apiServices'
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux'
-import { doLogin } from '../../redux/slices/userSlice'
+import { doLogin } from '../../redux/slices/userSlice.js'
 import { useEffect } from 'react'
 const Login = () => {
   const [email, setEmail] = useState("")

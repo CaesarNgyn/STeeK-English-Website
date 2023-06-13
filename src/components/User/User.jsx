@@ -20,26 +20,26 @@ const User = () => {
   const [courses, setCourses] = useState([]);
 
 
-  // const fetchAllCourses = async () => {
-  //   try {
-  //     const data = await getAllCourses();
-  //     console.log(data.data);
-  //     setCourses(data.data);
-  //     console.log(courses)
+gi  const fetchAllCourses = async () => {
+    try {
+      const data = await getAllCourses();
+      console.log(data.data);
+      setCourses(data.data);
+      console.log(courses)
 
-  //     // Update the user information or perform any other actions
-  //   } catch (error) {
-  //     // toast.error('Failed to fetch all courses.');
-  //     console.log("Failed to fetch all courses.")
-  //   }
-  // };
+      // Update the user information or perform any other actions
+    } catch (error) {
+      // toast.error('Failed to fetch all courses.');
+      console.log("Failed to fetch all courses.")
+    }
+  };
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   if (isAuthenticated) {
-  //     fetchAllCourses();
-  //   }
-  // }, [isAuthenticated]);
+    if (isAuthenticated) {
+      fetchAllCourses();
+    }
+  }, [isAuthenticated]);
 
   return (
 
@@ -67,7 +67,7 @@ const User = () => {
           Khóa học dành cho người mới bắt đầu
         </h1>
         <div className='courses row'>
-          {courses.length > 0 ? (
+          {courses && courses.length > 0 ? (
             <Course key={`course-0`} course={courses[0]} />
           ) : (
             <p>Loading courses...</p>

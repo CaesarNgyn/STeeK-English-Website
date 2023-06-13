@@ -23,7 +23,7 @@ const postLogin = (userEmail, userPassword) => {
 }
 
 const postFindUser = (userEmail) => {
-  console.log("Post find user called!")
+  // console.log("Post find user called!")
   return axios.post('users/email', {
     email: userEmail
   }).catch(error => {

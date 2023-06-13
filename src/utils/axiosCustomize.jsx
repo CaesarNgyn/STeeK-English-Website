@@ -16,7 +16,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-  console.log("check store>>:", store.getState())
+  // console.log("check store>>:", store.getState())
   const access_token = store?.getState()?.user?.account?.access_token;
 
   config.headers["Authorization"] = "Bearer " + access_token;
@@ -33,7 +33,7 @@ instance.interceptors.request.use((config) => {
 
 
 instance.interceptors.response.use((response) => {
-  console.log("interceptor:", response.data)
+  // console.log("interceptor:", response.data)
   NProgress.done()
   return response
 }, (error) => {

@@ -32,8 +32,8 @@ const userSlice = createSlice({
       state.isAuthenticated = false;
     },
     updateAccessToken: (state, action) => {
-      const payLoad = action.payload
-      console.log("action payload: ", payLoad)
+      // const payLoad = action.payload
+      // console.log("action payload: ", payLoad)
       state.account.access_token = action.payload;
 
     },
