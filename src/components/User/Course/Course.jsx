@@ -7,9 +7,8 @@ import Container from 'react-bootstrap/Container';
 import { useSelector } from 'react-redux';
 
 
-const Course = (props) => {
-  const { course } = props
-  console.log("Course props: ", course)
+const Course = () => {
+
 
   return (
 
@@ -19,7 +18,7 @@ const Course = (props) => {
         {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
         <section className="card-decorate">
           <h3 className="card-title">Toeic 250</h3>
-          <p className="card-des">Cho người mới bắt đầu</p>
+          {/* <p className="card-des">Cho người mới bắt đầu</p> */}
         </section>
         <Card.Body>
           <div className="card-content">
