@@ -18,14 +18,14 @@ const Course = (props) => {
       <Card >
         {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
         <section className="card-decorate">
-          <h3 className="card-title">Toeic 250</h3>
-          <p className="card-des">Cho người mới bắt đầu</p>
+          <h3 className="card-title">{course.title}</h3>
+
         </section>
         <Card.Body>
           <div className="card-content">
             {/* <Card.Title>HTLM CSS pro</Card.Title> */}
             <Card.Text>
-              999.000đ
+              {course.price}
             </Card.Text>
           </div>
           <Button variant="info">Xem chi tiết</Button>

@@ -65,34 +65,55 @@ const User = () => {
         <h1 className='title'>
           Khóa học dành cho người mới bắt đầu
         </h1>
-        <div className='courses row'>
-          {courses && courses.length > 0 ? (
-            <Course key={`course-0`} course={courses[0]} />
-          ) : (
-            <p>Loading courses...</p>
-          )}
+        {courses && courses.length > 0 ? (
+          <div className='courses row'>
 
 
-        </div>
+            <Course course={courses[0]} />
+            <Course course={courses[1]} />
+          </div>
+
+        ) : (
+          <p>Loading courses...</p>
+        )}
+
+
+
+
 
       </div>
       <div className='toeic-container'>
         <h1 className='title'>
           Khóa học Toeic
         </h1>
-        <div className='courses row'>
-          <Course />
-          <Course />
-        </div>
+        {courses && courses.length > 0 ? (
+          <div className='courses row'>
+            <Course course={courses[2]} />
+            <Course course={courses[3]} />
+            <Course course={courses[4]} />
+          </div>
+
+        ) : (
+          <p>Loading courses...</p>
+        )}
+
       </div>
       <div className='ielts-container'>
         <h1 className='title'>
           Khóa học Ielts
         </h1>
-        <div className='courses row'>
-          <Course />
-          <Course />
-        </div>
+        {courses && courses.length > 0 ? (
+          <div className='courses row'>
+
+
+            <Course course={courses[5]} />
+
+          </div>
+
+        ) : (
+          <p>Loading courses...</p>
+        )}
+
       </div>
 
 
