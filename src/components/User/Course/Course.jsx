@@ -19,7 +19,6 @@ const Course = (props) => {
         {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
         <section className="card-decorate">
           <h3 className="card-title">{course.title}</h3>
-
         </section>
         <Card.Body>
           <div className="card-content">
