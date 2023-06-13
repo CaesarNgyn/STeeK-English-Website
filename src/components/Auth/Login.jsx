@@ -138,14 +138,14 @@ const Login = () => {
               </span>}
           </div>
           <div className='login-final'>
-            <p1>Bạn chưa có tài khoản?
+            <h1>Bạn chưa có tài khoản?
               <span
                 className='forgot-password'
                 onClick={() => handleRegister()}
               > Đăng ký ngay!
 
               </span>
-            </p1>
+            </h1>
             <button
               type="submit"
               onClick={() => handleLogin()}

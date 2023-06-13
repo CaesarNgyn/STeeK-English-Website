@@ -75,7 +75,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <NavLink to="/home" exact={true} className="nav-link" end>Khóa học</NavLink>
+              <NavLink to="/home" exact="true" className="nav-link" end>Khóa học</NavLink>
               <NavLink to="/home/roadmap" className="nav-link">Lộ trình</NavLink>
               <NavLink to="/home/study" className="nav-link">Học</NavLink>
             </Nav>
@@ -109,7 +109,7 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <NavLink to="/admin" exact={true} className="nav-link" end>Dashboard</NavLink>
+                <NavLink to="/admin" exact="true" className="nav-link" end>Dashboard</NavLink>
                 <NavLink to="/admin/student" className="nav-link">Học Viên</NavLink>
                 <NavLink to="/admin/course" className="nav-link">Khóa học</NavLink>
               </Nav>

@@ -19,8 +19,7 @@ const User = () => {
   const userAccount = useSelector(state => state.user.account)
   const [courses, setCourses] = useState([]);
 
-
-gi  const fetchAllCourses = async () => {
+  const fetchAllCourses = async () => {
     try {
       const data = await getAllCourses();
       console.log(data.data);
