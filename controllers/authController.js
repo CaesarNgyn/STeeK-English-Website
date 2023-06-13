@@ -81,7 +81,7 @@ const refresh = (req, res) => {
 
 
       const foundUser = await User.findOne({ email: decoded.email }).exec()
-      console.log(foundUser)
+      // console.log(foundUser)
 
       if (!foundUser) return res.status(401).json({ message: 'Unauthorized' })
 
@@ -96,8 +96,8 @@ const refresh = (req, res) => {
         { expiresIn: '15m' }
       )
 
-      res.json({ accessToken })
-      console.log("access Token: ", accessToken);
+      res.status(200).json({ accessToken })
+      // console.log("access Token: ", accessToken);
     })
   )
 }
