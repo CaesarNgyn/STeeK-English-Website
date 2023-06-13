@@ -12,7 +12,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import UserInfo from '../User/UserInfo';
 import { useState } from 'react';
 import { postFindUser } from '../../services/apiServices';
-
+import { toast } from 'react-toastify';
 const Header = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
@@ -48,22 +48,24 @@ const Header = () => {
       ]
     });
   };
+  const fetchUserInformation = async () => {
+    try {
+      const data = await postFindUser(userAccount.email);
+      console.log(data);
+      // Update the user information or perform any other actions
+    } catch (error) {
+      // toast.error('Failed to fetch user information.');
+      console.log("Failed to fetch user information")
+    }
+  };
+
 
   useEffect(() => {
-    const fetchUserInformation = async () => {
-      try {
-        const data = await postFindUser(userAccount.email);
-        console.log(data);
-        // Update the user information or perform any other actions
-      } catch (error) {
-        toast.error('Failed to fetch user information.');
-      }
-    };
 
     if (isAuthenticated) {
       fetchUserInformation();
     }
-  }, [isAuthenticated, userAccount.email]);
+  }, [isAuthenticated, userAccount]);
 
   return (
     <>

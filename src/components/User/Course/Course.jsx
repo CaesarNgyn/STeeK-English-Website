@@ -7,8 +7,9 @@ import Container from 'react-bootstrap/Container';
 import { useSelector } from 'react-redux';
 
 
-const Course = () => {
-
+const Course = (props) => {
+  const { course } = props
+  console.log("Course props: ", course)
 
   return (
 

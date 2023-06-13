@@ -31,8 +31,14 @@ const userSlice = createSlice({
       state.account.roles = '';
       state.isAuthenticated = false;
     },
+    updateAccessToken: (state, action) => {
+      const payLoad = action.payload
+      console.log("action payload: ", payLoad)
+      state.account.access_token = action.payload;
+
+    },
   },
 });
 
-export const { doLogin, doLogout } = userSlice.actions;
+export const { doLogin, doLogout, updateAccessToken } = userSlice.actions;
 export default userSlice.reducer;

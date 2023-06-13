@@ -23,6 +23,7 @@ const postLogin = (userEmail, userPassword) => {
 }
 
 const postFindUser = (userEmail) => {
+  console.log("Post find user called!")
   return axios.post('users/email', {
     email: userEmail
   }).catch(error => {
@@ -33,5 +34,15 @@ const postFindUser = (userEmail) => {
   })
 }
 
+const getAllCourses = () => {
+  return axios.get('/courses').catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
 
-export { postRegister, postLogin, postFindUser }
+}
+
+
+export { postRegister, postLogin, postFindUser, getAllCourses }
