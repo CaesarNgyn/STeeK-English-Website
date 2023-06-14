@@ -76,16 +76,16 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-  const { id, username, password, email, address, phone, image, roles } = req.body
+  const { username, password, email, address, phone, roles } = req.body
 
   // Confirm data 
 
-  if (!id || !email) {
+  if (!email) {
     return res.status(400).json({ message: 'All fields except password are required' })
   }
 
   // Does the user exist to update?
-  const user = await User.findById(id).exec()
+  const user = await User.findOne({ email }).lean().exec()
 
   if (!user) {
     return res.status(400).json({ message: 'User not found' })
@@ -94,18 +94,19 @@ const updateUser = asyncHandler(async (req, res) => {
   // Check for duplicate 
   const duplicate = await User.findOne({ email }).lean().exec()
 
+
   // Allow updates to the original user 
-  if (duplicate && duplicate?._id.toString() !== id) {
-    return res.status(409).json({ message: 'Duplicate email' })
-  }
+  // if (duplicate && duplicate?._id.toString() !== id) {
+  //   return res.status(409).json({ message: 'Duplicate email' })
+  // }
 
   user.username = username
   user.roles = roles
-  user.password = password
+  // user.password = password
   user.email = email
   user.address = address
   user.phone = phone
-  user.image = image
+
 
 
   if (password) {
@@ -113,9 +114,12 @@ const updateUser = asyncHandler(async (req, res) => {
     user.password = await bcrypt.hash(password, 10) // salt rounds 
   }
 
-  const updatedUser = await user.save()
+  let updatedUser = await User.findByIdAndUpdate(user._id, user);
 
-  res.json({ message: `${updatedUser.email} updated` })
+  res.json({
+    EC: 0,
+    message: `Lưu thông tin ${updatedUser.email} thành công!`
+  })
 })
 
 // @desc Delete a user
