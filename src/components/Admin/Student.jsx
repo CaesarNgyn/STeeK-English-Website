@@ -5,31 +5,46 @@ import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 import { getAllUsers } from '../../services/apiServices';
+import ModalDeleteUser from './Modal/ModalDeleteUser';
 
 
 const Student = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
   const [listUsers, setListUsers] = useState()
+  const [showModalUpdateUser, setShowModalUpdateUser] = useState(false)
+  const [showModalViewUser, setShowModalViewUser] = useState(false)
+  const [showModalDeleteUser, setShowModalDeleteUser] = useState(false)
+  const [dataUpdate, setDataUpdate] = useState({})
+  const [dataDelete, setDataDelete] = useState()
+
 
   const fetchAllUsers = async () => {
     try {
       const data = await getAllUsers();
-      setListUsers(data.data)
-      console.log(listUsers.data)
+      // console.log(data.data)
+      setListUsers(data.data.users);
+
+
       // Update the user information or perform any other actions
     } catch (error) {
-      // toast.error('Failed to fetch all courses.');
-      console.log("Failed to fetch all users.")
+
+      console.log("Failed to fetch all users.");
     }
   };
 
   useEffect(() => {
-
     if (isAuthenticated) {
       fetchAllUsers();
     }
   }, [isAuthenticated]);
+
+  const handleClickBtnDelete = (user) => {
+
+    setShowModalDeleteUser(true)
+    setDataDelete(user)
+
+  }
 
 
   return (
@@ -56,17 +71,20 @@ const Student = () => {
                   <td>
                     <button
                       className="btn btn-secondary"
-                      onClick={() => props.handleClickBtnView(item)}
+                      onClick={() => props.handleClickBtnView(user)}
                     >Xem</button>
                     <button
                       className="btn btn-warning mx-3"
-                      onClick={() => props.handeClickBtnUpdate(item)}>
+                      onClick={() => props.handeClickBtnUpdate(user)}>
                       Sửa
                     </button>
                     <button
                       className="btn btn-danger"
-                      onClick={() => props.handleClickBtnDelete(item)}
-                    >Xóa</button>
+                      onClick={() => handleClickBtnDelete(user.email)}
+                    >Xóa
+                    </button>
+
+
                   </td>
                 </tr>
               )
@@ -81,6 +99,15 @@ const Student = () => {
           </tbody>
         </table>
       </>
+
+      {showModalDeleteUser && (
+        <ModalDeleteUser
+          show={showModalDeleteUser}
+          setShow={setShowModalDeleteUser}
+          dataDelete={dataDelete}
+        />
+      )}
+
     </div>
   )
 }
