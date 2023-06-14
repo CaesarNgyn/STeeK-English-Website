@@ -61,34 +61,47 @@ const Student = () => {
             </tr>
           </thead>
           <tbody>
-            {listUsers && listUsers.length > 0 && listUsers.map((user, index) => {
-              return (
+            {!listUsers ? (
+              <tr>
+                <td colSpan="5">Loading data...</td>
+              </tr>
+            ) : (
+              listUsers.map((user, index) => (
                 <tr key={`table-user-${index}`}>
-                  <td>{index}</td>
+                  <td>{index + 1}</td>
                   <td>{user.email}</td>
                   <td>Ultimate English</td>
                   <td>{user.roles}</td>
                   <td>
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => props.handleClickBtnView(user)}
-                    >Xem</button>
-                    <button
-                      className="btn btn-warning mx-3"
-                      onClick={() => props.handeClickBtnUpdate(user)}>
-                      Sửa
-                    </button>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleClickBtnDelete(user.email)}
-                    >Xóa
-                    </button>
-
-
+                    {user.roles !== "Admin" && (
+                      <>
+                        <button
+                          className="btn btn-secondary"
+                          onClick={() => props.handleClickBtnView(user)}
+                        >
+                          Xem
+                        </button>
+                        <button
+                          className="btn btn-warning mx-3"
+                          onClick={() => props.handeClickBtnUpdate(user)}
+                        >
+                          Sửa
+                        </button>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => handleClickBtnDelete(user.email)}
+                        >
+                          Xóa
+                        </button>
+                      </>
+                    )}
                   </td>
                 </tr>
-              )
-            })}
+              ))
+            )}
+
+
+
             {listUsers && listUsers.length === 0 &&
 
               <tr>
@@ -105,6 +118,8 @@ const Student = () => {
           show={showModalDeleteUser}
           setShow={setShowModalDeleteUser}
           dataDelete={dataDelete}
+          fetchAllUsers={fetchAllUsers}
+
         />
       )}
 

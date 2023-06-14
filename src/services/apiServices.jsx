@@ -66,5 +66,16 @@ const getAllUsers = () => {
 
 }
 
+const deleteUser = (email) => {
+  // console.log("email: ", email)
+  return axios.delete('/users', { data: { email } }).catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
 
-export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser }
+}
+
+
+export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser }
