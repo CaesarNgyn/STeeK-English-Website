@@ -6,6 +6,8 @@ import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 import { getAllUsers } from '../../services/apiServices';
 import ModalDeleteUser from './Modal/ModalDeleteUser';
+import ModalUpdateUser from './Modal/ModalUpdateUser';
+import ModalViewUser from './Modal/ModalViewUser';
 
 
 const Student = () => {
@@ -17,6 +19,7 @@ const Student = () => {
   const [showModalDeleteUser, setShowModalDeleteUser] = useState(false)
   const [dataUpdate, setDataUpdate] = useState({})
   const [dataDelete, setDataDelete] = useState()
+  const [dataView, setDataView] = useState({})
 
 
   const fetchAllUsers = async () => {
@@ -45,6 +48,18 @@ const Student = () => {
     setDataDelete(user)
 
   }
+
+  const handeClickBtnUpdate = (user) => {
+    setShowModalUpdateUser(true)
+    setDataUpdate(user)
+  }
+
+  const handleClickBtnView = (user) => {
+    console.log("User data: ", user)
+    setShowModalViewUser(true)
+    setDataView(user)
+  }
+
 
 
   return (
@@ -77,13 +92,13 @@ const Student = () => {
                       <>
                         <button
                           className="btn btn-secondary"
-                          onClick={() => props.handleClickBtnView(user)}
+                          onClick={() => handleClickBtnView(user)}
                         >
                           Xem
                         </button>
                         <button
                           className="btn btn-warning mx-3"
-                          onClick={() => props.handeClickBtnUpdate(user)}
+                          onClick={() => handeClickBtnUpdate(user)}
                         >
                           Sửa
                         </button>
@@ -119,7 +134,24 @@ const Student = () => {
           setShow={setShowModalDeleteUser}
           dataDelete={dataDelete}
           fetchAllUsers={fetchAllUsers}
+        />
+      )}
 
+      {showModalUpdateUser && (
+        <ModalUpdateUser
+          show={showModalUpdateUser}
+          setShow={setShowModalUpdateUser}
+          dataUpdate={dataUpdate}
+          fetchAllUsers={fetchAllUsers}
+        />
+      )}
+
+      {showModalViewUser && (
+        <ModalViewUser
+          show={showModalViewUser}
+          setShow={setShowModalViewUser}
+          dataView={dataView}
+          fetchAllUsers={fetchAllUsers}
         />
       )}
 
