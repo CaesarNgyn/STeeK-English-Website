@@ -18,6 +18,7 @@ const User = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
   const [courses, setCourses] = useState([]);
+  const [isBought, setIsBought] = useState(false)
 
 
   const fetchAllCourses = async () => {
@@ -109,8 +110,8 @@ const User = () => {
         </p>
         {courses && courses.length > 0 ? (
           <div className='courses row'>
-            <Course course={courses[0]} />
-            <Course course={courses[1]} />
+            <Course course={courses[0]} isBought={isBought} />
+            <Course course={courses[1]} isBought={isBought} />
           </div>
         ) : (
           <p>Loading courses...</p>
@@ -131,9 +132,9 @@ const User = () => {
         </p>
         {courses && courses.length > 0 ? (
           <div className='courses row'>
-            <Course course={courses[2]} />
-            <Course course={courses[3]} />
-            <Course course={courses[4]} />
+            <Course course={courses[2]} isBought={isBought} />
+            <Course course={courses[3]} isBought={isBought} />
+            <Course course={courses[4]} isBought={isBought} />
           </div>
 
         ) : (
@@ -153,7 +154,7 @@ const User = () => {
 
         {courses && courses.length > 0 ? (
           <div className='courses row'>
-            <Course course={courses[5]} />
+            <Course course={courses[5]} isBought={isBought} />
           </div>
         ) : (
           <p>Loading courses...</p>

@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 
 const Course = (props) => {
-  const { course } = props
+  const { course, isBought } = props
   // console.log("Course props: ", course)
 
   return (
@@ -27,8 +27,13 @@ const Course = (props) => {
               {course.price}
             </Card.Text>
           </div>
-          <Button variant="info">Xem chi tiết</Button>
-          <Button variant="warning">Mua</Button>
+          {isBought === false ? <>
+            <Button variant="info">Xem chi tiết</Button>
+            <Button variant="warning">Mua</Button>
+          </> :
+            <Button variant="success">Học</Button>
+          }
+
         </Card.Body>
       </Card>
 
