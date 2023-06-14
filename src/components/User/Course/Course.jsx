@@ -5,11 +5,19 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 const Course = (props) => {
   const { course, isBought } = props
+  const navigate = useNavigate()
   // console.log("Course props: ", course)
+
+  const handleClickStudyDetail = () => {
+    console.log("course got clicked: ", course.title)
+    navigate(`/home/study/${course._id}`, { state: { course } })
+
+  }
 
   return (
 
@@ -31,7 +39,11 @@ const Course = (props) => {
             <Button variant="info">Xem chi tiết</Button>
             <Button variant="warning">Mua</Button>
           </> :
-            <Button variant="success">Học</Button>
+            <Button
+              variant="success"
+              onClick={() => handleClickStudyDetail()}>
+              Học
+            </Button>
           }
 
         </Card.Body>

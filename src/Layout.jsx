@@ -20,6 +20,7 @@ import { useSelector } from "react-redux";
 import ProtectedRoute from "./ProtectedRouteUser";
 import ProtectedRouteUser from "./ProtectedRouteUser";
 import ProtectedRouteAdmin from "./ProtectedRouteAdmin";
+import StudyDetail from './components/User/StudyDetail'
 
 const Layout = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
@@ -43,6 +44,7 @@ const Layout = () => {
             <Route index element={<User />} />
             <Route path="study" element={<Study />} />
             <Route path="roadmap" element={<Roadmap />} />
+            <Route path="study/:id" element={<StudyDetail />} />
           </Route>
         </Route>
 
