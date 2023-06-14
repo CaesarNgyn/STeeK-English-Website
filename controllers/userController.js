@@ -129,30 +129,33 @@ const updateUser = asyncHandler(async (req, res) => {
 // @route DELETE /users
 // @access Private
 const deleteUser = asyncHandler(async (req, res) => {
-  const { id } = req.body
-
+  const { email } = req.body
+  // console.log("Email: ", email)
   // Confirm data
-  if (!id) {
-    return res.status(400).json({ message: 'User ID Required' })
+  if (!email) {
+    return res.status(400).json({ message: 'User Email Required' })
   }
 
 
   // Does the user exist to delete?
-  const user = await User.findById(id).exec()
+  const user = await User.findOne({ email }).lean().exec()
 
   if (!user) {
     return res.status(400).json({ message: 'User not found' })
   }
 
   if (user.roles === 'admin' || user.roles === 'Admin') {
-    return res.status(403).json({ message: 'Admin user cannot be deleted' });
+    return res.status(403).json({ message: 'Admin cannot be deleted' });
   }
 
-  const result = await user.deleteOne()
+  const result = await User.deleteOne({ email })
 
-  const reply = `Username ${result.email} with ID ${result._id} deleted`
+  const reply = `Người dùng ${user.email} với ID ${user._id} đã được xóa.`
 
-  res.json(reply)
+  res.json({
+    EC: 0,
+    reply
+  })
 })
 
 const findUserByEmail = asyncHandler(async (req, res) => {
