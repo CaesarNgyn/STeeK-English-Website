@@ -24,10 +24,7 @@ const User = () => {
   const fetchAllCourses = async () => {
     try {
       const data = await getAllCourses();
-      console.log(data.data);
       setCourses(data.data);
-      console.log(courses)
-
       // Update the user information or perform any other actions
     } catch (error) {
       // toast.error('Failed to fetch all courses.');
@@ -161,7 +158,7 @@ const User = () => {
         )}
       </div>
 
-      
+
 
 
     </div>

@@ -18,6 +18,7 @@ const Header = () => {
   const userAccount = useSelector(state => state.user.account)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [userInfo, setUserInfo] = useState({})
   const [showUserInfo, setShowUserInfo] = useState(false);
 
   const handleUserInfoClick = () => {
@@ -51,8 +52,8 @@ const Header = () => {
   const fetchUserInformation = async () => {
     try {
       const data = await postFindUser(userAccount.email);
-      console.log(data);
-      // Update the user information or perform any other actions
+      // console.log(data);
+      setUserInfo(data.data)
     } catch (error) {
       // toast.error('Failed to fetch user information.');
       console.log("Failed to fetch user information")
@@ -91,7 +92,7 @@ const Header = () => {
                   show={showUserInfo}
                   setShow={setShowUserInfo}
                   handleClose={handleCloseUserInfo}
-                  dataUpdate={userAccount}
+                  dataUpdate={userInfo}
                 />
                 <NavDropdown.Item onClick={() => handleLogout()}>
                   Đăng xuất

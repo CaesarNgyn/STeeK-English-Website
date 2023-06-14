@@ -34,6 +34,18 @@ const postFindUser = (userEmail) => {
   })
 }
 
+const patchUpdateUser = (username, password, email, address, phone, roles) => {
+  // console.log("Post find user called!")
+  return axios.patch('users/', {
+    username, password, email, address, phone, roles
+  }).catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
+}
+
 const getAllCourses = () => {
   return axios.get('/courses').catch(error => {
     if (error.response) {
@@ -45,4 +57,4 @@ const getAllCourses = () => {
 }
 
 
-export { postRegister, postLogin, postFindUser, getAllCourses }
+export { postRegister, postLogin, postFindUser, getAllCourses, patchUpdateUser }
