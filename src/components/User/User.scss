@@ -29,12 +29,19 @@
 
             .item {
                 width: 409.337px !important;
-                margin-right: 16px !important;
+                margin: 0 8px ;
 
                 img {
                     width: 100%;
                     border-radius: 5px;
                 }
+            }
+            div.item:first-child{
+                margin-left: 0 ;
+                
+            }
+            div.item:last-child{
+                margin-right: 0;
             }
 
         }
