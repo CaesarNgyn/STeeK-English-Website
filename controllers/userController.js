@@ -18,7 +18,10 @@ const getAllUsers = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: 'No users found' })
   }
 
-  res.json(users)
+  res.json({
+    EC: 0,
+    users: users
+  })
 })
 
 // @desc Create new user
@@ -139,6 +142,10 @@ const deleteUser = asyncHandler(async (req, res) => {
 
   if (!user) {
     return res.status(400).json({ message: 'User not found' })
+  }
+
+  if (user.roles === 'admin' || user.roles === 'Admin') {
+    return res.status(403).json({ message: 'Admin user cannot be deleted' });
   }
 
   const result = await user.deleteOne()
