@@ -195,13 +195,19 @@ const User = () => {
             <p className="footer__content-heading">FOLLOW US</p>
             <div className="social-network">
               <div className="social-item">
-                <a href=""><i className="fab fa-instagram social-icon"></i></a>
+                <a href="https://www.instagram.com/khanhrussian" target="_blank">
+                  <i className="fab fa-instagram social-icon"></i>
+                </a>
               </div>
               <div className="social-item">
-                <a href=""><i className="fab fa-youtube social-icon"></i></a>
+                <a href="https://www.facebook.com/khanhrussian" target="_blank">
+                  <i className="fab fa-youtube social-icon"></i>
+                </a>
               </div>
               <div className="social-item">
-                <a href=""><i className="fab fa-facebook-f social-icon"></i></a>
+                <a href="https://www.facebook.com/khanhrussian" target="_blank">
+                  <i className="fab fa-facebook-f social-icon"></i>
+                </a>
               </div>
             </div>
           </div>

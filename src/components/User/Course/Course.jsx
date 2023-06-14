@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const Course = (props) => {
   const { course } = props
-  console.log("Course props: ", course)
+  // console.log("Course props: ", course)
 
   return (
 
