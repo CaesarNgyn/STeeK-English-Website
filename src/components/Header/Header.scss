@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Calligraffitti&display=swap');
+
 .navbar.navbar-expand-lg.navbar-dark.bg-dark {
-    padding              : 3px;
-    background-color     : #222222 !important;
+    padding: 3px;
+    background-color: #222222 !important;
     position: fixed;
     width: 100%;
     z-index: 9999;
-    .navbar-brand{
+
+    .navbar-brand {
         pointer-events: none;
         font-family: 'Calligraffitti', cursive;
         font-weight: 700;
@@ -14,18 +16,25 @@
         letter-spacing: 0.02em;
         text-align: center;
         color: #F9f1cc;
-        transform: translate(-20%,0)
+        transform: translate(-20%, 0)
     }
-    @media (min-width: 1200px){
-        .container, .container-lg, .container-md, .container-sm, .container-xl {
+
+    @media (min-width: 1200px) {
+
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
             max-width: 1200px;
+        }
     }
-}
 
     a.nav-link.active {
         color: #fff;
 
     }
+
     a.nav-link {
         color: #666;
         border-left: 1px solid rgba(136, 136, 136, 0.2);
@@ -36,11 +45,20 @@
 
     a#basic-nav-dropdown {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #ddd;
 
     }
 
+    a.nav-link:hover {
+        color: #ccc ;
+    }
     a.nav-link.active:hover {
-        color: #ccc !important;
+        color: #fff;
+
+    }
+
+    .dropdown-menu.show {
+        // margin-top: 8px;
     }
 
 }
