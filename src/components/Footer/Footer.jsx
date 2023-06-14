@@ -67,7 +67,7 @@ const Footer = () => {
                 <p className="copyright-content">Tầng 21 tòa nhà Capital Tower số 109 phố Trần Hưng Đạo, phường Cửa Nam, quận Hoàn Kiếm, Hà Nội. Email: info@luxstay.com, Số điện thoại: 18006586.</p>
                 <p className="copyright-content">Số Giấy chứng nhận đăng ký doanh nghiệp: 0108308449, ngày cấp: 03/06/2023, nơi cấp: Sở Kế hoạch và Đầu tư TP Hà Nội</p>
 
-                <p className="author-copyright">copyright© by <a href="facebook.com/nguyenchithanh2k">Tea Nguyen</a></p>
+                <p className="author-copyright">copyright© by Tea Nguyen</p>
             </div>
 
 
@@ -121,7 +121,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-        </div>
+        </div >
     )
 }
 

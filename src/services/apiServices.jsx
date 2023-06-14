@@ -56,5 +56,15 @@ const getAllCourses = () => {
 
 }
 
+const getAllUsers = () => {
+  return axios.get('/users').catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
 
-export { postRegister, postLogin, postFindUser, getAllCourses, patchUpdateUser }
+}
+
+
+export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser }

@@ -1,93 +1,86 @@
 import './Student.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
+import { useSelector } from 'react-redux';
+import { getAllUsers } from '../../services/apiServices';
 
 
 const Student = () => {
-  const [show, setShow] = useState(false);
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated)
+  const userAccount = useSelector(state => state.user.account)
+  const [listUsers, setListUsers] = useState()
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const fetchAllUsers = async () => {
+    try {
+      const data = await getAllUsers();
+      setListUsers(data.data)
+      console.log(listUsers.data)
+      // Update the user information or perform any other actions
+    } catch (error) {
+      // toast.error('Failed to fetch all courses.');
+      console.log("Failed to fetch all users.")
+    }
+  };
+
+  useEffect(() => {
+
+    if (isAuthenticated) {
+      fetchAllUsers();
+    }
+  }, [isAuthenticated]);
+
 
   return (
     <div class='admin-student'>
-      <h3>My Courses</h3>
-      {/* ===================TABLE Student MANAGE==================== */}
-      <Table striped>
-        <thead class="table-info">
-          <tr>
-            <th scope="col" class="col">#</th>
-            <th scope="col" class="table-striped-columns col-lg-3">UserName</th>
-            <th scope="col" class="col-lg-4">Registered Courses</th>
-            <th scope="col" class="col-lg-3">Progress</th>
-            <th scope="col" class="col">Modify</th>
+      <h3>Học Viên</h3>
+      <>
+        <table className="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Email</th>
+              <th scope="col">Đã mua</th>
+              <th scope="col">Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listUsers && listUsers.length > 0 && listUsers.map((user, index) => {
+              return (
+                <tr key={`table-user-${index}`}>
+                  <td>{index}</td>
+                  <td>{user.email}</td>
+                  <td>Ultimate English</td>
+                  <td>{user.roles}</td>
+                  <td>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={() => props.handleClickBtnView(item)}
+                    >Xem</button>
+                    <button
+                      className="btn btn-warning mx-3"
+                      onClick={() => props.handeClickBtnUpdate(item)}>
+                      Sửa
+                    </button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => props.handleClickBtnDelete(item)}
+                    >Xóa</button>
+                  </td>
+                </tr>
+              )
+            })}
+            {listUsers && listUsers.length === 0 &&
 
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">0</th>
-            <td>Khanh Nguyen</td>
-            <td>
-              <tr>Toeic 250</tr>
-              <tr>Toeic 450</tr>
+              <tr>
+                <td colSpan={'4'}>No data</td>
+              </tr>
 
-            </td>
-            <td>
-              <tr>5/5</tr>
-              <tr>2/7</tr>
-            </td>
-            <td>
-              <a href="#"
-                data-bs-toggle="modal" data-bs-target="#delete-course-modal"
-                data-bs-id="" onClick={handleShow}>Delete User</a>
-            </td>
-          </tr>
-
-          <tr>
-            <th scope="row">1</th>
-            <td>Tea Nguyen</td>
-            <td>
-              <tr>Toeic 250</tr>
-              <tr>Toeic 450</tr>
-              <tr>Toeic 650</tr>
-
-            </td>
-            <td>
-              <tr>5/5</tr>
-              <tr>7/7</tr>
-              <tr>0/9</tr>
-            </td>
-            <td>
-              <a href="#"
-                data-bs-toggle="modal" data-bs-target="#delete-course-modal"
-                data-bs-id="" onClick={handleShow}>Delete User</a>
-
-            </td>
-
-          </tr>
-
-        </tbody>
-
-        {/* ==============Modal Delete User Btn =========== */}
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Are you sure to delete Student ?</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>This will be address deleting the User !!!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="danger" onClick={handleClose}>
-              Delete
-            </Button>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </Table>
-
+            }
+          </tbody>
+        </table>
+      </>
     </div>
   )
 }

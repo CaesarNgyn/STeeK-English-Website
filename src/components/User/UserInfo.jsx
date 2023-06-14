@@ -12,7 +12,7 @@ const UserInfo = (props) => {
   const [phone, setPhone] = useState(dataUpdate.phone ? dataUpdate.phone : '')
   const [address, setAddress] = useState(dataUpdate.address ? dataUpdate.address : '');
   const [roles, setRoles] = useState(dataUpdate?.roles)
-  console.log("data update: ", dataUpdate)
+  // console.log("data update: ", dataUpdate)
 
   const handleClose = () => {
     setShow(false);
