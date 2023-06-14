@@ -5,24 +5,73 @@ import './Footer.scss'
 const Footer = () => {
     return (
         <div className='footer-container'>
-            {/* <footer class="bg-light py-3">
-        <div class="container">
-          <div class="d-flex justify-content-center">
-            <div class="contact-section">
-              <h5>Contact Us</h5>
-              <p><i class="fas fa-phone me-2"></i>Phone: 555-1234</p>
-              <p><i class="fas fa-envelope me-2"></i>Email: info@steekenglish.com</p>
-              <p><i class="fas fa-map-marker-alt me-2"></i>Address: 141 Chien Thang , Hanoi</p>
+            {/* ================= SOCIAL ================== */}
+            <div className="social">
+                <div className="row">
+
+                    <div className="social-item col-lg-4 col-md-5">
+                        <p className="footer__content-heading">SECURE YOUR TRANSACTION</p>
+                        <div className="payment-methods">
+                            <div className="payment-item">
+                                <img src="https://thanhit2612.github.io/luxstay/assets/imgs/visa.svg" alt="" className="payment-img" />
+                            </div>
+                            <div className="payment-item">
+                                <img src="https://thanhit2612.github.io/luxstay/assets/imgs/mastercard.svg" alt="" className="payment-img" />
+                            </div>
+                            <div className="payment-item">
+                                <img src="https://thanhit2612.github.io/luxstay/assets/imgs/maestro.svg" alt="" className="payment-img" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="social-item col-lg-4 col-md-4">
+                        <p className="footer__content-heading">CERTIFICATION</p>
+                        <div className="business-partner">
+                            <div className="business-item">
+                                <img src="https://thanhit2612.github.io/luxstay/assets/imgs/bct.png" alt="" className="business-img" />
+                            </div>
+                            <div className="business-item">
+                                <img src="https://thanhit2612.github.io/luxstay/assets/imgs/dmca.png" alt="" className="business-img" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="social-item col-lg-4 col-md-3">
+                        <p className="footer__content-heading">FOLLOW US</p>
+                        <div className="social-network">
+                            <div className="social-item">
+                                <a href="https://www.instagram.com/khanhrussian" target="_blank">
+                                    <i className="fab fa-instagram social-icon"></i>
+                                </a>
+                            </div>
+                            <div className="social-item">
+                                <a href="https://www.facebook.com/khanhrussian" target="_blank">
+                                    <i className="fab fa-youtube social-icon"></i>
+                                </a>
+                            </div>
+                            <div className="social-item">
+                                <a href="https://www.facebook.com/khanhrussian" target="_blank">
+                                    <i className="fab fa-facebook-f social-icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="field-section ms-5">
-              <h5>Công ty CP đào tạo ngoại ngữ chuyên sâu STeek</h5>
-              <p><i class="fas fa-field me-2"></i>Lĩnh vực: giáo dục </p>
-              <p><i class="fas fa-date me-2"></i>Ngày thành lập: 1/5/2023</p>
-              <p><i class="fas fa-id me-2"></i>Mã số thuế: 666999</p>
+
+
+            {/* ====================== LICENSE =================== */}
+            <div className="license">
+                <p className="copyright-content">©2023 Luxstay. Bản quyền thuộc về Công ty TNHH STeeK Việt Nam - MSDN: 0108308449. Mọi hành vi sao chép đều là phạm pháp nếu không có sự cho phép bằng văn bản của chúng tôi.</p>
+                <p className="copyright-content">Tầng 21 tòa nhà Capital Tower số 109 phố Trần Hưng Đạo, phường Cửa Nam, quận Hoàn Kiếm, Hà Nội. Email: info@luxstay.com, Số điện thoại: 18006586.</p>
+                <p className="copyright-content">Số Giấy chứng nhận đăng ký doanh nghiệp: 0108308449, ngày cấp: 03/06/2023, nơi cấp: Sở Kế hoạch và Đầu tư TP Hà Nội</p>
+
+                <p className="author-copyright">copyright© by <a href="facebook.com/nguyenchithanh2k">Tea Nguyen</a></p>
             </div>
-          </div>
-        </div>
-      </footer> */}
+
+
+            {/* ========================= Contact ============================ */}
             <footer className="footer home-pt home-pb" id="contact">
                 <div className="container">
                     <div className="row">
