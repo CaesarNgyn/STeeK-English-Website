@@ -78,4 +78,6 @@ const deleteUser = (email) => {
 }
 
 
+
+
 export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser }
