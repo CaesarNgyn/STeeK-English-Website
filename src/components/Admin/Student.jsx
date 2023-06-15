@@ -60,6 +60,17 @@ const Student = () => {
     setDataView(user)
   }
 
+  const formatDate = (createdAt) => {
+    // const createdAt = "2023-06-12T12:00:59.304Z";
+    const date = new Date(createdAt);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const formattedDate = `${day}-${month}-${year}`;
+    return formattedDate
+  }
+
+
 
 
   return (
@@ -71,6 +82,8 @@ const Student = () => {
             <tr>
               <th scope="col">No.</th>
               <th scope="col">Email</th>
+              <th scope="col">Ngày tạo</th>
+              <th scope="col">Ngày sửa đổi</th>
               <th scope="col">Đã mua</th>
               <th scope="col">Role</th>
               <th scope="col">Actions</th>
@@ -86,6 +99,8 @@ const Student = () => {
                 <tr key={`table-user-${index}`}>
                   <td>{index + 1}</td>
                   <td>{user.email}</td>
+                  <td>{formatDate(user.createdAt)}</td>
+                  <td>{formatDate(user.updatedAt)}</td>
                   <td>Ultimate English</td>
                   <td>{user.roles}</td>
                   <td>
