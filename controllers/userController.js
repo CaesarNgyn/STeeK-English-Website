@@ -121,7 +121,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
   res.json({
     EC: 0,
-    message: `Lưu thông tin ${updatedUser.email} thành công!`
+    message: `Lưu thông tin người dùng ${updatedUser.email} thành công!`
   })
 })
 

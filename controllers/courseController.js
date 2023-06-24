@@ -76,19 +76,24 @@ const updateCourse = asyncHandler(async (req, res) => {
   const duplicate = await Course.findOne({ title }).lean().exec()
 
   // Allow renaming of the original Course 
-  if (duplicate && duplicate?._id.toString() !== id) {
+  if (duplicate && duplicate?._id.toString() !== course.id) {
     return res.status(409).json({ message: 'Duplicate Course title' })
   }
 
 
-  Course.title = title
-  Course.description = description
-  Course.price = price
-  Course.listVideo = listVideo
+  course.title = title
+  course.description = description
+  course.price = price
+  course.listVideo = listVideo
 
-  const updatedCourse = await Course.save()
+  const updatedCourse = await Course.findByIdAndUpdate(course._id, course)
 
-  res.json(`'${updatedCourse.title}' updated`)
+  console.log(updatedCourse)
+
+  res.json({
+    EC: 0,
+    message: `Lưu thông tin khóa học ${updatedCourse.title} thành công`
+  })
 })
 
 // @desc Delete a Course
