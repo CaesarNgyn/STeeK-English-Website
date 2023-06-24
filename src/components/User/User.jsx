@@ -13,12 +13,18 @@ import { useEffect } from 'react';
 import { getAllCourses } from '../../services/apiServices';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import ModalViewCourse from '../Admin/ModalCourse/ModalViewCourse';
+import ModalBuyCourse from './Modal/ModalBuyCourse';
 
 const User = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
   const [courses, setCourses] = useState([]);
   const [isBought, setIsBought] = useState(false)
+  const [showModalViewCourse, setShowModalViewCourse] = useState(false)
+  const [showModalBuyCourse, setShowModalBuyCourse] = useState(false)
+  const [dataView, setDataView] = useState({})
+  const [dataBuy, setDataBuy] = useState({})
 
 
   const fetchAllCourses = async () => {
@@ -38,6 +44,17 @@ const User = () => {
       fetchAllCourses();
     }
   }, [isAuthenticated]);
+
+  const handleClickDetail = (course) => {
+    console.log("Course data: ", course)
+    setShowModalViewCourse(true)
+    setDataView(course)
+  }
+
+  const handleClickBuy = (course) => {
+    setShowModalBuyCourse(true)
+    setDataBuy(course)
+  }
 
   // console.log("is auth: ", isAuthenticated, "useraccount: ", userAccount)
   return (
@@ -107,8 +124,18 @@ const User = () => {
         </p>
         {courses && courses.length > 0 ? (
           <div className='courses row'>
-            <Course course={courses[0]} isBought={isBought} />
-            <Course course={courses[1]} isBought={isBought} />
+            <Course
+              course={courses[0]}
+              isBought={isBought}
+              handleClickDetail={handleClickDetail}
+              handleClickBuy={handleClickBuy}
+            />
+            <Course
+              course={courses[1]}
+              isBought={isBought}
+              handleClickDetail={handleClickDetail}
+              handleClickBuy={handleClickBuy}
+            />
           </div>
         ) : (
           <p>Loading courses...</p>
@@ -129,9 +156,21 @@ const User = () => {
         </p>
         {courses && courses.length > 0 ? (
           <div className='courses row'>
-            <Course course={courses[2]} isBought={isBought} />
-            <Course course={courses[3]} isBought={isBought} />
-            <Course course={courses[4]} isBought={isBought} />
+            <Course
+              course={courses[2]}
+              isBought={isBought}
+              handleClickDetail={handleClickDetail}
+              handleClickBuy={handleClickBuy} />
+            <Course
+              course={courses[3]}
+              isBought={isBought}
+              handleClickDetail={handleClickDetail}
+              handleClickBuy={handleClickBuy} />
+            <Course
+              course={courses[4]}
+              isBought={isBought}
+              handleClickDetail={handleClickDetail}
+              handleClickBuy={handleClickBuy} />
           </div>
 
         ) : (
@@ -151,12 +190,36 @@ const User = () => {
 
         {courses && courses.length > 0 ? (
           <div className='courses row'>
-            <Course course={courses[5]} isBought={isBought} />
+            <Course
+              course={courses[5]}
+              isBought={isBought}
+              handleClickDetail={handleClickDetail}
+              handleClickBuy={handleClickBuy}
+            />
           </div>
         ) : (
           <p>Loading courses...</p>
         )}
       </div>
+
+      {showModalViewCourse && (
+        <ModalViewCourse
+          show={showModalViewCourse}
+          setShow={setShowModalViewCourse}
+          fetchAllCourses={fetchAllCourses}
+          dataView={dataView}
+        />
+      )}
+
+      {showModalBuyCourse && (
+        <ModalBuyCourse
+          show={showModalBuyCourse}
+          setShow={setShowModalBuyCourse}
+          dataBuy={dataBuy}
+        />
+      )}
+
+
 
 
 

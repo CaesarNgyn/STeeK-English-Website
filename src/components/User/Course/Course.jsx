@@ -36,8 +36,18 @@ const Course = (props) => {
             </Card.Text>
           </div>
           {isBought === false ? <>
-            <Button variant="info">Xem chi tiết</Button>
-            <Button variant="warning">Mua</Button>
+            <Button
+              variant="info"
+              onClick={() => props.handleClickDetail(course)}
+            >
+              Xem chi tiết
+            </Button>
+            <Button
+              variant="warning"
+              onClick={() => props.handleClickBuy(course)}
+            >
+              Mua
+            </Button>
           </> :
             <Button
               variant="success"
