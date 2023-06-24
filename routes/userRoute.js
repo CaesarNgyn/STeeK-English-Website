@@ -18,4 +18,6 @@ userRoute.post('/email', verifyJWT, userController.findUserByEmail)
 
 userRoute.post('/password', verifyJWT, userController.postChangeUserPassword)
 
+userRoute.post('/buy', verifyJWT, userController.postBuyCourse)
+
 module.exports = userRoute

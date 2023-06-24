@@ -22,12 +22,13 @@ const login = asyncHandler(async (req, res) => {
   const match = await bcrypt.compare(password, foundUser.password)
 
   if (!match) return res.status(401).json({ message: 'Sai mật khẩu' })
-
+  console.log("course: ", foundUser.courses)
   const accessToken = jwt.sign(
     {
       "UserInfo": {
         "email": foundUser.email,
-        "roles": foundUser.roles
+        "roles": foundUser.roles,
+        "courses": foundUser.courses
       }
     },
     process.env.ACCESS_TOKEN_SECRET,
@@ -47,7 +48,8 @@ const login = asyncHandler(async (req, res) => {
       refreshToken,
       UserInfo: {
         email: foundUser.email,
-        roles: foundUser.roles
+        roles: foundUser.roles,
+        courses: foundUser.courses
       }
     },
     EC: 0,

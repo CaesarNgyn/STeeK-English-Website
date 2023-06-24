@@ -189,7 +189,7 @@ const postChangeUserPassword = asyncHandler(async (req, res) => {
     return res.status(404).json({ message: 'User not found' });
   }
 
-  console.log("user pass", user.password)
+  // console.log("user pass", user.password)
   // Compare currentPassword with user.password
   const passwordMatch = await bcrypt.compare(currentPassword, user.password);
 
@@ -210,6 +210,37 @@ const postChangeUserPassword = asyncHandler(async (req, res) => {
 
 });
 
+const postBuyCourse = asyncHandler(async (req, res) => {
+  const { email, courseID } = req.body;
+  // Confirm data
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  // Find the user by email
+  const user = await User.findOne({ email }).exec();
+  //Find the course by id
+  // console.log("course ID: ", courseID)
+  const course = await Course.findById(courseID).exec();
+
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+
+  if (!course) {
+    return res.status(404).json({ message: 'Course not found' });
+  }
+
+  user.courses.push(course.title)
+  await user.save()
+
+  res.json({
+    EC: 0,
+    message: `Mua khóa học ${course.title} thành công!`
+  })
+
+});
+
 
 module.exports = {
   getAllUsers,
@@ -217,5 +248,6 @@ module.exports = {
   updateUser,
   deleteUser,
   findUserByEmail,
-  postChangeUserPassword
+  postChangeUserPassword,
+  postBuyCourse
 }
