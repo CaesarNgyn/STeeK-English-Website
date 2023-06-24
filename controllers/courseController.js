@@ -120,9 +120,12 @@ const deleteCourse = asyncHandler(async (req, res) => {
   const result = await Course.deleteOne({ title: course.title });
 
 
-  const reply = `Course '${result.title}' with ID ${result._id} deleted`
+  const reply = `Khóa học '${result.title}' với ID ${result._id} đã được xóa`
 
-  res.json(reply)
+  res.json({
+    EC: 0,
+    reply
+  })
 })
 
 module.exports = {
