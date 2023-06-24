@@ -10,6 +10,7 @@ const userSlice = createSlice({
       refresh_token: '',
       email: '',
       roles: '',
+      courses: []
     },
     isAuthenticated: false,
   },
@@ -21,6 +22,7 @@ const userSlice = createSlice({
       state.account.refresh_token = DT.refreshToken;
       state.account.email = DT.UserInfo.email;
       state.account.roles = DT.UserInfo.roles;
+      state.account.courses = DT.UserInfo.courses;
       state.isAuthenticated = true;
     },
     doLogout: (state, action) => {
@@ -29,6 +31,7 @@ const userSlice = createSlice({
       state.account.refresh_token = '';
       state.account.email = '';
       state.account.roles = '';
+      state.account.courses = [];
       state.isAuthenticated = false;
     },
     updateAccessToken: (state, action) => {

@@ -122,5 +122,17 @@ const postChangePasswordUser = (email, currentPassword, newPassword) => {
   })
 }
 
+const postBuyCourse = (email, courseID) => {
+  console.log(email, courseID)
+  return axios.post(`users/buy`, {
+    email, courseID
+  }).catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
+}
 
-export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser, patchUpdateCourse, postCreateCourse, deleteCourse, postChangePasswordUser }
+
+export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser, patchUpdateCourse, postCreateCourse, deleteCourse, postChangePasswordUser, postBuyCourse }

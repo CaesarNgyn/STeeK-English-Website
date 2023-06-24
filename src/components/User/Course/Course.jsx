@@ -19,6 +19,7 @@ const Course = (props) => {
 
   }
 
+
   return (
 
     <div className='course-container col-lg-4 col-sm-6'>

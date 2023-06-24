@@ -2,13 +2,30 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
 import './ModalBuyCourse.scss'
+import { useSelector } from 'react-redux';
+import { postBuyCourse } from '../../../services/apiServices';
+import { toast } from 'react-toastify';
+
 const ModalBuyCourse = (props) => {
+  const userAccount = useSelector(state => state.user.account)
   const { show, setShow, dataBuy } = props
 
   const handleClose = () => {
     setShow(false);
 
   }
+
+  const handlePayment = async () => {
+    const data = await postBuyCourse(userAccount.email, dataBuy._id)
+    if (data && data.data?.EC === 0) {
+      toast.success(data.data.message)
+      setShow(false);
+    } else {
+      toast.error(data.message)
+      setShow(false);
+    }
+  }
+
 
   return (
     <>
@@ -37,7 +54,7 @@ const ModalBuyCourse = (props) => {
             Đóng
           </Button>
 
-          <Button variant="primary" >
+          <Button variant="primary" onClick={() => handlePayment()} >
             Mua
           </Button>
 
