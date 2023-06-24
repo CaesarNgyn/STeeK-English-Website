@@ -25,7 +25,7 @@ const Student = () => {
   const fetchAllUsers = async () => {
     try {
       const data = await getAllUsers();
-      // console.log(data.data)
+      console.log(data.data)
       setListUsers(data.data.users);
 
 
@@ -74,7 +74,7 @@ const Student = () => {
 
 
   return (
-    <div class='admin-student'>
+    <div className='admin-student'>
       <h3>Học Viên</h3>
       <>
         <table className="table table-hover table-bordered">
@@ -84,7 +84,7 @@ const Student = () => {
               <th scope="col">Email</th>
               <th scope="col">Ngày tạo</th>
               <th scope="col">Ngày sửa đổi</th>
-              <th scope="col">Đã mua</th>
+
               <th scope="col">Role</th>
               <th scope="col">Actions</th>
             </tr>
@@ -101,7 +101,6 @@ const Student = () => {
                   <td>{user.email}</td>
                   <td>{formatDate(user.createdAt)}</td>
                   <td>{formatDate(user.updatedAt)}</td>
-                  <td>Ultimate English</td>
                   <td>{user.roles}</td>
                   <td>
                     {user.roles !== "Admin" && (

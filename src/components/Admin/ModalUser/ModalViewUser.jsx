@@ -11,6 +11,7 @@ const ModalViewUser = (props) => {
   const [phone, setPhone] = useState(dataView?.phone ? dataView.phone : '')
   const [address, setAddress] = useState(dataView?.address ? dataView.address : '');
   const [roles, setRoles] = useState(dataView?.roles)
+  const [courses, setCourses] = useState(dataView?.courses)
   // console.log("data update: ", dataUpdate)
 
   const handleClose = () => {
@@ -47,14 +48,6 @@ const ModalViewUser = (props) => {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)} />
             </div>
-            {/* <div className="col-md-6">
-              <label className="form-label">Mật khẩu</label>
-              <input type="password"
-                className="form-control"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)} />
-            </div> */}
-
 
             <div className="col-md-6">
               <label className="form-label">Tên tài khoản</label>
@@ -83,7 +76,7 @@ const ModalViewUser = (props) => {
                 onChange={(event) => setPhone(event.target.value)} />
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-3">
               <label className="form-label">Roles</label>
               <input type="text"
                 className="form-control"
@@ -92,12 +85,12 @@ const ModalViewUser = (props) => {
                 onChange={(event) => setPhone(event.target.value)} />
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-12">
               <label className="form-label">Khóa học</label>
               <input type="text"
                 className="form-control"
                 disabled
-                value={`Ultimate English`}
+                value={courses}
               />
             </div>
           </form>
