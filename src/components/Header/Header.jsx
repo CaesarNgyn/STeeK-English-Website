@@ -13,6 +13,7 @@ import UserInfo from '../User/UserInfo';
 import { useState } from 'react';
 import { postFindUser } from '../../services/apiServices';
 import { toast } from 'react-toastify';
+import ModalChangePassword from '../User/Modal/ModalChangePassword';
 const Header = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
@@ -20,10 +21,18 @@ const Header = () => {
   const navigate = useNavigate()
   const [userInfo, setUserInfo] = useState({})
   const [showUserInfo, setShowUserInfo] = useState(false);
+  const [showModalChangePassword, setShowModalChangePassword] = useState(false)
+  const [userChange, setUserChange] = useState("")
 
   const handleUserInfoClick = () => {
     setShowUserInfo(true);
   };
+
+  const handleChangePassword = () => {
+    setShowModalChangePassword(true)
+    // console.log("userChange: ", userAccount.email)
+    setUserChange(userAccount.email)
+  }
 
   const handleCloseUserInfo = () => {
     setShowUserInfo(false);
@@ -91,6 +100,7 @@ const Header = () => {
                   show={showUserInfo}
                   setShow={setShowUserInfo}
                   handleClose={handleCloseUserInfo}
+                  handleChangePassword={handleChangePassword}
                   dataUpdate={userInfo}
                 />
                 <NavDropdown.Item onClick={() => handleLogout()}>
@@ -126,6 +136,13 @@ const Header = () => {
           </Container>
         </Navbar >
       }
+
+      {showModalChangePassword &&
+        <ModalChangePassword
+          show={showModalChangePassword}
+          setShow={setShowModalChangePassword}
+          userChange={userChange}
+        />}
     </>
 
 

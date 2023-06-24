@@ -12,6 +12,7 @@ const UserInfo = (props) => {
   const [phone, setPhone] = useState(dataUpdate.phone ? dataUpdate.phone : '')
   const [address, setAddress] = useState(dataUpdate.address ? dataUpdate.address : '');
   const [roles, setRoles] = useState(dataUpdate?.roles)
+  const [newPassword, setNewPassword] = useState("")
   // console.log("data update: ", dataUpdate)
 
   const handleClose = () => {
@@ -23,6 +24,8 @@ const UserInfo = (props) => {
     // setAddress("")
 
   }
+
+
 
   const handleClickUpdate = async () => {
     let data = await patchUpdateUser(username, password, email, address, phone, roles)
@@ -58,14 +61,6 @@ const UserInfo = (props) => {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)} />
             </div>
-            {/* <div className="col-md-6">
-              <label className="form-label">Mật khẩu</label>
-              <input type="password"
-                className="form-control"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)} />
-            </div> */}
-
 
             <div className="col-md-6">
               <label className="form-label">Tên tài khoản</label>
@@ -96,6 +91,13 @@ const UserInfo = (props) => {
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose} >
             Đóng
+          </Button>
+          <Button
+            variant="success"
+            onClick={() => props.handleChangePassword()}
+            style={{ margin: '8px', color: "white" }}
+          >
+            Đổi mật khẩu
           </Button>
           <Button
             variant="primary"

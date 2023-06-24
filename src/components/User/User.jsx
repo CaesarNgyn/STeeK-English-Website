@@ -46,7 +46,7 @@ const User = () => {
   }, [isAuthenticated]);
 
   const handleClickDetail = (course) => {
-    console.log("Course data: ", course)
+    // console.log("Course data: ", course)
     setShowModalViewCourse(true)
     setDataView(course)
   }

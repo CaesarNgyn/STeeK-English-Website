@@ -47,8 +47,8 @@ const Login = () => {
     let data = await postLogin(email, password);
     // console.log(data?.data.DT)
     if (data && data.data?.EC === 0) {
-      console.log("Success")
-      console.log(data.data.DT.UserInfo.roles)
+      // console.log("Success")
+      // console.log(data.data.DT.UserInfo.roles)
       dispatch(doLogin(data.data?.DT))
       toast.success(data.data.message)
       setIsLoading(false);
