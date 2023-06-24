@@ -2,16 +2,16 @@ import { useSelector } from 'react-redux'
 import { getAllCourses } from '../../services/apiServices'
 import './Course.scss'
 import { useEffect, useState } from 'react'
+import ModalViewCourse from './ModalCourse/ModalViewCourse'
 
 
 const Course = () => {
 
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
-  const userAccount = useSelector(state => state.user.account)
   const [listCourses, setListCourses] = useState()
-  const [showModalUpdateUser, setShowModalUpdateUser] = useState(false)
-  const [showModalViewUser, setShowModalViewUser] = useState(false)
-  const [showModalDeleteUser, setShowModalDeleteUser] = useState(false)
+  const [showModalUpdateCourse, setShowModalUpdateCourse] = useState(false)
+  const [showModalViewCourse, setShowModalViewCourse] = useState(false)
+  const [showModalDeleteCourse, setShowModalDeleteCourse] = useState(false)
   const [dataUpdate, setDataUpdate] = useState({})
   const [dataDelete, setDataDelete] = useState()
   const [dataView, setDataView] = useState({})
@@ -21,7 +21,7 @@ const Course = () => {
       const data = await getAllCourses();
       console.log(data.data)
       setListCourses(data.data);
-      // Update the user information or perform any other actions
+      // Update the course information or perform any other actions
     } catch (error) {
 
       console.log("Failed to fetch all courses.");
@@ -36,6 +36,14 @@ const Course = () => {
     const day = String(date.getDate()).padStart(2, "0");
     const formattedDate = `${day}-${month}-${year}`;
     return formattedDate
+  }
+
+  const handleClickBtnView = (course) => {
+
+    console.log("Course data: ", course)
+    setShowModalViewCourse(true)
+    setDataView(course)
+
   }
 
 
@@ -69,7 +77,7 @@ const Course = () => {
               </tr>
             ) : (
               listCourses.map((course, index) => (
-                <tr key={`table-user-${index}`}>
+                <tr key={`table-course-${index}`}>
                   <td>{index + 1}</td>
                   <td>{course.title}</td>
                   <td>{course.price}</td>
@@ -80,19 +88,19 @@ const Course = () => {
                     <>
                       <button
                         className="btn btn-secondary"
-                        onClick={() => handleClickBtnView(user)}
+                        onClick={() => handleClickBtnView(course)}
                       >
                         Xem
                       </button>
                       <button
                         className="btn btn-warning mx-3"
-                        onClick={() => handeClickBtnUpdate(user)}
+                        onClick={() => handeClickBtnUpdate(course)}
                       >
                         Sửa
                       </button>
                       <button
                         className="btn btn-danger"
-                        onClick={() => handleClickBtnDelete(user.email)}
+                        onClick={() => handleClickBtnDelete(course.email)}
                       >
                         Xóa
                       </button>
@@ -115,6 +123,16 @@ const Course = () => {
           </tbody>
         </table>
       </>
+
+      {showModalViewCourse && (
+        <ModalViewCourse
+          show={showModalViewCourse}
+          setShow={setShowModalViewCourse}
+          fetchAllCourses={fetchAllCourses}
+          dataView={dataView}
+        />
+      )}
+
 
     </div>
   )

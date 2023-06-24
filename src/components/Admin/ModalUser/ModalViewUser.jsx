@@ -1,8 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
-import { patchUpdateUser } from '../../../services/apiServices';
-import { toast } from 'react-toastify';
+
 
 const ModalViewUser = (props) => {
   const { show, setShow, dataView, fetchAllUsers } = props
