@@ -112,10 +112,7 @@ const updateUser = asyncHandler(async (req, res) => {
 
 
 
-  // if (password) {
-  //   // Hash password 
-  //   user.password = await bcrypt.hash(password, 10) // salt rounds 
-  // }
+
 
   let updatedUser = await User.findByIdAndUpdate(user._id, user);
 
@@ -167,13 +164,50 @@ const findUserByEmail = asyncHandler(async (req, res) => {
   }
 
   // Find the user by email
+  const user = await User.findOne({ email }).lean().exec()
+
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+
+
+
+  res.json(user);
+});
+
+const postChangeUserPassword = asyncHandler(async (req, res) => {
+  const { email, currentPassword, newPassword } = req.body;
+  // Confirm data
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  // Find the user by email
   const user = await User.findOne({ email }).exec();
 
   if (!user) {
     return res.status(404).json({ message: 'User not found' });
   }
 
-  res.json(user);
+  console.log("user pass", user.password)
+  // Compare currentPassword with user.password
+  const passwordMatch = await bcrypt.compare(currentPassword, user.password);
+
+  if (!passwordMatch) {
+    return res.status(400).json({ message: 'Mật khẩu hiện tại không đúng!' });
+  }
+
+  // Update the user's password
+  user.password = await bcrypt.hash(newPassword, 10);
+
+  let updatedUser = await User.findByIdAndUpdate(user._id, user);
+
+  console.log(updateUser)
+  res.json({
+    EC: 0,
+    message: `Đổi mật khẩu người dùng ${updatedUser.email} thành công!`
+  })
+
 });
 
 
@@ -182,5 +216,6 @@ module.exports = {
   createNewUser,
   updateUser,
   deleteUser,
-  findUserByEmail
+  findUserByEmail,
+  postChangeUserPassword
 }

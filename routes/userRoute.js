@@ -16,4 +16,6 @@ userRoute.delete('/', verifyJWT, verifyRole, userController.deleteUser);
 
 userRoute.post('/email', verifyJWT, userController.findUserByEmail)
 
+userRoute.post('/password', verifyJWT, userController.postChangeUserPassword)
+
 module.exports = userRoute
