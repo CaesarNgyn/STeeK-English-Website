@@ -38,10 +38,14 @@ const userSlice = createSlice({
       // const payLoad = action.payload
       // console.log("action payload: ", payLoad)
       state.account.access_token = action.payload;
-
+    },
+    addCourse: (state, action) => {
+      // Add the bought course to the courses array
+      const course = action.payload;
+      state.account.courses.push(course);
     },
   },
 });
 
-export const { doLogin, doLogout, updateAccessToken } = userSlice.actions;
+export const { doLogin, doLogout, updateAccessToken, addCourse } = userSlice.actions;
 export default userSlice.reducer;

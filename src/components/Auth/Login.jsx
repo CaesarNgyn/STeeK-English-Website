@@ -45,7 +45,7 @@ const Login = () => {
     }
     setIsLoading(true);
     let data = await postLogin(email, password);
-    // console.log(data?.data)
+    console.log(data?.data)
     if (data && data.data?.EC === 0) {
       // console.log("Success")
       // console.log(data.data.DT.UserInfo.roles)

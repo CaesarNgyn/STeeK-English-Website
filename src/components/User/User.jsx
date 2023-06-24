@@ -28,6 +28,7 @@ const User = () => {
 
 
   const fetchAllCourses = async () => {
+    console.log("user account: ", userAccount)
     try {
       const data = await getAllCourses();
       setCourses(data.data);
