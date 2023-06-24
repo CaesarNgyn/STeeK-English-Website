@@ -46,11 +46,14 @@ const createNewCourse = asyncHandler(async (req, res) => {
   // Create and store the new user 
   const course = await Course.create({ title, description, price, listVideo })
 
-  if (course) { // Created 
-    return res.status(201).json({ message: 'New Course created' })
-  } else {
+  if (!course) { // Created 
     return res.status(400).json({ message: 'Invalid Course data received' })
   }
+
+  res.json({
+    EC: 0,
+    message: `Tạo khóa học khóa học ${course.title} thành công`
+  })
 
 })
 
