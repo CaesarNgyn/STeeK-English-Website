@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Course = (props) => {
-  const { course, isBought } = props
+  const { course, isBought, isStudyable } = props
   const navigate = useNavigate()
   // console.log("Course props: ", course)
 
@@ -29,35 +29,70 @@ const Course = (props) => {
         <section className="card-decorate">
           <h3 className="card-title">{course.title}</h3>
         </section>
-        <Card.Body>
-          <div className="card-content">
-            {/* <Card.Title>HTLM CSS pro</Card.Title> */}
-            <Card.Text>
-              {course.price}
-            </Card.Text>
-          </div>
-          {isBought === false ? <>
+        {isStudyable ? <>
+          <Card.Body>
+            <div className="card-content">
+              {/* <Card.Title>HTLM CSS pro</Card.Title> */}
+              <Card.Text>
+                {course.price}
+              </Card.Text>
+            </div>
             <Button
               variant="info"
-              onClick={() => props.handleClickDetail(course)}
+              onClick={() => handleClickStudyDetail()}
             >
-              Xem chi tiết
-            </Button>
-            <Button
-              variant="warning"
-              onClick={() => props.handleClickBuy(course)}
-            >
-              Mua
-            </Button>
-          </> :
-            <Button
-              variant="success"
-              onClick={() => handleClickStudyDetail()}>
               Học
             </Button>
-          }
 
-        </Card.Body>
+
+
+          </Card.Body>
+        </> : <>
+          <Card.Body>
+            <div className="card-content">
+              {/* <Card.Title>HTLM CSS pro</Card.Title> */}
+              <Card.Text>
+                {course.price}
+              </Card.Text>
+            </div>
+            {isBought === false ? <>
+              <Button
+                variant="info"
+                onClick={() => props.handleClickDetail(course)}
+              >
+                Xem chi tiết
+              </Button>
+              <Button
+                variant="warning"
+                onClick={() => props.handleClickBuy(course)}
+              >
+                Mua
+              </Button>
+            </> :
+              <>
+                <Button
+                  variant="info"
+                  onClick={() => props.handleClickDetail(course)}
+                >
+                  Xem chi tiết
+                </Button>
+                <Button
+                  variant="warning"
+                  onClick={() => props.handleClickBuy(course)}
+                  disabled={true}
+                >
+                  Mua
+                </Button>
+              </>
+            }
+
+          </Card.Body>
+        </>}
+
+
+
+
+
       </Card>
 
 

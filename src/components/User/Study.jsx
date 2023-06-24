@@ -10,22 +10,21 @@ const Study = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)
   const userAccount = useSelector(state => state.user.account)
   const [courses, setCourses] = useState(userAccount.courses);
-  const [isBought, setIsBought] = useState(true)
+  const [isStudyable, setIsStudyable] = useState(true)
 
 
 
   const fetchAllCourses = async () => {
-    console.log("Chekc course user: ", userAccount)
     try {
       const data = await getAllCourses();
       const allCourses = data.data;
-
-      // Filter the courses based on the user's courses
-      const filteredCourses = allCourses.filter(course => userAccount.courses.includes(course._id));
+      console.log("allcourses: ", allCourses)
+      console.log("userAcoount course: ", userAccount.courses)
+      const filteredCourses = allCourses.filter(course => userAccount.courses.includes(course.title));
 
       setCourses(filteredCourses);
+      console.log("courses: ", filteredCourses)
 
-      // Update the user information or perform any other actions
     } catch (error) {
       // toast.error('Failed to fetch all courses.');
       console.log("Failed to fetch all courses.")
@@ -83,7 +82,7 @@ const Study = () => {
           {courses && courses.length > 0 && courses.map((course, index) => (
             <div key={`course-${index}`} className='courses col-lg-4'>
 
-              <Course course={course} isBought={isBought} />
+              <Course course={course} isBought={false} isStudyable={isStudyable} />
 
             </div>
           ))}

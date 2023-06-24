@@ -28,7 +28,7 @@ const User = () => {
 
 
   const fetchAllCourses = async () => {
-    console.log("user account: ", userAccount)
+    console.log("user account: ", userAccount.courses)
     try {
       const data = await getAllCourses();
       setCourses(data.data);
@@ -37,6 +37,11 @@ const User = () => {
       // toast.error('Failed to fetch all courses.');
       console.log("Failed to fetch all courses.")
     }
+  };
+
+
+  const isCourseBought = (courseTitle) => {
+    return userAccount.courses.includes(courseTitle);
   };
 
   useEffect(() => {
@@ -127,13 +132,14 @@ const User = () => {
           <div className='courses row'>
             <Course
               course={courses[0]}
-              isBought={isBought}
+              isBought={isCourseBought(courses[0].title)}
               handleClickDetail={handleClickDetail}
               handleClickBuy={handleClickBuy}
             />
             <Course
               course={courses[1]}
-              isBought={isBought}
+              isBought={isCourseBought(courses[1].title)}
+
               handleClickDetail={handleClickDetail}
               handleClickBuy={handleClickBuy}
             />
@@ -159,17 +165,17 @@ const User = () => {
           <div className='courses row'>
             <Course
               course={courses[2]}
-              isBought={isBought}
+              isBought={isCourseBought(courses[2].title)}
               handleClickDetail={handleClickDetail}
               handleClickBuy={handleClickBuy} />
             <Course
               course={courses[3]}
-              isBought={isBought}
+              isBought={isCourseBought(courses[3].title)}
               handleClickDetail={handleClickDetail}
               handleClickBuy={handleClickBuy} />
             <Course
               course={courses[4]}
-              isBought={isBought}
+              isBought={isCourseBought(courses[4].title)}
               handleClickDetail={handleClickDetail}
               handleClickBuy={handleClickBuy} />
           </div>
@@ -193,7 +199,7 @@ const User = () => {
           <div className='courses row'>
             <Course
               course={courses[5]}
-              isBought={isBought}
+              isBought={isCourseBought(courses[5].title)}
               handleClickDetail={handleClickDetail}
               handleClickBuy={handleClickBuy}
             />
