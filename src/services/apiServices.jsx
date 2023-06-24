@@ -89,7 +89,17 @@ const patchUpdateCourse = (title, description, price, listVideo) => {
   })
 }
 
+const postCreateCourse = (title, description, price, listVideo) => {
+  return axios.post(`/courses`, {
+    title, description, price, listVideo
+  }).catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
+}
 
 
 
-export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser, patchUpdateCourse }
+export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser, patchUpdateCourse, postCreateCourse }

@@ -4,6 +4,8 @@ import './Course.scss'
 import { useEffect, useState } from 'react'
 import ModalViewCourse from './ModalCourse/ModalViewCourse'
 import ModalUpdateCourse from './ModalCourse/ModalUpdateCourse'
+import { Button } from 'react-bootstrap'
+import ModalCreateCourse from './ModalCourse/ModalCreateCourse'
 
 
 const Course = () => {
@@ -13,6 +15,8 @@ const Course = () => {
   const [showModalUpdateCourse, setShowModalUpdateCourse] = useState(false)
   const [showModalViewCourse, setShowModalViewCourse] = useState(false)
   const [showModalDeleteCourse, setShowModalDeleteCourse] = useState(false)
+  const [showModalCreateCourse, setShowModalCreateCourse] = useState(false)
+
   const [dataUpdate, setDataUpdate] = useState({})
   const [dataDelete, setDataDelete] = useState()
   const [dataView, setDataView] = useState({})
@@ -28,6 +32,10 @@ const Course = () => {
       console.log("Failed to fetch all courses.");
     }
   };
+
+  const handleCreateNewCourse = () => {
+    setShowModalCreateCourse(true)
+  }
 
   const formatDate = (createdAt) => {
     // const createdAt = "2023-06-12T12:00:59.304Z";
@@ -62,6 +70,12 @@ const Course = () => {
   return (
     <div className='admin-course'>
       <h3>Khóa Học</h3>
+      <Button
+        style={{ marginBottom: '16px' }}
+        onClick={() => handleCreateNewCourse()}
+      >
+        Tạo Khóa Học Mới
+      </Button>
 
       <>
         <table className="table table-hover table-bordered">
@@ -144,6 +158,15 @@ const Course = () => {
           setShow={setShowModalUpdateCourse}
           fetchAllCourses={fetchAllCourses}
           dataUpdate={dataUpdate}
+        />
+      )}
+
+      {showModalCreateCourse && (
+        <ModalCreateCourse
+          show={showModalCreateCourse}
+          setShow={setShowModalCreateCourse}
+          fetchAllCourses={fetchAllCourses}
+
         />
       )}
 
