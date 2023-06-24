@@ -6,6 +6,7 @@ import ModalViewCourse from './ModalCourse/ModalViewCourse'
 import ModalUpdateCourse from './ModalCourse/ModalUpdateCourse'
 import { Button } from 'react-bootstrap'
 import ModalCreateCourse from './ModalCourse/ModalCreateCourse'
+import ModalDeleteCourse from './ModalCourse/ModalDeleteCourse'
 
 
 const Course = () => {
@@ -58,6 +59,11 @@ const Course = () => {
   const handeClickBtnUpdate = (course) => {
     setShowModalUpdateCourse(true)
     setDataUpdate(course)
+  }
+
+  const handleClickBtnDelete = (title) => {
+    setShowModalDeleteCourse(true)
+    setDataDelete(title)
   }
 
 
@@ -119,7 +125,7 @@ const Course = () => {
                       </button>
                       <button
                         className="btn btn-danger"
-                        onClick={() => handleClickBtnDelete(course.email)}
+                        onClick={() => handleClickBtnDelete(course.title)}
                       >
                         Xóa
                       </button>
@@ -167,6 +173,15 @@ const Course = () => {
           setShow={setShowModalCreateCourse}
           fetchAllCourses={fetchAllCourses}
 
+        />
+      )}
+
+      {showModalDeleteCourse && (
+        <ModalDeleteCourse
+          show={showModalDeleteCourse}
+          setShow={setShowModalDeleteCourse}
+          fetchAllCourses={fetchAllCourses}
+          dataDelete={dataDelete}
         />
       )}
 

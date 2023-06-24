@@ -77,6 +77,17 @@ const deleteUser = (email) => {
 
 }
 
+const deleteCourse = (title) => {
+
+  return axios.delete('/courses', { data: { title } }).catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
+
+}
+
 const patchUpdateCourse = (title, description, price, listVideo) => {
   // console.log("Post find user called!")
   return axios.patch('/courses', {
@@ -102,4 +113,4 @@ const postCreateCourse = (title, description, price, listVideo) => {
 
 
 
-export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser, patchUpdateCourse, postCreateCourse }
+export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser, patchUpdateCourse, postCreateCourse, deleteCourse }
