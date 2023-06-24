@@ -5,9 +5,9 @@ import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
 import { getAllUsers } from '../../services/apiServices';
-import ModalDeleteUser from './Modal/ModalDeleteUser';
-import ModalUpdateUser from './Modal/ModalUpdateUser';
-import ModalViewUser from './Modal/ModalViewUser';
+import ModalDeleteUser from './ModalUser/ModalDeleteUser'
+import ModalUpdateUser from './ModalUser/ModalUpdateUser';
+import ModalViewUser from './ModalUser/ModalViewUser';
 
 
 const Student = () => {

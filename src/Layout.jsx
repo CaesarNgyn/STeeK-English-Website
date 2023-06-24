@@ -14,7 +14,7 @@ import Admin from "./components/Admin/Admin";
 import Student from "./components/Admin/Student";
 import Course from "./components/Admin/Course";
 import Study from "./components/User/Study"
-import Roadmap from "./components/User/Roadmap";
+
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./ProtectedRouteUser";
@@ -43,7 +43,7 @@ const Layout = () => {
           <Route path="/home" element={<App />}>
             <Route index element={<User />} />
             <Route path="study" element={<Study />} />
-            <Route path="roadmap" element={<Roadmap />} />
+
             <Route path="study/:id" element={<StudyDetail />} />
           </Route>
         </Route>

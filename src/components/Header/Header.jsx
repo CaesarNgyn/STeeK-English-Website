@@ -77,7 +77,6 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <NavLink to="/home" exact="true" className="nav-link" end>Khóa học</NavLink>
-              <NavLink to="/home/roadmap" className="nav-link">Lộ trình</NavLink>
               <NavLink to="/home/study" className="nav-link">Học</NavLink>
             </Nav>
             <Nav>
