@@ -77,7 +77,19 @@ const deleteUser = (email) => {
 
 }
 
+const patchUpdateCourse = (title, description, price, listVideo) => {
+  // console.log("Post find user called!")
+  return axios.patch('/courses', {
+    title, description, price, listVideo
+  }).catch(error => {
+    if (error.response) {
+      return error.response.data
+    }
+    throw error
+  })
+}
 
 
 
-export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser }
+
+export { postRegister, postLogin, getAllUsers, postFindUser, getAllCourses, patchUpdateUser, deleteUser, patchUpdateCourse }

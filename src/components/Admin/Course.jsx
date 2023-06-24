@@ -3,6 +3,7 @@ import { getAllCourses } from '../../services/apiServices'
 import './Course.scss'
 import { useEffect, useState } from 'react'
 import ModalViewCourse from './ModalCourse/ModalViewCourse'
+import ModalUpdateCourse from './ModalCourse/ModalUpdateCourse'
 
 
 const Course = () => {
@@ -46,6 +47,10 @@ const Course = () => {
 
   }
 
+  const handeClickBtnUpdate = (course) => {
+    setShowModalUpdateCourse(true)
+    setDataUpdate(course)
+  }
 
 
   useEffect(() => {
@@ -130,6 +135,15 @@ const Course = () => {
           setShow={setShowModalViewCourse}
           fetchAllCourses={fetchAllCourses}
           dataView={dataView}
+        />
+      )}
+
+      {showModalUpdateCourse && (
+        <ModalUpdateCourse
+          show={showModalUpdateCourse}
+          setShow={setShowModalUpdateCourse}
+          fetchAllCourses={fetchAllCourses}
+          dataUpdate={dataUpdate}
         />
       )}
 
