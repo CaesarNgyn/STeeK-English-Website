@@ -83,13 +83,7 @@ const StudyDetail = () => {
                 target="_blank" rel="noreferrer">
                 https://www.facebook.com/khanhrussian</a>
             </li>
-            <li>Youtube:
-              <a href="https://www.youtube.com/watch?v=Exwbdxba2Mo"
-                target="_blank"
-                rel="noreferrer">
-                https://www.youtube.com/watch?v=Exwbdxba2Mo
-              </a>
-            </li>
+
           </ul>
 
         </div>
