@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.scss'
-import HomePage from './components/HomePage/HomePage'
-import Header from './components/Header/Header'
-import NotFound from './components/404 Not Found/NotFound'
+import HomePage from '../components/HomePage/HomePage'
+import Header from '../components/Header/Header'
+import NotFound from '../components/404 Not Found/NotFound'
 import { Outlet } from 'react-router-dom'
-import Footer from './components/Footer/Footer'
+import Footer from '../components/Footer/Footer'
 const App = () => {
   return (
     <>

@@ -3,23 +3,23 @@
 import {
   BrowserRouter, Route, Routes
 } from "react-router-dom";
-import HomePage from './components/HomePage/HomePage'
+import HomePage from '../components/HomePage/HomePage'
 import App from './App'
-import Login from './components/Auth/Login'
-import Register from './components/Auth/Register'
-import NotFound from "./components/404 Not Found/NotFound";
-import User from "./components/User/User";
+import Login from '../components/Auth/Login'
+import Register from '../components/Auth/Register'
+import NotFound from "../components/404 Not Found/NotFound";
+import User from "../components/User/User";
 import 'react-toastify/dist/ReactToastify.css';
-import Student from "./components/Admin/Student";
-import Course from "./components/Admin/Course";
-import Study from "./components/User/Study"
+import Student from "../components/Admin/Student";
+import Course from "../components/Admin/Course";
+import Study from "../components/User/Study"
 
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./ProtectedRouteUser";
 import ProtectedRouteUser from "./ProtectedRouteUser";
 import ProtectedRouteAdmin from "./ProtectedRouteAdmin";
-import StudyDetail from './components/User/StudyDetail'
+import StudyDetail from '../components/User/StudyDetail'
 
 const Layout = () => {
   const isAuthenticated = useSelector(state => state.user.isAuthenticated)

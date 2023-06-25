@@ -9,7 +9,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 
 import { Provider } from 'react-redux';
-import Layout from './Layout.jsx';
+import Layout from './routes/Layout';
 import Header from './components/Header/Header.jsx';
 import Login from './components/Auth/Login.jsx';
 import { store, persistor } from './redux/store.js';

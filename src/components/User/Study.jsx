@@ -18,8 +18,8 @@ const Study = () => {
     try {
       const data = await getAllCourses();
       const allCourses = data.data;
-      console.log("allcourses: ", allCourses)
-      console.log("userAcoount course: ", userAccount.courses)
+      // console.log("allcourses: ", allCourses)
+      // console.log("userAcoount course: ", userAccount.courses)
       const filteredCourses = allCourses.filter(course => userAccount.courses.includes(course.title));
 
       setCourses(filteredCourses);
