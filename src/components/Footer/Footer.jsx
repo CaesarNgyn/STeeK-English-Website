@@ -63,61 +63,19 @@ const Footer = () => {
 
             {/* ====================== LICENSE =================== */}
             <div className="license">
-                <p className="copyright-content">©2023 Luxstay. Bản quyền thuộc về Công ty TNHH STeeK Việt Nam - MSDN: 0108308449. Mọi hành vi sao chép đều là phạm pháp nếu không có sự cho phép bằng văn bản của chúng tôi.</p>
-                <p className="copyright-content">Tầng 21 tòa nhà Capital Tower số 109 phố Trần Hưng Đạo, phường Cửa Nam, quận Hoàn Kiếm, Hà Nội. Email: info@luxstay.com, Số điện thoại: 18006586.</p>
-                <p className="copyright-content">Số Giấy chứng nhận đăng ký doanh nghiệp: 0108308449, ngày cấp: 03/06/2023, nơi cấp: Sở Kế hoạch và Đầu tư TP Hà Nội</p>
+                <p className="copyright-content">©2023 STeeK. Bản quyền thuộc về Công ty TNHH STeeK Việt Nam - MSDN: 0124052002. Mọi hành vi sao chép đều là phạm pháp nếu không có sự cho phép bằng văn bản của chúng tôi.</p>
+                <p className="copyright-content">141 Chiến Thắng, Tân Triều, Thanh Trì, Hà Nội. Email: ngulongkhanh@gmail.com, Số điện thoại: 0833822085.</p>
+                <p className="copyright-content">Số Giấy chứng nhận đăng ký doanh nghiệp: 0124052002, ngày cấp: 03/06/2023, nơi cấp: Sở Kế hoạch và Đầu tư Thành Phó Hà Nội</p>
 
-                <p className="author-copyright">copyright© by Tea Nguyen</p>
+                <p className="author-copyright">Copyright© by Tea Nguyen</p>
             </div>
 
 
             {/* ========================= Contact ============================ */}
             <footer className="footer home-pt home-pb" id="contact">
                 <div className="container">
-                    <div className="row">
-                        <div className="col col-lg-5 col-md-6 col-sm-6">
-                            <div className="footer__single">
-                                <h4>About Me</h4>
-                                <p>We have tested a number of registry fix and clean utilities
-                                    and present our top 3 list on our site for your convenience.</p>
-                                <p className="footer__single--text">
-                                    Copyright ©2021 All rights reserved | This template is made with
-                                    <i className="fa fa-heart-o" aria-hidden="true"></i> by
-                                    <a href="#" target="_blank">Tea Nguyen</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col col-lg-5 col-md-6 col-sm-6">
-                            <div className="footer__single footer__single--contact">
-                                <h4>Newsletter</h4>
-                                <p>Stay updated with our latest trends</p>
-                                <div className="footer__contact">
-                                    <form method="post">
-                                        <div className="input__contact">
-                                            <input type="email" className="form-control" name="Email" id="Email"
-                                                placeholder="Enter Email Address" />
-                                            <div className="input__contact--btn">
-                                                <button type="submit" className="btn">
-                                                    <span>Send</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col col-lg-2 col-md-6 col-sm-6">
-                            <div className="footer__single">
-                                <h4>Follow Me</h4>
-                                <p>Let us be social</p>
-                                <div className="footer__single--social align-items">
-                                    <a href="https://www.facebook.com/tra.victor/" className="social__link">
-                                        {/* <i class="fa fa-facebook" aria-hidden="true"></i> */}
-                                        FaceBook
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div className='row'>
+                        Copyright © 2023 by STeeK. All Rights Reserved.
                     </div>
                 </div>
             </footer>
