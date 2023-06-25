@@ -10,7 +10,6 @@ import Register from './components/Auth/Register'
 import NotFound from "./components/404 Not Found/NotFound";
 import User from "./components/User/User";
 import 'react-toastify/dist/ReactToastify.css';
-import Admin from "./components/Admin/Admin";
 import Student from "./components/Admin/Student";
 import Course from "./components/Admin/Course";
 import Study from "./components/User/Study"
@@ -53,8 +52,7 @@ const Layout = () => {
           role={userAccount?.roles}
         />}>
           <Route path="/admin" element={<App />}>
-            <Route index element={<Admin />} />
-            <Route path="student" element={<Student />} />
+            <Route index element={<Student />} />
             <Route path="course" element={<Course />} />
           </Route>
         </Route>
