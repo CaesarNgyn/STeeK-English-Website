@@ -52,7 +52,7 @@ const createNewCourse = asyncHandler(async (req, res) => {
 
   res.json({
     EC: 0,
-    message: `Tạo khóa học khóa học ${course.title} thành công`
+    message: `Tạo khóa học ${course.title} thành công`
   })
 
 })
@@ -104,6 +104,7 @@ const updateCourse = asyncHandler(async (req, res) => {
 // @access Private
 const deleteCourse = asyncHandler(async (req, res) => {
   const { title } = req.body
+  console.log("title bakcend,", title)
 
   // Confirm data
   if (!title) {
@@ -113,15 +114,17 @@ const deleteCourse = asyncHandler(async (req, res) => {
   // Confirm Course exists to delete 
   const course = await Course.findOne({ title }).exec();
 
+  console.log("course backend", course)
+
   if (!course) {
     return res.status(400).json({ message: 'Course not found' })
   }
 
-  const result = await Course.deleteOne({ title: course.title });
+  const result = await Course.deleteOne({ title });
 
 
-  const reply = `Khóa học '${result.title}' với ID ${result._id} đã được xóa`
-
+  const reply = `Khóa học '${course.title}' với ID ${course._id} đã được xóa`
+  console.log("reply", reply)
   res.json({
     EC: 0,
     reply
