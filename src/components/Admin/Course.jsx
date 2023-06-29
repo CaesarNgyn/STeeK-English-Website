@@ -25,7 +25,7 @@ const Course = () => {
   const fetchAllCourses = async () => {
     try {
       const data = await getAllCourses();
-      console.log(data.data)
+      // console.log(data.data)
       setListCourses(data.data);
       // Update the course information or perform any other actions
     } catch (error) {
@@ -50,7 +50,7 @@ const Course = () => {
 
   const handleClickBtnView = (course) => {
 
-    console.log("Course data: ", course)
+    // console.log("Course data: ", course)
     setShowModalViewCourse(true)
     setDataView(course)
 

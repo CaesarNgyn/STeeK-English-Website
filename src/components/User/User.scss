@@ -71,6 +71,63 @@
 
     }
 
+    .new-container {
+        .courses {
+            display       : flex;
+            flex-direction: row;
+
+            .card-decorate {
+                background-color: lightseagreen;
+                display         : flex;
+                flex-direction  : column;
+                width           : 365px;
+                height          : 205px;
+                justify-content : center;
+                text-align      : center;
+                border-radius   : 15px;
+                background      : linear-gradient(73deg,
+                        rgba(67, -35, 67, 45) 0%,
+                        rgb(176, 46, 117) 30%,
+                        rgb(123, 20, 118) 100%);
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+                .card-title {
+                    color: #fefefe;
+                }
+
+                .card-des {
+                    color: #dadbed;
+                }
+            }
+
+            //--------------body---------------
+            .card-body {
+                display        : flex;
+                justify-content: space-between;
+
+                //====CONTENT====
+                .card-content {
+                    .card-title.h5 {
+                        color      : black;
+                        font-size  : 16px;
+                        line-height: 1.4;
+                    }
+
+                    .card-text {
+                        color       : rgb(241 95 53);
+                        font-size   : 20px;
+                        font-weight : 600;
+                        margin-right: 16px;
+                        padding-top : 5px;
+                        font-family : system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                    }
+                }
+            }
+
+        }
+    }
+
+
 
 
 

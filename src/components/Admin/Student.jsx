@@ -25,7 +25,7 @@ const Student = () => {
   const fetchAllUsers = async () => {
     try {
       const data = await getAllUsers();
-      console.log(data.data)
+      // console.log(data.data)
       setListUsers(data.data.users);
 
 
@@ -55,7 +55,7 @@ const Student = () => {
   }
 
   const handleClickBtnView = (user) => {
-    console.log("User data: ", user)
+    // console.log("User data: ", user)
     setShowModalViewUser(true)
     setDataView(user)
   }

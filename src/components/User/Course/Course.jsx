@@ -14,7 +14,7 @@ const Course = (props) => {
   // console.log("Course props: ", course)
 
   const handleClickStudyDetail = () => {
-    console.log("course got clicked: ", course.title)
+    // console.log("course got clicked: ", course.title)
     navigate(`/home/study/${course._id}`, { state: { course } })
 
   }

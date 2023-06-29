@@ -21,8 +21,8 @@ const ModalCreateCourse = (props) => {
 
   const handleClickCreate = async () => {
     if (!title || !description || !price || !listVideo) {
-      console.log("titel: ", title,
-        "des:", description, "price: ", price, "lsitvid: ", listVideo)
+      // console.log("titel: ", title,
+      //   "des:", description, "price: ", price, "lsitvid: ", listVideo)
       toast.error("Hãy điền đầy đủ thông tin khóa học.")
       return
     }

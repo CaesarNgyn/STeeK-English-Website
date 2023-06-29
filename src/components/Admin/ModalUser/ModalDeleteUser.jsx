@@ -12,7 +12,7 @@ const ModalDeleteUser = (props) => {
   const handleSubmitDeleteUser = async () => {
     let data = await deleteUser(dataDelete)
 
-    console.log('Data:', data)
+    // console.log('Data:', data)
     if (data && data.data.EC === 0) {
       toast.success(data.data.reply)
       handleClose()

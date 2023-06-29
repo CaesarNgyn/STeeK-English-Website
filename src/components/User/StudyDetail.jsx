@@ -11,11 +11,11 @@ const StudyDetail = () => {
   const navigate = useNavigate();
   const [videoURL, setVideoURL] = useState(course.listVideo[0])
   const [currentVideo, setCurrentVideo] = useState(course.listVideo[0])
-  console.log("study detail's course infor: ", course)
+  // console.log("study detail's course infor: ", course)
 
 
   const handleOnClickLesson = (video) => {
-    console.log("lesson url clicked: ", video)
+    // console.log("lesson url clicked: ", video)
     setVideoURL(video)
     setCurrentVideo(video)
   }

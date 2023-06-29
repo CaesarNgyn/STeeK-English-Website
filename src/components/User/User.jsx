@@ -28,7 +28,7 @@ const User = () => {
 
 
   const fetchAllCourses = async () => {
-    console.log("user account: ", userAccount.courses)
+    // console.log("user account: ", userAccount.courses)
     try {
       const data = await getAllCourses();
       setCourses(data.data);
@@ -116,6 +116,35 @@ const User = () => {
             <img src="https://thanhit2612.github.io/luxstay/assets/imgs/promotion3.jpg" alt="" />
           </div>
         </div>
+      </div>
+
+
+      {/* =========================== Render Course =================== */}
+      {/* --------------------------- NEW COURSE --------------------- */}
+      <div className='new-container'>
+        <h1 className='title'>
+          Khóa học mới ra mắt!
+        </h1>
+        <p className="course-description">
+          Cùng SteeK bắt đầu chuyến hành trình chinh phục thế giới của bạn
+        </p>
+        {courses && courses.length > 6 ? (
+          <div className='courses row'>
+            <Course
+              course={courses[6]}
+              isBought={isCourseBought(courses[6].title)}
+              handleClickDetail={handleClickDetail}
+              handleClickBuy={handleClickBuy}
+            />
+
+          </div>
+
+        ) : (
+          <p>Hiện tại chưa có khóa học mới ^^...</p>
+          // <div></div>
+        )}
+
+
       </div>
 
 
