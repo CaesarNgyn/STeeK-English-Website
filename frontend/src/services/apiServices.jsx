@@ -78,7 +78,7 @@ const deleteUser = (email) => {
 }
 
 const deleteCourse = (title) => {
-
+  console.log("title", title)
   return axios.delete('/courses', { data: { title } }).catch(error => {
     if (error.response) {
       return error.response.data
