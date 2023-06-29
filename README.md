@@ -29,10 +29,6 @@ STeeK English - Website học Tiếng Anh trực tuyến
 
 ---
 
-<div align="center">
-  <img src="https://res.cloudinary.com/dynonary/image/upload/w_1200,h_630/v1626682179/dynonary/logo/dynonary-cover.png" alt="Photo" />
-</div>
-
 <br />
 
 ### 🎯 Mục tiêu
@@ -41,7 +37,6 @@ STeeK là ứng dụng học Tiếng Anh trực tuyến, được phát triển 
 
 ### ✨ Tính năng
 
-![Main Features]
 
 - Đăng ký, đăng nhập. 
 - Mua và tham gia các khóa học trực tuyến.
