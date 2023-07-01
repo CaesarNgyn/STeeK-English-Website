@@ -16,23 +16,23 @@
         margin-top: 24px;
 
         .content__welcome-heading {
-            font-size     : 24px;
-            font-weight   : bold;
-            font-size     : 24px;
-            font-weight   : 900;
+            font-size: 24px;
+            font-weight: bold;
+            font-size: 24px;
+            font-weight: 900;
             // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
 
         .promotion-items {
-            display       : flex;
+            display: flex;
             flex-direction: row;
 
             .item {
-                width : 409.337px !important;
+                width: 409.337px !important;
                 margin: 0 8px;
 
                 img {
-                    width        : 100%;
+                    width: 100%;
                     border-radius: 5px;
                 }
             }
@@ -52,19 +52,19 @@
 
     // ================= COURSES =================
     h1 {
-        color         : #242424;
+        color: #242424;
         // font-size: 28px; 
         // font-weight: 900;
-        margin-right  : auto;
-        margin-top    : 16px;
+        margin-right: auto;
+        margin-top: 16px;
 
-        font-size  : 24px;
+        font-size: 24px;
         font-weight: bold;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     }
 
     .course-description {
-        font-size    : 16px;
+        font-size: 16px;
         margin-bottom: 24px;
 
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -73,19 +73,19 @@
 
     .new-container {
         .courses {
-            display       : flex;
+            display: flex;
             flex-direction: row;
 
             .card-decorate {
                 background-color: lightseagreen;
-                display         : flex;
-                flex-direction  : column;
-                width           : 365px;
-                height          : 205px;
-                justify-content : center;
-                text-align      : center;
-                border-radius   : 15px;
-                background      : linear-gradient(73deg,
+                display: flex;
+                flex-direction: column;
+                width: 365px;
+                height: 205px;
+                justify-content: center;
+                text-align: center;
+                border-radius: 15px;
+                background: linear-gradient(73deg,
                         rgba(67, -35, 67, 45) 0%,
                         rgb(176, 46, 117) 30%,
                         rgb(123, 20, 118) 100%);
@@ -102,24 +102,24 @@
 
             //--------------body---------------
             .card-body {
-                display        : flex;
+                display: flex;
                 justify-content: space-between;
 
                 //====CONTENT====
                 .card-content {
                     .card-title.h5 {
-                        color      : black;
-                        font-size  : 16px;
+                        color: black;
+                        font-size: 16px;
                         line-height: 1.4;
                     }
 
                     .card-text {
-                        color       : rgb(241 95 53);
-                        font-size   : 20px;
-                        font-weight : 600;
+                        color: rgb(241 95 53);
+                        font-size: 20px;
+                        font-weight: 600;
                         margin-right: 16px;
-                        padding-top : 5px;
-                        font-family : system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                        padding-top: 5px;
+                        font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
                     }
                 }
             }
@@ -133,23 +133,20 @@
 
     .beginner-container {
         .courses {
-            display       : flex;
+            display: flex;
             flex-direction: row;
 
             .card-decorate {
                 background-color: lightseagreen;
-                display         : flex;
-                flex-direction  : column;
-                width           : 365px;
-                height          : 205px;
-                justify-content : center;
-                text-align      : center;
-                border-radius   : 15px;
-                background      : linear-gradient(73deg,
-                        rgba(67, -35, 67, 45) 0%,
-                        rgb(66, 218, 40) 30%,
-                        rgb(255, 167, 34) 100%);
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                width: 365px;
+                height: 205px;
+                justify-content: center;
+                text-align: center;
+                border-radius: 15px;
+                background: linear-gradient(8deg, rgb(88, 65, 465) 0%, 
+                rgb(85, 38, 123) 30%, rgb(172, 236, 219) 100%);
 
                 .card-title {
                     color: #fefefe;
@@ -162,24 +159,24 @@
 
             //--------------body---------------
             .card-body {
-                display        : flex;
+                display: flex;
                 justify-content: space-between;
 
                 //====CONTENT====
                 .card-content {
                     .card-title.h5 {
-                        color      : black;
-                        font-size  : 16px;
+                        color: black;
+                        font-size: 16px;
                         line-height: 1.4;
                     }
 
                     .card-text {
-                        color       : rgb(241 95 53);
-                        font-size   : 20px;
-                        font-weight : 600;
+                        color: rgb(241 95 53);
+                        font-size: 20px;
+                        font-weight: 600;
                         margin-right: 16px;
-                        padding-top : 5px;
-                        font-family : system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                        padding-top: 5px;
+                        font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
                     }
                 }
             }
@@ -189,19 +186,19 @@
 
     .toeic-container {
         .courses {
-            display       : flex;
+            display: flex;
             flex-direction: row;
 
             .card-decorate {
                 background-color: lightseagreen;
-                display         : flex;
-                flex-direction  : column;
-                width           : 365px;
-                height          : 205px;
-                justify-content : center;
-                text-align      : center;
-                border-radius   : 15px;
-                background      : linear-gradient(73deg,
+                display: flex;
+                flex-direction: column;
+                width: 365px;
+                height: 205px;
+                justify-content: center;
+                text-align: center;
+                border-radius: 15px;
+                background: linear-gradient(73deg,
                         rgba(67, -35, 67, 45) 0%,
                         rgba(127, 84, 188, 1) 30%,
                         rgba(34, 212, 255, 1) 100%);
@@ -218,24 +215,24 @@
 
             //--------------body---------------
             .card-body {
-                display        : flex;
+                display: flex;
                 justify-content: space-between;
 
                 //====CONTENT====
                 .card-content {
                     .card-title.h5 {
-                        color      : black;
-                        font-size  : 16px;
+                        color: black;
+                        font-size: 16px;
                         line-height: 1.4;
                     }
 
                     .card-text {
-                        color       : rgb(241 95 53);
-                        font-size   : 20px;
-                        font-weight : 600;
+                        color: rgb(241 95 53);
+                        font-size: 20px;
+                        font-weight: 600;
                         margin-right: 16px;
-                        padding-top : 5px;
-                        font-family : system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                        padding-top: 5px;
+                        font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
                     }
                 }
             }
@@ -245,22 +242,22 @@
 
     .ielts-container {
         .courses {
-            display       : flex;
+            display: flex;
             flex-direction: row;
 
             .card-decorate {
                 background-color: lightseagreen;
-                display         : flex;
-                flex-direction  : column;
-                width           : 365px;
-                height          : 205px;
-                justify-content : center;
-                text-align      : center;
-                border-radius   : 15px;
-                background      : linear-gradient(73deg,
-                        rgba(67, -35, 67, 45) 0%,
-                        rgb(181, 40, 45) 30%,
-                        rgb(51, 128, 147) 100%);
+                display: flex;
+                flex-direction: column;
+                width: 365px;
+                height: 205px;
+                justify-content: center;
+                text-align: center;
+                border-radius: 15px;
+                background: linear-gradient(-30deg,
+                            rgb(55, 58, 124) 46%, 
+                            rgb(111, 81, 45) 78%, 
+                            rgb(97, 78, 79) 103%);
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
                 .card-title {
@@ -274,24 +271,24 @@
 
             //--------------body---------------
             .card-body {
-                display        : flex;
+                display: flex;
                 justify-content: space-between;
 
                 //====CONTENT====
                 .card-content {
                     .card-title.h5 {
-                        color      : black;
-                        font-size  : 16px;
+                        color: black;
+                        font-size: 16px;
                         line-height: 1.4;
                     }
 
                     .card-text {
-                        color       : rgb(241 95 53);
-                        font-size   : 20px;
-                        font-weight : 600;
+                        color: rgb(241 95 53);
+                        font-size: 20px;
+                        font-weight: 600;
                         margin-right: 16px;
-                        padding-top : 5px;
-                        font-family : system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                        padding-top: 5px;
+                        font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
                     }
                 }
             }
